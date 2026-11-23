@@ -3,212 +3,657 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>MSD Public School | Hero Slider</title>
-    <!-- Font Awesome 6 for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Swiper CSS CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <title>Maa Maturani Devi Pharmacy College</title>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Existing CSS and JS -->
     <link rel="stylesheet" href="/svic_college/css/slid.css">
     <script src="/svic_college/js/slide.js" defer></script>
     <script src="/svic_college/js/secation.js" defer></script>
-     <link rel="stylesheet" href="/svic_college/css/secation.css">
- 
+    <link rel="stylesheet" href="/svic_college/css/secation.css">
+
 </head>
+
 <body>
 
-<%- include('partials/header') %>
+    <%- include('partials/header') %>
 
-    <!-- ========== HERO SLIDER SECTION (Swiper) ========== -->
- <section style="padding:0;">
-    <div class="swiper hero-slider">
-        <div class="swiper-wrapper">
-            <!-- Slide 1 -->
-            <div class="swiper-slide" style="background-image: url('https://images.pexels.com/photos/8613089/pexels-photo-8613089.jpeg?auto=compress&cs=tinysrgb&w=1600');">
-                <div class="slide-content">
-                    <h2>Welcome to SVIC Inter College</h2>
-                    <p>Quality Education for Classes 10th & 12th | Science, Commerce, Arts Streams</p>
-                    <button class="btn-hero" onclick="alert('Apply Now - Admission Open!')"><i class="fas fa-pen-alt"></i> Apply Now</button>
+    <!-- ========== HERO SLIDER ========== -->
+
+    <section style="padding:0;">
+
+        <div class="swiper hero-slider">
+
+            <div class="swiper-wrapper">
+
+                <!-- Slide 1 -->
+                <div class="swiper-slide"
+                    style="background-image: url('https://images.pexels.com/photos/3683107/pexels-photo-3683107.jpeg?auto=compress&cs=tinysrgb&w=1600');">
+
+                    <div class="slide-content">
+
+                        <h2>Welcome to Maa Maturani Devi Pharmacy College</h2>
+
+                        <p>
+                            Building Future Pharmacists Through Quality Education
+                            and Practical Learning
+                        </p>
+
+                        <button class="btn-hero"
+                            onclick="openRegisterModal()">
+
+                            <i class="fas fa-prescription-bottle-alt"></i>
+                            Apply Now
+
+                        </button>
+
+                    </div>
                 </div>
-            </div>
-            <!-- Slide 2 -->
-            <div class="swiper-slide" style="background-image: url('https://images.pexels.com/photos/5428483/pexels-photo-5428483.jpeg?auto=compress&cs=tinysrgb&w=1600');">
-                <div class="slide-content">
-                    <h2>Best Learning Environment</h2>
-                    <p>Qualified Teachers & Smart Classes | Modern Labs & Library</p>
-                    <button class="btn-hero" onclick="alert('Enroll Now - Limited Seats!')"><i class="fas fa-graduation-cap"></i> Enroll Now</button>
+
+
+                <!-- Slide 2 -->
+                <div class="swiper-slide"
+                    style="background-image: url('https://images.pexels.com/photos/356040/pexels-photo-356040.jpeg?auto=compress&cs=tinysrgb&w=1600');">
+
+                    <div class="slide-content">
+
+                        <h2>Modern Pharmacy Laboratory</h2>
+
+                        <p>
+                            Practical Knowledge, Laboratory Training
+                            and Professional Skills
+                        </p>
+
+                        <button class="btn-hero"
+                            onclick="document.getElementById('facilities').scrollIntoView({behavior:'smooth'})">
+
+                            <i class="fas fa-flask"></i>
+                            Explore Facilities
+
+                        </button>
+
+                    </div>
                 </div>
-            </div>
-            <!-- Slide 3 -->
-            <div class="swiper-slide" style="background-image: url('https://images.pexels.com/photos/5212345/pexels-photo-5212345.jpeg?auto=compress&cs=tinysrgb&w=1600');">
-                <div class="slide-content">
-                    <h2>15+ Years of Excellence</h2>
-                    <p>Shaping Future Leaders Since 2010 | 5000+ Successful Alumni</p>
-                    <button class="btn-hero" onclick="alert('Admission Open for 2025-26!')"><i class="fas fa-calendar-alt"></i> Admission Open</button>
+
+
+                <!-- Slide 3 -->
+                <div class="swiper-slide"
+                    style="background-image: url('https://images.pexels.com/photos/4031867/pexels-photo-4031867.jpeg?auto=compress&cs=tinysrgb&w=1600');">
+
+                    <div class="slide-content">
+
+                        <h2>Start Your Career in Pharmacy</h2>
+
+                        <p>
+                            Learn About Medicines, Healthcare,
+                            Pharmaceutical Sciences and Research
+                        </p>
+
+                        <button class="btn-hero"
+                            onclick="document.getElementById('courses').scrollIntoView({behavior:'smooth'})">
+
+                            <i class="fas fa-graduation-cap"></i>
+                            Explore Courses
+
+                        </button>
+
+                    </div>
                 </div>
-            </div>
-            <!-- Slide 4 -->
-            <div class="swiper-slide" style="background-image: url('https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg?auto=compress&cs=tinysrgb&w=1600');">
-                <div class="slide-content">
-                    <h2>Career Focused Programs</h2>
-                    <p>Competitive Exam Coaching | Sports & Cultural Activities</p>
-                    <button class="btn-hero" onclick="alert('Start Your Journey Today!')"><i class="fas fa-rocket"></i> Start Journey</button>
+
+
+                <!-- Slide 4 -->
+                <div class="swiper-slide"
+                    style="background-image: url('https://images.pexels.com/photos/8460157/pexels-photo-8460157.jpeg?auto=compress&cs=tinysrgb&w=1600');">
+
+                    <div class="slide-content">
+
+                        <h2>Education for a Better Healthcare Future</h2>
+
+                        <p>
+                            Develop Knowledge, Skills and Professional
+                            Responsibility in Pharmacy
+                        </p>
+
+                        <button class="btn-hero"
+                            onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+
+                            <i class="fas fa-phone"></i>
+                            Contact Us
+
+                        </button>
+
+                    </div>
                 </div>
+
             </div>
+
+            <!-- Pagination -->
+            <div class="swiper-pagination"></div>
+
+            <!-- Navigation -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+
         </div>
-        <!-- Pagination Dots -->
-        <div class="swiper-pagination"></div>
-        <!-- Navigation Arrows -->
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-    </div>
-</section>
 
-<!-- .................................................................................... -->
+    </section>
 
 
+    <!-- ========== PHARMACY COURSES ========== -->
 
-<!-- CLASSES SECTION -->
-<section class="classes-section" id="class10">
-  <div class="container">
-    <h2 class="section-title">Our Academic Programs</h2>
-    <div class="classes-grid">
-      <div class="class-card">
-        <div class="class-number">Class X</div>
-        <h3>Secondary Education</h3>
-        <p>Science, Mathematics, Social Science, English, Hindi, Sanskrit with expert faculty. Strong foundation for board exams and higher education.</p>
-        <button class="btn-primary" style="padding: 10px 25px; font-size: 0.9rem;" onclick="showNotice('📘 Class X curriculum: Focus on conceptual clarity & board prep.')">View Details <i class="fas fa-arrow-right"></i></button>
-      </div>
-      <div class="class-card" id="class12">
-        <div class="class-number">Class XII</div>
-        <h3>Higher Secondary</h3>
-        <p>Science (PCM/PCB), Commerce, Arts streams with specialized coaching and career guidance for competitive exams.</p>
-        <button class="btn-primary" style="padding: 10px 25px; font-size: 0.9rem;" onclick="showNotice('🎓 Class XII specializations: PCM, PCB, Commerce, Arts with competitive edge.')">View Details <i class="fas fa-arrow-right"></i></button>
-      </div>
-    </div>
-  </div>
-</section>
+    <section class="classes-section" id="courses">
 
-<!-- SUBJECTS SECTION -->
-<section class="subjects-section" id="subjects">
-  <div class="container">
-    <h2 class="section-title">Streams & Subjects Offered</h2>
-    <div class="subjects-grid">
-      <div class="subject-card">
-        <i class="fas fa-flask" style="color: #f59e0b;"></i>
-        <h3>Science Stream</h3>
-        <p>Physics | Chemistry | Mathematics / Biology | English | Computer Science (Optional)</p>
-      </div>
-      <div class="subject-card">
-        <i class="fas fa-chart-line" style="color: #ec4899;"></i>
-        <h3>Commerce Stream</h3>
-        <p>Accountancy | Business Studies | Economics | Mathematics | English | Entrepreneurship</p>
-      </div>
-      <div class="subject-card">
-        <i class="fas fa-palette" style="color: #06b6d4;"></i>
-        <h3>Arts Stream</h3>
-        <p>History | Geography | Political Science | Sociology | Psychology | English & Hindi</p>
-      </div>
-    </div>
-  </div>
-</section>
+        <div class="container">
 
-<!-- NOTICE SECTION (interactive) -->
-<section class="notice-section" id="notice">
-  <div class="container">
-    <h2 class="section-title">Notice Board</h2>
-    <div class="notice-grid">
-      <div class="notice-card">
-        <h3><i class="fas fa-bullhorn" style="color:#f59e0b;"></i> Latest Notices</h3>
-        <ul class="notice-list">
-          <li onclick="showNotice('✅ Admission 2025-26 started for Class 10 & 12. Apply now!')"><i class="fas fa-bell"></i> 📢 Admission 2025-26 Started</li>
-          <li onclick="showNotice('📅 Reminder: Exam form submission last date: 30th November 2025')"><i class="fas fa-calendar"></i> 📅 Exam Form: Last Date 30th Nov</li>
-          <li onclick="showNotice('👨‍👩‍👧 Parent Teacher Meeting on 15th December 2025 in school auditorium.')"><i class="fas fa-users"></i> 👨‍👩‍👧 Parent Meeting on 15th Dec</li>
-          <li onclick="showNotice('❄️ Winter Break from 25th December to 5th January. School reopens 6th Jan.')"><i class="fas fa-snowflake"></i> ❄️ Winter Break Schedule Announced</li>
-        </ul>
-      </div>
-      <div class="notice-card">
-        <h3><i class="fas fa-calendar-alt" style="color:#10b981;"></i> Upcoming Events</h3>
-        <ul class="notice-list">
-          <li onclick="showNotice('🏆 Annual Sports Day on 20th December 2025. Registrations open!')"><i class="fas fa-running"></i> 🏃 Annual Sports Day - 20th Dec</li>
-          <li onclick="showNotice('🔬 Science Exhibition on 10th January 2026. Submit models by 5th Jan.')"><i class="fas fa-microscope"></i> 🔬 Science Exhibition - 10th Jan</li>
-          <li onclick="showNotice('🎉 Farewell Party for Class 12 on 28th February 2026. Venue: School Lawn')"><i class="fas fa-gift"></i> 🎉 Farewell Party - 28th Feb</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
+            <h2 class="section-title">Our Pharmacy Courses</h2>
 
-<!-- ADMISSION SECTION with MODAL -->
-<section class="subjects-section" id="admission">
-  <div class="container">
-    <h2 class="section-title">Admission 2025-26</h2>
-    <div style="text-align: center; max-width: 700px; margin: 0 auto;">
-      <p style="margin-bottom: 30px; font-size: 1.1rem; color: #2c3e50;">Admissions open for Class 10th and 12th. Limited seats available. Register now for academic session 2025-26.</p>
-      <button class="btn-primary" onclick="openRegisterModal()" style="padding: 14px 40px; font-size: 1rem;"><i class="fas fa-pen-alt"></i> Apply Online Now</button>
-    </div>
-  </div>
-</section>
+            <div class="classes-grid">
 
-<!-- CONTACT SECTION -->
-<section class="contact-section" id="contact">
-  <div class="container">
-    <h2 class="section-title">Get in Touch</h2>
-    <div class="contact-grid">
-      <div class="contact-info-card">
-        <h3><i class="fas fa-address-card"></i> Contact Information</h3>
-        <p><i class="fas fa-map-marker-alt"></i> SVIC Nagar, Near Bus Stand, Delhi NCR - 201301</p>
-        <p><i class="fas fa-phone-alt"></i> +91-9876543210, +91-8765432109</p>
-        <p><i class="fas fa-envelope"></i> info@sovicintercollege.edu</p>
-        <p><i class="fas fa-clock"></i> Mon - Sat: 8:00 AM - 2:00 PM</p>
-        <div class="social-icons" style="margin-top: 25px; justify-content: flex-start;">
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-youtube"></i></a>
-          <a href="#"><i class="fab fa-whatsapp"></i></a>
+                <!-- D.Pharm -->
+                <div class="class-card">
+
+                    <div class="class-number">D.Pharm</div>
+
+                    <h3>Diploma in Pharmacy</h3>
+
+                    <p>
+                        A pharmacy diploma program focused on pharmaceutical
+                        knowledge, medicines, dispensing, practical training
+                        and healthcare fundamentals.
+                    </p>
+
+                    <button class="btn-primary"
+                        style="padding:10px 25px;font-size:0.9rem;"
+                        onclick="showNotice('For D.Pharm course details, please contact the college.')">
+
+                        View Details
+                        <i class="fas fa-arrow-right"></i>
+
+                    </button>
+
+                </div>
+
+
+                <!-- B.Pharm -->
+                <div class="class-card">
+
+                    <div class="class-number">B.Pharm</div>
+
+                    <h3>Bachelor of Pharmacy</h3>
+
+                    <p>
+                        A bachelor's degree program covering pharmaceutical
+                        sciences, drug development, laboratory practices,
+                        pharmacology and healthcare.
+                    </p>
+
+                    <button class="btn-primary"
+                        style="padding:10px 25px;font-size:0.9rem;"
+                        onclick="showNotice('For B.Pharm course details, please contact the college.')">
+
+                        View Details
+                        <i class="fas fa-arrow-right"></i>
+
+                    </button>
+
+                </div>
+
+            </div>
+
         </div>
-      </div>
-      <div class="contact-form-card">
-        <h3 style="margin-bottom: 20px;">Send us a Message</h3>
-        <input type="text" placeholder="Your Name" id="msgName">
-        <input type="email" placeholder="Your Email" id="msgEmail">
-        <input type="tel" placeholder="Phone Number" id="msgPhone">
-        <textarea rows="4" placeholder="Your Message" id="msgText"></textarea>
-        <button class="btn-primary" style="width: 100%;" onclick="sendMessage()"><i class="fas fa-paper-plane"></i> Send Message</button>
-      </div>
+
+    </section>
+
+
+    <!-- ========== PHARMACY DEPARTMENTS ========== -->
+
+    <section class="subjects-section" id="departments">
+
+        <div class="container">
+
+            <h2 class="section-title">Pharmacy Education</h2>
+
+            <div class="subjects-grid">
+
+                <!-- Pharmacology -->
+                <div class="subject-card">
+
+                    <i class="fas fa-capsules"
+                       style="color:#f59e0b;"></i>
+
+                    <h3>Pharmacology</h3>
+
+                    <p>
+                        Study of medicines, their effects,
+                        therapeutic uses and safety.
+                    </p>
+
+                </div>
+
+
+                <!-- Pharmaceutical Chemistry -->
+                <div class="subject-card">
+
+                    <i class="fas fa-flask"
+                       style="color:#ec4899;"></i>
+
+                    <h3>Pharmaceutical Chemistry</h3>
+
+                    <p>
+                        Understanding chemical properties,
+                        composition and analysis of medicines.
+                    </p>
+
+                </div>
+
+
+                <!-- Pharmaceutics -->
+                <div class="subject-card">
+
+                    <i class="fas fa-prescription-bottle-alt"
+                       style="color:#06b6d4;"></i>
+
+                    <h3>Pharmaceutics</h3>
+
+                    <p>
+                        Study of formulation, preparation
+                        and delivery of pharmaceutical products.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========== FACILITIES SECTION ========== -->
+
+    <section class="classes-section" id="facilities">
+
+        <div class="container">
+
+            <h2 class="section-title">Our Facilities</h2>
+
+            <div class="classes-grid">
+
+                <div class="class-card">
+
+                    <div class="class-number">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+
+                    <h3>Laboratory</h3>
+
+                    <p>
+                        Practical learning and laboratory-based
+                        pharmaceutical education.
+                    </p>
+
+                </div>
+
+
+                <div class="class-card">
+
+                    <div class="class-number">
+                        <i class="fas fa-book"></i>
+                    </div>
+
+                    <h3>Library</h3>
+
+                    <p>
+                        Academic books and learning resources
+                        for pharmacy students.
+                    </p>
+
+                </div>
+
+
+                <div class="class-card">
+
+                    <div class="class-number">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+
+                    <h3>Academic Learning</h3>
+
+                    <p>
+                        Classroom learning, academic guidance
+                        and professional development.
+                    </p>
+
+                </div>
+
+
+                <div class="class-card">
+
+                    <div class="class-number">
+                        <i class="fas fa-hospital"></i>
+                    </div>
+
+                    <h3>Healthcare Knowledge</h3>
+
+                    <p>
+                        Learning about medicines, healthcare
+                        and pharmaceutical practices.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========== NOTICE BOARD ========== -->
+
+    <section class="notice-section" id="notice">
+
+        <div class="container">
+
+            <h2 class="section-title">Notice Board</h2>
+
+            <div class="notice-grid">
+
+
+                <!-- Latest Notices -->
+                <div class="notice-card">
+
+                    <h3>
+                        <i class="fas fa-bullhorn"
+                           style="color:#f59e0b;"></i>
+
+                        Latest Notices
+                    </h3>
+
+                    <ul class="notice-list">
+
+                        <li onclick="showNotice('Please contact the college office for admission information.')">
+
+                            <i class="fas fa-bell"></i>
+                            Admission Information
+
+                        </li>
+
+                        <li onclick="showNotice('Contact the college for examination related updates.')">
+
+                            <i class="fas fa-calendar"></i>
+                            Examination Updates
+
+                        </li>
+
+                        <li onclick="showNotice('Please contact the college office for academic notices.')">
+
+                            <i class="fas fa-book"></i>
+                            Academic Notices
+
+                        </li>
+
+                        <li onclick="showNotice('Contact the college for student related information.')">
+
+                            <i class="fas fa-users"></i>
+                            Student Updates
+
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- Events -->
+                <div class="notice-card">
+
+                    <h3>
+                        <i class="fas fa-calendar-alt"
+                           style="color:#10b981;"></i>
+
+                        Events & Activities
+                    </h3>
+
+                    <ul class="notice-list">
+
+                        <li onclick="showNotice('College seminar information will be announced by the college.')">
+
+                            <i class="fas fa-chalkboard-teacher"></i>
+                            Educational Seminars
+
+                        </li>
+
+                        <li onclick="showNotice('Laboratory activities and practical schedules are available from the college.')">
+
+                            <i class="fas fa-flask"></i>
+                            Practical Activities
+
+                        </li>
+
+                        <li onclick="showNotice('Contact the college for workshop information.')">
+
+                            <i class="fas fa-users"></i>
+                            Workshops
+
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========== ADMISSION SECTION ========== -->
+
+    <section class="subjects-section" id="admission">
+
+        <div class="container">
+
+            <h2 class="section-title">Pharmacy Admission</h2>
+
+            <div style="text-align:center;max-width:700px;margin:0 auto;">
+
+                <p style="margin-bottom:30px;font-size:1.1rem;color:#2c3e50;">
+
+                    Interested in pursuing a career in Pharmacy?
+                    Contact our college for course information,
+                    eligibility, admission process and required documents.
+
+                </p>
+
+                <button class="btn-primary"
+                    onclick="openRegisterModal()"
+                    style="padding:14px 40px;font-size:1rem;">
+
+                    <i class="fas fa-file-alt"></i>
+                    Apply Online
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========== CONTACT SECTION ========== -->
+
+    <section class="contact-section" id="contact">
+
+        <div class="container">
+
+            <h2 class="section-title">Contact Us</h2>
+
+            <div class="contact-grid">
+
+
+                <!-- Contact Information -->
+                <div class="contact-info-card">
+
+                    <h3>
+                        <i class="fas fa-address-card"></i>
+                        College Information
+                    </h3>
+
+                    <p>
+                        <i class="fas fa-map-marker-alt"></i>
+                        Maa Maturani Devi Pharmacy College
+                    </p>
+
+                    <p>
+                        <i class="fas fa-phone-alt"></i>
+                        Contact College Office
+                    </p>
+
+                    <p>
+                        <i class="fas fa-envelope"></i>
+                        College Email
+                    </p>
+
+                    <p>
+                        <i class="fas fa-clock"></i>
+                        College Office Hours
+                    </p>
+
+                    <div class="social-icons"
+                        style="margin-top:25px;justify-content:flex-start;">
+
+                        <a href="#">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+
+                        <a href="#">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+
+                        <a href="#">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+
+                        <a href="#">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Contact Form -->
+                <div class="contact-form-card">
+
+                    <h3 style="margin-bottom:20px;">
+                        Send us a Message
+                    </h3>
+
+                    <input type="text"
+                        placeholder="Your Name"
+                        id="msgName">
+
+                    <input type="email"
+                        placeholder="Your Email"
+                        id="msgEmail">
+
+                    <input type="tel"
+                        placeholder="Phone Number"
+                        id="msgPhone">
+
+                    <textarea rows="4"
+                        placeholder="Your Message"
+                        id="msgText"></textarea>
+
+                    <button class="btn-primary"
+                        style="width:100%;"
+                        onclick="sendMessage()">
+
+                        <i class="fas fa-paper-plane"></i>
+                        Send Message
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========== ADMISSION MODAL ========== -->
+
+    <div id="registerModal" class="modal-overlay">
+
+        <div class="register-modal">
+
+            <h3>
+                <i class="fas fa-graduation-cap"></i>
+                Pharmacy Admission Form
+            </h3>
+
+            <input type="text"
+                id="regName"
+                placeholder="Full Name *">
+
+            <input type="text"
+                id="regClass"
+                placeholder="Course (D.Pharm / B.Pharm) *">
+
+            <input type="email"
+                id="regEmail"
+                placeholder="Email Address">
+
+            <input type="tel"
+                id="regPhone"
+                placeholder="Mobile Number *">
+
+            <button class="btn-primary"
+                onclick="submitRegistration()">
+
+                <i class="fas fa-check-circle"></i>
+                Submit Application
+
+            </button>
+
+            <button class="btn-primary close-modal-btn"
+                onclick="closeRegisterModal()">
+
+                <i class="fas fa-times"></i>
+                Cancel
+
+            </button>
+
+        </div>
+
     </div>
-  </div>
-</section>
 
 
-
-<!-- REGISTER MODAL -->
-<div id="registerModal" class="modal-overlay">
-  <div class="register-modal">
-    <h3><i class="fas fa-graduation-cap"></i> Admission Form</h3>
-    <input type="text" id="regName" placeholder="Full Name *">
-    <input type="text" id="regClass" placeholder="Applying for (Class 10 / 12) *">
-    <input type="email" id="regEmail" placeholder="Email Address">
-    <input type="tel" id="regPhone" placeholder="Mobile Number *">
-    <button class="btn-primary" onclick="submitRegistration()"><i class="fas fa-check-circle"></i> Submit Application</button>
-    <button class="btn-primary close-modal-btn" onclick="closeRegisterModal()"><i class="fas fa-times"></i> Cancel</button>
-  </div>
-</div>
-
-<!-- Toast Message -->
-<div id="toastMsg" class="toast-msg">Notice</div>
+    <!-- Toast Message -->
+    <div id="toastMsg" class="toast-msg">
+        Notice
+    </div>
 
 
-
-
-  
-
-    <!-- Swiper JS CDN -->
-
-  <%- include('partials/footer') %>
+    <!-- Footer -->
+    <%- include('partials/footer') %>
 
 </body>
 </html>

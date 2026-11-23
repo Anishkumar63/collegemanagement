@@ -626,67 +626,7 @@
 </head>
 <body>
 <%-include('partials/header')%>
-<!-- TOP HEADER -->
-<div class="top-header">
-    <div class="web-text">
-        <p>📚 UP Board Affiliated</p>
-        <p>📞 Helpline: +91-9876543210</p>
-        <p>✉️ info@sovicintercollege.edu</p>
-        <a href="#"><span class="highlight-link">📖 ERP Login</span></a>
-        <a href="#"><span class="highlight-link">📞 Admission Enquiry</span></a>
-    </div>
-    <div class="right-text">
-        <a class="link" href="#">🏆 NAAC Grade A</a>
-        <a class="link" href="#">📜 Reg.No: 938</a>
-        <a class="link" href="#">🎓 ESTD: 1995</a>
-        <a class="link" href="#">⭐ Best College Award</a>
-    </div>
-</div>
 
-<!-- MAIN NAVBAR -->
-<div class="main-header">
-    <div class="navbar-line"></div>
-    <div class="nav">
-        <div class="logo">
-            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='95' fill='%23fff8ed' stroke='%23f59e0b' stroke-width='5'/%3E%3Ctext x='100' y='115' text-anchor='middle' font-size='28' fill='%23f59e0b' font-weight='800'%3ESVIC%3C/text%3E%3Ctext x='100' y='145' text-anchor='middle' font-size='12' fill='%238b5cf6'%3EINTER COLLEGE%3C/text%3E%3C/svg%3E" alt="SVIC Inter College Logo">
-        </div>
-        <div class="menu">
-            <div class="upperNav">
-                <button class="nav-button" onclick="showToast('🎓 Apply Now - Admission Open 2025-26')"><i class="fas fa-pen-alt"></i> Apply Now</button>
-                <div class="btn-box">
-                    <button class="toggle-btn" onclick="showToast('🔐 Student Login Portal Coming Soon')"><i class="fas fa-sign-in-alt"></i> Login</button>
-                    <button class="toggle-btn" onclick="showToast('📝 Register for Admission 2025-26')"><i class="fas fa-user-plus"></i> Register</button>
-                </div>
-            </div>
-            <ul class="lowerNav">
-                <li><a class="menu-link" href="#"><i class="fas fa-home"></i> Home</a></li>
-                <li><a class="menu-link" href="#"><i class="fas fa-info-circle"></i> About</a></li>
-                <li><a class="menu-link" href="#"><i class="fas fa-door-open"></i> Admission</a></li>
-                <li><a class="menu-link" href="#"><i class="fas fa-book-open"></i> Courses</a></li>
-                <li><a class="menu-link" href="#" style="color:#f59e0b;"><i class="fas fa-bell"></i> Notice Board</a></li>
-                <li><a class="menu-link" href="#"><i class="fas fa-headset"></i> Contact</a></li>
-            </ul>
-        </div>
-        <div class="hamburger" onclick="openMobileMenu()">
-            <span></span><span></span><span></span>
-        </div>
-    </div>
-</div>
-
-<!-- Mobile Menu -->
-<div class="mobile-menu-overlay" id="mobileMenu">
-    <div class="close-menu" onclick="closeMobileMenu()"><i class="fas fa-times"></i></div>
-    <ul class="mobile-nav-list">
-        <li><a href="#" onclick="closeMobileMenu()"><i class="fas fa-home"></i> Home</a></li>
-        <li><a href="#" onclick="closeMobileMenu()"><i class="fas fa-info-circle"></i> About</a></li>
-        <li><a href="#" onclick="closeMobileMenu()"><i class="fas fa-door-open"></i> Admission</a></li>
-        <li><a href="#" onclick="closeMobileMenu()"><i class="fas fa-book-open"></i> Courses</a></li>
-        <li><a href="#" onclick="closeMobileMenu()"><i class="fas fa-bell"></i> Notice Board</a></li>
-        <li><a href="#" onclick="closeMobileMenu()"><i class="fas fa-headset"></i> Contact</a></li>
-        <li><button class="nav-button" style="width:100%;" onclick="showToast('Apply Now'); closeMobileMenu();"><i class="fas fa-pen-alt"></i> Apply Now</button></li>
-    </ul>
-</div>
-<div class="screen-overlay" id="screenOverlay" onclick="closeMobileMenu()"></div>
 
 <!-- PAGE HEADER -->
 <div class="page-header">
@@ -886,6 +826,6 @@
     
     console.log("✅ Notice Board Page Loaded - Fully Responsive & Interactive");
 </script>
-<%-include('partials/footer')%>
+
 </body>
 </html>
