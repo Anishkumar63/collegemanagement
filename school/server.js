@@ -59,7 +59,7 @@ router.get("/galleary",(req,res)=>{
 router.get("/infrastructure",(req,res)=>{
   res.render("Infrastructure.ejs")
 })
-router.get("/about",(req,res)=>{
+router.get("/about1",(req,res)=>{
   res.render("about")
 })
 router.get("/activities",(req,res)=>{

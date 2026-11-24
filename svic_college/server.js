@@ -22,16 +22,12 @@ router.get("/admission", (req, res) => {
 router.get("/apply", (req, res) => {
     res.render("apply.ejs");
 });
-router.get("/contact", (req, res) => {
-    res.render("class10th.ejs");
+router.get("/b.pharma", (req, res) => {
+    res.render("b.pharma.ejs");
 });
-router.get("/class12th",(req,res)=>{
-    res.render("class12th.ejs")
-})
-router.get("/fee",(req,res)=>{
-    res.render("fees.ejs")
-})
-
+router.get("/d.pharma", (req, res) => {
+    res.render("d.pharma.ejs");
+});
 router.get("/login", (req, res) => {
     res.render("login.ejs");
 });
@@ -45,14 +41,16 @@ router.get("/procedure", (req, res) => {
 router.get("/register", (req, res) => {
     res.render("register.ejs");
 });
-
-router.get("/why", (req, res) => {
-    res.render("why.ejs");
+router.get("/contact", (req, res) => {
+    res.render("pharmacy-contact.ejs");
+});
+router.get("/about", (req, res) => {
+    res.render("pharmacyabout.ejs");
 });
 
-router.get("/teacher", (req, res) => {
-    res.render("teacher.ejs");
-});
+// router.get("/teacher", (req, res) => {
+//     res.render("contact.ejs");
+// });
 
 router.use("/", admissionRoutes);
 

@@ -1,159 +1,1143 @@
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us | Maa Maturani Devi Pharmacy College</title>
 
-    <meta name="description"
-        content="Contact Research Innovation & Discovery Bhopal for enquiries and support.">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <title>Contact Us</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="/css/contact.css">
-    <link rel="stylesheet" href="/css/footer.css">
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --primary:#075e54;
+    --secondary:#0e9482;
+    --accent:#f0a42c;
+    --dark:#18332e;
+    --light:#f4f9f7;
+    --white:#ffffff;
+    --text:#555;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#f7faf9;
+    color:var(--text);
+}
+
+a{
+    text-decoration:none;
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+
+/* TOP HEADER */
+.top-header{
+    background:var(--primary);
+    color:white;
+    padding:10px 0;
+    font-size:13px;
+}
+
+.top-header .container{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.top-info{
+    display:flex;
+    gap:22px;
+    flex-wrap:wrap;
+}
+
+.top-info a{
+    color:white;
+}
+
+.top-info i{
+    color:var(--accent);
+    margin-right:6px;
+}
+
+/* MAIN HEADER */
+.main-header{
+    background:white;
+    padding:15px 0;
+    box-shadow:0 3px 12px rgba(0,0,0,.06);
+}
+
+.header-inner{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo-icon{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    background:linear-gradient(135deg,var(--primary),var(--secondary));
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    font-size:25px;
+}
+
+.logo-text h2{
+    font-size:18px;
+    color:var(--primary);
+    font-weight:700;
+    line-height:1.4;
+}
+
+.logo-text p{
+    font-size:11px;
+    color:#777;
+}
+
+.header-buttons{
+    display:flex;
+    gap:10px;
+}
+
+.header-btn{
+    background:var(--primary);
+    color:white;
+    padding:10px 18px;
+    border-radius:5px;
+    font-size:13px;
+    font-weight:500;
+    transition:.3s;
+}
+
+.header-btn:hover{
+    background:var(--secondary);
+    transform:translateY(-2px);
+}
+
+.header-btn.admission{
+    background:var(--accent);
+    color:#fff;
+}
+
+/* NAVBAR */
+.navbar{
+    background:var(--dark);
+}
+
+.nav-inner{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.nav-inner a{
+    color:white;
+    padding:16px 22px;
+    font-size:14px;
+    transition:.3s;
+}
+
+.nav-inner a:hover,
+.nav-inner a.active{
+    background:var(--secondary);
+}
+
+.menu-toggle{
+    display:none;
+    background:none;
+    border:none;
+    color:white;
+    font-size:23px;
+    padding:12px;
+    cursor:pointer;
+}
+
+/* PAGE HERO */
+.page-hero{
+    position:relative;
+    background:linear-gradient(135deg,rgba(4,72,64,.95),rgba(10,130,112,.85)),
+    url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1600&q=80');
+    background-size:cover;
+    background-position:center;
+    padding:75px 0;
+    text-align:center;
+    color:white;
+}
+
+.page-hero h1{
+    font-family:'Playfair Display',serif;
+    font-size:42px;
+    margin-bottom:12px;
+}
+
+.page-hero p{
+    font-size:15px;
+    max-width:700px;
+    margin:auto;
+    line-height:1.8;
+}
+
+.breadcrumb{
+    margin-top:18px;
+    font-size:13px;
+}
+
+.breadcrumb a{
+    color:#ffd276;
+}
+
+/* CONTACT SECTION */
+.contact-section{
+    padding:70px 0;
+}
+
+.section-heading{
+    text-align:center;
+    margin-bottom:45px;
+}
+
+.section-heading h2{
+    color:var(--primary);
+    font-family:'Playfair Display',serif;
+    font-size:32px;
+    margin-bottom:12px;
+}
+
+.section-heading p{
+    max-width:650px;
+    margin:auto;
+    font-size:14px;
+    line-height:1.8;
+}
+
+.section-heading .line{
+    width:65px;
+    height:4px;
+    background:var(--accent);
+    margin:15px auto;
+    border-radius:5px;
+}
+
+/* CONTACT CARDS */
+.contact-cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+    margin-bottom:55px;
+}
+
+.contact-card{
+    background:white;
+    padding:30px 22px;
+    border-radius:12px;
+    text-align:center;
+    box-shadow:0 5px 25px rgba(0,0,0,.06);
+    transition:.3s;
+    border-bottom:3px solid transparent;
+}
+
+.contact-card:hover{
+    transform:translateY(-7px);
+    border-bottom-color:var(--accent);
+}
+
+.contact-icon{
+    width:65px;
+    height:65px;
+    background:#e8f6f2;
+    color:var(--primary);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin:0 auto 18px;
+    border-radius:50%;
+    font-size:25px;
+}
+
+.contact-card h3{
+    color:var(--dark);
+    font-size:18px;
+    margin-bottom:12px;
+}
+
+.contact-card p{
+    font-size:13px;
+    line-height:1.8;
+}
+
+.contact-card a{
+    color:var(--secondary);
+    font-weight:500;
+}
+
+/* CONTACT FORM AND MAP */
+.contact-main{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:35px;
+    align-items:stretch;
+}
+
+.contact-form-box,
+.map-box{
+    background:white;
+    border-radius:12px;
+    padding:30px;
+    box-shadow:0 5px 25px rgba(0,0,0,.06);
+}
+
+.contact-form-box h2,
+.map-box h2{
+    color:var(--primary);
+    font-size:23px;
+    margin-bottom:10px;
+}
+
+.contact-form-box>p,
+.map-box>p{
+    font-size:13px;
+    margin-bottom:25px;
+    line-height:1.8;
+}
+
+.form-group{
+    margin-bottom:18px;
+}
+
+.form-group label{
+    display:block;
+    margin-bottom:7px;
+    color:#333;
+    font-size:13px;
+    font-weight:500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+    width:100%;
+    padding:12px 14px;
+    border:1px solid #ddd;
+    border-radius:6px;
+    font-family:'Poppins',sans-serif;
+    font-size:13px;
+    outline:none;
+    transition:.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+    border-color:var(--secondary);
+    box-shadow:0 0 0 3px rgba(14,148,130,.1);
+}
+
+.form-group textarea{
+    resize:vertical;
+    min-height:120px;
+}
+
+.form-row{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+.submit-btn{
+    background:var(--primary);
+    color:white;
+    border:none;
+    padding:14px 25px;
+    width:100%;
+    border-radius:6px;
+    font-family:'Poppins',sans-serif;
+    font-size:14px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.submit-btn:hover{
+    background:var(--secondary);
+}
+
+.submit-btn i{
+    margin-left:8px;
+}
+
+/* MAP */
+.map-box iframe{
+    width:100%;
+    height:390px;
+    border:0;
+    border-radius:8px;
+}
+
+.map-link{
+    display:inline-block;
+    margin-top:15px;
+    color:var(--secondary);
+    font-size:13px;
+    font-weight:500;
+}
+
+/* DEPARTMENT CONTACTS */
+.department-section{
+    padding:0 0 70px;
+}
+
+.department-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.department-card{
+    background:white;
+    padding:22px;
+    border-radius:10px;
+    box-shadow:0 4px 18px rgba(0,0,0,.05);
+    display:flex;
+    align-items:center;
+    gap:15px;
+    transition:.3s;
+}
+
+.department-card:hover{
+    transform:translateY(-4px);
+}
+
+.department-icon{
+    min-width:48px;
+    height:48px;
+    background:#e8f6f2;
+    color:var(--primary);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:10px;
+    font-size:20px;
+}
+
+.department-card h3{
+    font-size:15px;
+    color:var(--dark);
+    margin-bottom:5px;
+}
+
+.department-card p{
+    font-size:12px;
+}
+
+/* FOOTER */
+.footer{
+    background:#163b34;
+    color:white;
+    padding:50px 0 0;
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    gap:35px;
+    padding-bottom:35px;
+}
+
+.footer h3{
+    font-size:18px;
+    margin-bottom:18px;
+    color:white;
+}
+
+.footer p{
+    font-size:13px;
+    line-height:1.9;
+    color:#d0e2dc;
+}
+
+.footer-links{
+    list-style:none;
+}
+
+.footer-links li{
+    margin-bottom:12px;
+}
+
+.footer-links a{
+    color:#d0e2dc;
+    font-size:13px;
+    transition:.3s;
+}
+
+.footer-links a:hover{
+    color:var(--accent);
+    padding-left:5px;
+}
+
+.footer-social{
+    display:flex;
+    gap:12px;
+    margin-top:20px;
+}
+
+.footer-social a{
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    background:rgba(255,255,255,.1);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    transition:.3s;
+}
+
+.footer-social a:hover{
+    background:var(--accent);
+}
+
+.footer-bottom{
+    border-top:1px solid rgba(255,255,255,.15);
+    padding:18px 0;
+    text-align:center;
+    font-size:12px;
+    color:#d0e2dc;
+}
+
+/* TOAST */
+.toast{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    background:var(--primary);
+    color:white;
+    padding:16px 22px;
+    border-radius:8px;
+    box-shadow:0 5px 25px rgba(0,0,0,.2);
+    display:none;
+    z-index:9999;
+    font-size:13px;
+}
+
+.toast.show{
+    display:block;
+    animation:slideIn .3s ease;
+}
+
+@keyframes slideIn{
+    from{
+        transform:translateY(30px);
+        opacity:0;
+    }
+    to{
+        transform:translateY(0);
+        opacity:1;
+    }
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+
+    .contact-cards{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .contact-main{
+        grid-template-columns:1fr;
+    }
+
+    .department-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:768px){
+
+    .top-header .container{
+        justify-content:center;
+        text-align:center;
+    }
+
+    .top-info{
+        justify-content:center;
+    }
+
+    .header-inner{
+        flex-wrap:wrap;
+    }
+
+    .logo-text h2{
+        font-size:15px;
+    }
+
+    .header-buttons{
+        width:100%;
+        justify-content:center;
+    }
+
+    .header-btn{
+        font-size:12px;
+        padding:9px 13px;
+    }
+
+    .menu-toggle{
+        display:block;
+    }
+
+    .nav-inner{
+        display:block;
+    }
+
+    .nav-links{
+        display:none;
+        flex-direction:column;
+        width:100%;
+    }
+
+    .nav-links.show{
+        display:flex;
+    }
+
+    .nav-inner a{
+        display:block;
+        padding:13px 20px;
+        border-bottom:1px solid rgba(255,255,255,.08);
+    }
+
+    .page-hero{
+        padding:55px 15px;
+    }
+
+    .page-hero h1{
+        font-size:32px;
+    }
+
+    .contact-section{
+        padding:50px 0;
+    }
+
+    .section-heading h2{
+        font-size:26px;
+    }
+
+    .contact-cards{
+        grid-template-columns:1fr;
+        gap:18px;
+    }
+
+    .department-grid{
+        grid-template-columns:1fr;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+    .form-row{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:480px){
+
+    .container{
+        width:92%;
+    }
+
+    .logo-icon{
+        width:48px;
+        height:48px;
+        font-size:20px;
+    }
+
+    .logo-text h2{
+        font-size:13px;
+    }
+
+    .logo-text p{
+        font-size:10px;
+    }
+
+    .page-hero h1{
+        font-size:28px;
+    }
+
+    .contact-form-box,
+    .map-box{
+        padding:20px;
+    }
+
+    .map-box iframe{
+        height:300px;
+    }
+}
+</style>
 </head>
 
 <body>
+<%- include('partials/Navbar') %>
 
-    <%- include('partials/Navbar') %>
 
-    <main class="contact-container">
 
-        <header class="contact-heading">
-            <h1>Contact Us</h1>
-            <p>Get in touch and let us know how we can help.</p>
-        </header>
+<!-- PAGE HEADER -->
+<section class="page-hero">
+    <div class="container">
+        <h1>Contact Us</h1>
 
-        <!-- Contact Information Cards -->
-        <section class="cards" aria-label="Contact information">
+        <p>
+            Connect with Maa Maturani Devi Pharmacy College for admission
+            enquiries, course information, student support and other
+            college-related information.
+        </p>
 
-            <article class="card">
-                <div class="icon">
-                    <img
-                        src="https://img.icons8.com/ios-filled/50/000000/marker.png"
-                        alt=""
-                        loading="lazy">
+        <div class="breadcrumb">
+            <a href="/">Home</a>
+            <i class="fas fa-angle-right"></i>
+            Contact Us
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section class="contact-section">
+    <div class="container">
+
+        <div class="section-heading">
+            <h2>Get In Touch With Us</h2>
+            <div class="line"></div>
+
+            <p>
+                For any information related to pharmacy courses, admission,
+                fees, examination or college services, contact the college
+                office or send your enquiry through the form below.
+            </p>
+        </div>
+
+        <!-- CONTACT CARDS -->
+        <div class="contact-cards">
+
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fas fa-location-dot"></i>
                 </div>
 
-                <h2>Address</h2>
-                <p>Research Innovation &amp; Discovery, Bhopal (MP)</p>
+                <h3>Visit Us</h3>
+
+                <p>
+                    Maa Maturani Devi Pharmacy College<br>
+                    Ballia, Uttar Pradesh, India
+                </p>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fas fa-phone"></i>
+                </div>
+
+                <h3>Call Us</h3>
+
+                <p>
+                    College Office<br>
+                    For admission and college enquiries
+                </p>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+
+                <h3>Email Us</h3>
+
+                <p>
+                    College Office<br>
+                    Send your enquiry through the contact form
+                </p>
+            </div>
+
+        </div>
+
+        <!-- FORM AND MAP -->
+        <div class="contact-main">
+
+            <!-- CONTACT FORM -->
+            <div class="contact-form-box" id="contact-form">
+
+                <h2>Send Us An Enquiry</h2>
+
+                <p>
+                    Fill in your details below. Our college office can
+                    contact you regarding your enquiry.
+                </p>
+
+                <form id="contactForm">
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                placeholder="Enter your full name"
+                                required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Mobile Number *</label>
+
+                            <input
+                                type="tel"
+                                id="phone"
+                                name="phone"
+                                placeholder="Enter mobile number"
+                                pattern="[0-9]{10}"
+                                maxlength="10"
+                                required>
+                        </div>
+
+                    </div>
+
+                    <div class="form-row">
+
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="Enter your email">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">Enquiry Subject *</label>
+
+                            <select id="subject" name="subject" required>
+
+                                <option value="">Select enquiry subject</option>
+
+                                <option value="Pharmacy Admission Inquiry">
+                                    Pharmacy Admission Inquiry
+                                </option>
+
+                                <option value="D.Pharm Admission">
+                                    D.Pharm Admission
+                                </option>
+
+                                <option value="B.Pharm Admission">
+                                    B.Pharm Admission
+                                </option>
+
+                                <option value="Course Information">
+                                    Course Information
+                                </option>
+
+                                <option value="Fees Information">
+                                    Fees Information
+                                </option>
+
+                                <option value="Scholarship">
+                                    Scholarship
+                                </option>
+
+                                <option value="Examination">
+                                    Examination
+                                </option>
+
+                                <option value="Student Support">
+                                    Student Support
+                                </option>
+
+                                <option value="General Query">
+                                    General Query
+                                </option>
+
+                                <option value="Complaint or Feedback">
+                                    Complaint or Feedback
+                                </option>
+
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Your Message *</label>
+
+                        <textarea
+                            id="message"
+                            name="message"
+                            placeholder="Write your enquiry here..."
+                            required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        Send Enquiry
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+
+                </form>
+
+            </div>
+
+            <!-- MAP -->
+            <div class="map-box">
+
+                <h2>Our Location</h2>
+
+                <p>
+                    Find Maa Maturani Devi Pharmacy College in Ballia,
+                    Uttar Pradesh.
+                </p>
+
+                <iframe
+                    src="https://maps.google.com/maps?q=Maa%20Maturani%20Devi%20Pharmacy%20College%20Ballia%20Uttar%20Pradesh&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                    loading="lazy"
+                    allowfullscreen>
+                </iframe>
 
                 <a
-                    href="https://www.google.com/maps/place/RID+BHARAT/@23.2607016,77.4697768,17z/"
+                    href="https://www.google.com/maps/search/?api=1&query=Maa+Maturani+Devi+Pharmacy+College+Ballia+Uttar+Pradesh"
                     target="_blank"
-                    rel="noopener noreferrer">
-                    View on map →
+                    class="map-link">
+
+                    <i class="fas fa-location-arrow"></i>
+                    Open Location in Google Maps
                 </a>
-            </article>
 
-            <article class="card">
-                <div class="icon">
-                    <img
-                        src="https://img.icons8.com/ios-filled/50/000000/phone.png"
-                        alt=""
-                        loading="lazy">
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- DEPARTMENT CONTACTS -->
+<section class="department-section">
+    <div class="container">
+
+        <div class="section-heading">
+            <h2>College Departments</h2>
+            <div class="line"></div>
+
+            <p>
+                Contact the concerned department for college-related
+                information and assistance.
+            </p>
+        </div>
+
+        <div class="department-grid">
+
+            <div class="department-card">
+                <div class="department-icon">
+                    <i class="fas fa-user-graduate"></i>
                 </div>
 
-                <h2>Contact</h2>
-                <p>+91 6394213627</p>
+                <div>
+                    <h3>Admission Office</h3>
+                    <p>Admission and course enquiries</p>
+                </div>
+            </div>
 
-                <a href="tel:+916394213627">
-                    Call →
-                </a>
-            </article>
-
-            <article class="card">
-                <div class="icon">
-                    <img
-                        src="https://img.icons8.com/ios-filled/50/000000/email.png"
-                        alt=""
-                        loading="lazy">
+            <div class="department-card">
+                <div class="department-icon">
+                    <i class="fas fa-money-bill-wave"></i>
                 </div>
 
-                <h2>Email</h2>
-                <p>ridorg.in@gmail.com</p>
+                <div>
+                    <h3>Accounts Department</h3>
+                    <p>Fees and payment-related enquiries</p>
+                </div>
+            </div>
 
-                <a href="mailto:ridorg.in@gmail.com">
-                    Email Now →
-                </a>
-            </article>
-
-        </section>
-
-        <!-- Contact Form -->
-        <section class="contact-form-container">
-
-            <form id="contactForm" class="contact-form">
-
-                <h2>Send Us a Message</h2>
-
-                <div class="form-group">
-                    <label for="name">Your Name *</label>
-                    <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        placeholder="Enter your full name"
-                        autocomplete="name"
-                        maxlength="100"
-                        required>
+            <div class="department-card">
+                <div class="department-icon">
+                    <i class="fas fa-file-alt"></i>
                 </div>
 
-                <div class="form-group">
-                    <label for="email">Your Email *</label>
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        placeholder="Enter your email"
-                        autocomplete="email"
-                        maxlength="254"
-                        required>
+                <div>
+                    <h3>Examination Cell</h3>
+                    <p>Examination and results information</p>
+                </div>
+            </div>
+
+            <div class="department-card">
+                <div class="department-icon">
+                    <i class="fas fa-flask"></i>
                 </div>
 
-                <div class="form-group">
-                    <label for="number">Your Number *</label>
-                    <input
-                        type="tel"
-                        id="number"
-                        name="number"
-                        placeholder="Enter your mobile number"
-                        autocomplete="tel"
-                        inputmode="tel"
-                        pattern="[+]?[0-9 ()-]{10,18}"
-                        maxlength="18"
-                        required>
+                <div>
+                    <h3>Pharmacy Department</h3>
+                    <p>Academic and practical information</p>
+                </div>
+            </div>
+
+            <div class="department-card">
+                <div class="department-icon">
+                    <i class="fas fa-hands-helping"></i>
                 </div>
 
-                <div class="form-group">
-                    <label for="message">Your Message *</label>
-                    <textarea
-                        id="message"
-                        name="message"
-                        placeholder="Write your message here..."
-                        rows="5"
-                        maxlength="3000"
-                        required></textarea>
+                <div>
+                    <h3>Student Support</h3>
+                    <p>Student assistance and guidance</p>
+                </div>
+            </div>
+
+            <div class="department-card">
+                <div class="department-icon">
+                    <i class="fas fa-building"></i>
                 </div>
 
-                <button type="submit" class="submit-btn">
-                    Send Message
-                </button>
+                <div>
+                    <h3>Principal's Office</h3>
+                    <p>Official college-related enquiries</p>
+                </div>
+            </div>
 
-                <p id="formStatus" class="form-status"
-                    role="status" aria-live="polite"></p>
+        </div>
+    </div>
+</section>
 
-            </form>
+<!-- TOAST MESSAGE -->
+<div class="toast" id="toast">
+    <i class="fas fa-check-circle"></i>
+    <span id="toastMessage"></span>
+</div>
 
-        </section>
+<script>
 
-    </main>
+/* MOBILE MENU */
 
-    <%- include('partials/Footer.ejs') %>
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
 
-    <script src="/js/contact.js" defer></script>
+menuToggle.addEventListener("click", function(){
 
+    navLinks.classList.toggle("show");
+
+    const icon = menuToggle.querySelector("i");
+
+    if(navLinks.classList.contains("show")){
+        icon.classList.remove("fa-bars");
+        icon.classList.add("fa-xmark");
+    }else{
+        icon.classList.remove("fa-xmark");
+        icon.classList.add("fa-bars");
+    }
+
+});
+
+/* CLOSE MOBILE MENU WHEN CLICKING LINK */
+
+document.querySelectorAll("#navLinks a").forEach(function(link){
+
+    link.addEventListener("click", function(){
+
+        navLinks.classList.remove("show");
+
+        const icon = menuToggle.querySelector("i");
+
+        icon.classList.remove("fa-xmark");
+        icon.classList.add("fa-bars");
+
+    });
+
+});
+
+/* CURRENT YEAR */
+
+document.getElementById("currentYear").textContent =
+    new Date().getFullYear();
+
+/* CONTACT FORM */
+
+const contactForm = document.getElementById("contactForm");
+
+contactForm.addEventListener("submit", function(event){
+
+    event.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const subject = document.getElementById("subject").value;
+    const message = document.getElementById("message").value.trim();
+
+    if(!name || !phone || !subject || !message){
+
+        showToast("Please fill in all required fields.");
+
+        return;
+    }
+
+    if(!/^[0-9]{10}$/.test(phone)){
+
+        showToast("Please enter a valid 10-digit mobile number.");
+
+        return;
+    }
+
+    /*
+       This is currently a frontend-only form.
+       To actually store/send enquiries, connect it to your backend API.
+    */
+
+    showToast("Thank you! Your enquiry form is ready.");
+
+    contactForm.reset();
+
+});
+
+/* TOAST */
+
+function showToast(message){
+
+    const toast = document.getElementById("toast");
+    const toastMessage = document.getElementById("toastMessage");
+
+    toastMessage.textContent = message;
+
+    toast.classList.add("show");
+
+    setTimeout(function(){
+
+        toast.classList.remove("show");
+
+    },4000);
+
+}
+
+</script>
+   <%- include('partials/footer') %>
 </body>
 </html>
