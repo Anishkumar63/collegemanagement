@@ -38,9 +38,7 @@ router.get("/contact",(req,res)=>{
   res.render("contactschool")
 
 })
-router.get("/feedback",(req,res)=>{
-  res.render("feedback")
-})
+
 router.get("/navbar",(req,res)=>{
   res.render("partials/navbar.ejs")
 })
@@ -59,15 +57,16 @@ router.get("/galleary",(req,res)=>{
 router.get("/infrastructure",(req,res)=>{
   res.render("Infrastructure.ejs")
 })
-router.get("/about1",(req,res)=>{
-  res.render("about")
+router.get("/nursingabout",(req,res)=>{
+  res.render("nursingabout.ejs")
 })
-router.get("/activities",(req,res)=>{
-  res.render("activities.ejs")
+router.get("/anm",(req,res)=>{
+  res.render("schoolanm.ejs")
 })
-router.get("/activities",(req,res)=>{
-  res.render("activities.ejs")
+router.get("/jnam",(req,res)=>{
+  res.render("schooljanm.ejs")
 })
+
 // .........................routes..........
 // Routes
 // router.use("/", routes);

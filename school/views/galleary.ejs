@@ -1,215 +1,714 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Kids Gallery | Our Best Moments</title>
-    <!-- Google Fonts & simple reset -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
-    <!-- Font Awesome 6 (free icons) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="/school/css/galleary.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0f766e">
+  <title>Gallery | Maa Maturani Devi Group of Institutions</title>
 
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    :root {
+      --primary:      #0f766e;
+      --primary-dark: #115e59;
+      --primary-soft: #ccfbf1;
+      --accent:       #ea580c;
+      --accent-soft:  #fed7aa;
+      --ink:          #134e4a;
+      --ink-2:        #475569;
+      --muted:        #64748b;
+      --bg:           #f4f8f7;
+      --card:         #ffffff;
+      --line:         #dbe7e4;
+      --shadow-sm:    0 2px 10px rgba(15, 118, 110, .06);
+      --shadow-md:    0 10px 34px rgba(15, 118, 110, .14);
+      --shadow-lg:    0 18px 48px rgba(15, 118, 110, .18);
+      --radius:       16px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      background:
+        radial-gradient(circle at 5% 5%, #e6f7f4 0%, transparent 40%),
+        radial-gradient(circle at 95% 95%, #fff7ed 0%, transparent 40%),
+        var(--bg);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+
+    /* ============================================================
+       GALLERY SECTION
+       ============================================================ */
+    .gallery-section {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 40px 20px 52px;
+    }
+
+    /* ---------- Header ---------- */
+    .gallery-header {
+      text-align: center;
+      padding: 42px 24px;
+      margin-bottom: 28px;
+      border-radius: var(--radius);
+      background:
+        radial-gradient(circle at 90% 15%, rgba(251, 146, 60, .28), transparent 55%),
+        linear-gradient(135deg, #0f766e 0%, #115e59 60%, #0d4d47 100%);
+      color: #fff;
+      box-shadow: var(--shadow-md);
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .gallery-header::after {
+      content: "\f0f8";
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      position: absolute;
+      right: -20px;
+      bottom: -30px;
+      font-size: 170px;
+      line-height: 1;
+      color: rgba(255, 255, 255, .07);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .gallery-header h1 {
+      margin: 0 0 12px;
+      font-family: 'Playfair Display', 'Inter', serif;
+      font-weight: 600;
+      font-size: clamp(1.7rem, 4vw + .4rem, 2.6rem);
+      letter-spacing: 1px;
+      line-height: 1.2;
+    }
+
+    .gallery-header .sub {
+      font-size: clamp(.95rem, 1.2vw + .4rem, 1.1rem);
+      color: #d8f5f0;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    .gallery-header .sub span {
+      font-weight: 400;
+      color: #fef3c7;
+    }
+
+    .gallery-header p {
+      margin: 0 auto;
+      max-width: 620px;
+      font-size: .93rem;
+      color: #d8f5f0;
+      opacity: .92;
+    }
+
+    /* ============================================================
+       FILTER TABS
+       ============================================================ */
+    .filter-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+
+    .filter-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 24px;
+      font-family: inherit;
+      font-size: .92rem;
+      font-weight: 600;
+      color: var(--ink-2);
+      background: #fff;
+      border: 1.5px solid var(--line);
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all .25s ease;
+      user-select: none;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .filter-btn i { font-size: .88rem; color: var(--primary); }
+
+    .filter-btn:hover {
+      border-color: var(--primary);
+      background: #f0fdfa;
+      color: var(--primary-dark);
+    }
+
+    .filter-btn.active {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+      box-shadow: 0 6px 18px rgba(15, 118, 110, .28);
+    }
+
+    .filter-btn.active i { color: var(--accent-soft); }
+
+    .filter-btn .count {
+      display: inline-block;
+      padding: 1px 8px;
+      font-size: .72rem;
+      font-weight: 700;
+      background: rgba(15, 118, 110, .12);
+      color: var(--primary);
+      border-radius: 999px;
+    }
+
+    .filter-btn.active .count {
+      background: rgba(255, 255, 255, .22);
+      color: #fff;
+    }
+
+    /* ============================================================
+       GALLERY GRID
+       ============================================================ */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 22px;
+      margin-bottom: 32px;
+    }
+
+    /* ---------- Card ---------- */
+    .moment-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      transition: transform .3s ease, box-shadow .3s ease;
+      animation: cardFadeIn .4s ease forwards;
+    }
+
+    @keyframes cardFadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .moment-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .moment-card.hidden { display: none; }
+
+    /* ---------- Card Image ---------- */
+    .card-img {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: #e6f7f4;
+    }
+
+    .card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .5s ease;
+    }
+
+    .moment-card:hover .card-img img {
+      transform: scale(1.06);
+    }
+
+    .row-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(17, 94, 89, .92);
+      color: #fff;
+      padding: 5px 11px;
+      border-radius: 999px;
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      backdrop-filter: blur(4px);
+      z-index: 2;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, .18);
+    }
+
+    .row-badge i { color: var(--accent-soft); font-size: .72rem; }
+
+    .row-badge.pharmacy { background: rgba(154, 52, 18, .92); }
+
+    /* ---------- Card Content ---------- */
+    .card-content {
+      padding: 16px 18px 18px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .card-title {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      line-height: 1.35;
+    }
+
+    .card-title i {
+      color: var(--accent);
+      font-size: .92rem;
+      flex-shrink: 0;
+    }
+
+    .divider-light {
+      height: 2px;
+      width: 40px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-soft));
+      border-radius: 2px;
+      margin: 10px 0 12px;
+    }
+
+    .card-description {
+      font-size: .86rem;
+      color: var(--ink-2);
+      margin: 0 0 12px;
+      flex-grow: 1;
+      line-height: 1.55;
+    }
+
+    .moment-tag {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: auto;
+    }
+
+    .moment-tag span {
+      display: inline-flex;
+      align-items: center;
+      background: #f0fdfa;
+      color: var(--primary-dark);
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: .7rem;
+      font-weight: 600;
+      border: 1px solid var(--primary-soft);
+      letter-spacing: .2px;
+    }
+
+    /* ============================================================
+       FOOTER NOTE
+       ============================================================ */
+    .footer-note {
+      margin-top: 24px;
+      padding: 18px 22px;
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--accent);
+      border-radius: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 26px;
+      justify-content: center;
+      align-items: center;
+      font-size: .86rem;
+      color: var(--ink-2);
+      font-weight: 500;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .footer-note span {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .footer-note i { color: var(--primary); font-size: .95rem; }
+
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
+    @media (max-width: 900px) {
+      .gallery-section { padding: 30px 16px 44px; }
+      .gallery-header { padding: 34px 20px; margin-bottom: 22px; }
+      .gallery-header::after { font-size: 130px; right: -14px; bottom: -22px; }
+      .gallery-grid { gap: 18px; }
+    }
+
+    @media (max-width: 600px) {
+      .gallery-section { padding: 22px 14px 40px; }
+      .gallery-header { padding: 28px 18px; border-radius: 14px; margin-bottom: 20px; }
+      .gallery-header::after { font-size: 100px; right: -10px; bottom: -16px; }
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 16px;
+      }
+      .card-content { padding: 14px 16px 16px; }
+      .card-title { font-size: .95rem; }
+      .card-description { font-size: .83rem; }
+      .footer-note { font-size: .8rem; padding: 14px 16px; }
+      .filter-btn { padding: 9px 18px; font-size: .85rem; }
+    }
+
+    @media (max-width: 380px) {
+      .gallery-grid { grid-template-columns: 1fr; }
+      .row-badge { font-size: .62rem; padding: 4px 9px; }
+      .card-title { font-size: .9rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+      }
+      .moment-card:hover { transform: none; }
+      .moment-card:hover .card-img img { transform: none; }
+    }
+  </style>
 </head>
+
 <body>
- <%- include("partials/navbar.ejs") %>
-<section class="gallery-section">
+
+  <!-- ====== NAVBAR (EJS include) ====== -->
+  <%- include("partials/navbar.ejs") %>
+
+  <section class="gallery-section">
+
+    <!-- ============ HEADER ============ -->
     <div class="gallery-header">
-        <h1>OUR GALLERY</h1>
-        <div class="sub">✨ Our Best Moments <span style="font-weight:400">With Your Kids</span> ✨</div>
-        <p>Capturing joy, creativity, and unforgettable performances — every moment shines through the lens.</p>
+      <h1>OUR GALLERY</h1>
+      <div class="sub">✨ Nursing <span>&amp; Pharmacy</span> Moments ✨</div>
+      <p>Capturing learning, compassion, and excellence — a glimpse into life at Maa Maturani Devi Group of Institutions.</p>
     </div>
 
-    <div class="gallery-grid" id="momentsGrid">
-        <!-- Dynamic cards will be injected via JavaScript to keep maintainability and consistency -->
-        <!-- But we also ensure graceful fallback. All 10 moments per description -->
+    <!-- ============ FILTER TABS ============ -->
+    <div class="filter-tabs" id="filterTabs">
+      <button class="filter-btn active" data-filter="all">
+        <i class="fas fa-images"></i> All
+        <span class="count" id="countAll">0</span>
+      </button>
+      <button class="filter-btn" data-filter="nursing">
+        <i class="fas fa-user-nurse"></i> Nursing
+        <span class="count" id="countNursing">0</span>
+      </button>
+      <button class="filter-btn" data-filter="pharmacy">
+        <i class="fas fa-pills"></i> Pharmacy
+        <span class="count" id="countPharmacy">0</span>
+      </button>
     </div>
-    
+
+    <!-- ============ GALLERY GRID ============ -->
+    <div class="gallery-grid" id="momentsGrid"></div>
+
+    <!-- ============ FOOTER NOTE ============ -->
     <div class="footer-note">
-        <span><i class="fas fa-camera"></i> Precious memories on stage</span>
-        <span><i class="fas fa-heart" style="color:#e11d48;"></i> every child shines</span>
-        <span><i class="fas fa-music"></i> rhythm & celebration</span>
+      <span><i class="fas fa-user-nurse"></i> Nursing Excellence</span>
+      <span><i class="fas fa-pills"></i> Pharmacy Learning</span>
+      <span><i class="fas fa-heart" style="color: #dc2626;"></i> Care &amp; Compassion</span>
     </div>
-</section>
 
-<script>
-    // --------------------------------------------------------------
-    // Data based exactly on the provided screenshot description
-    // 10 rows with precise details & visual placeholder texts (placehold.co)
-    // --------------------------------------------------------------
+  </section>
+
+  <!-- ====== FOOTER (EJS include) ====== -->
+  <%- include("partials/footer.ejs") %>
+
+  <script>
+  (function () {
+    'use strict';
+
+    /* --------------------------------------------------------------
+       Real Unsplash photos (nursing + pharmacy scenes)
+       To swap with college's real photos → change `image:` field
+       -------------------------------------------------------------- */
+    const u = (id, w = 800) =>
+      `https://images.unsplash.com/photo-${id}?w=${w}&q=80&auto=format&fit=crop`;
+
     const galleryMoments = [
-        {
-            rowLabel: "TOP ROW",
-            title: "🎭 Colorful Costume Fiesta",
-            description: "A group of children in colorful costumes performing on a stage with balloons and decorations.",
-            placeholderShort: "Colorful Costumes + Balloons",
-            badgeIcon: "fa-star"
-        },
-        {
-            rowLabel: "SECOND ROW",
-            title: "💃 Red & White Rhythms",
-            description: "Children in red and white uniforms dancing on a wooden floor with pure energy.",
-            placeholderShort: "Red & White Dance",
-            badgeIcon: "fa-shoe-prints"
-        },
-        {
-            rowLabel: "THIRD ROW",
-            title: "🪖 Camouflage Squad",
-            description: "Children in camouflage uniforms standing in perfect formation, disciplined & proud.",
-            placeholderShort: "Camouflage Formation",
-            badgeIcon: "fa-flag"
-        },
-        {
-            rowLabel: "FOURTH ROW",
-            title: "🎵 Musical Magic",
-            description: "Children in various colored outfits performing on a stage with musical instruments.",
-            placeholderShort: "Instruments & Colors",
-            badgeIcon: "fa-drumstick-bite"
-        },
-        {
-            rowLabel: "FIFTH ROW",
-            title: "💚 Green & Yellow Harmony",
-            description: "Children in green and yellow costumes performing on a stage with a large screen behind them.",
-            placeholderShort: "Green Yellow Stage",
-            badgeIcon: "fa-leaf"
-        },
-        {
-            rowLabel: "SIXTH ROW",
-            title: "🧡 Orange & Blue Energy",
-            description: "Children in orange and blue costumes performing on a stage with a large screen behind them.",
-            placeholderShort: "Orange Blue Screen",
-            badgeIcon: "fa-sun"
-        },
-        {
-            rowLabel: "SEVENTH ROW",
-            title: "💗 Pink & Purple Dream",
-            description: "Children in pink and purple costumes performing on a stage with a large screen behind them.",
-            placeholderShort: "Pink Purple Magic",
-            badgeIcon: "fa-flower"
-        },
-        {
-            rowLabel: "EIGHTH ROW",
-            title: "⚫⚪ Black & White Elegance",
-            description: "Children in black and white costumes performing on a stage with a large screen behind them.",
-            placeholderShort: "Monochrome Performance",
-            badgeIcon: "fa-circle-half-stroke"
-        },
-        {
-            rowLabel: "NINTH ROW",
-            title: "🤎 Brown & Beige Warmth",
-            description: "Children in brown and beige costumes performing on a stage with a large screen behind them.",
-            placeholderShort: "Earthy Tones Show",
-            badgeIcon: "fa-tree"
-        },
-        {
-            rowLabel: "TENTH ROW",
-            title: "🌈 Rainbow Radiance",
-            description: "Children in various colors performing on a stage with a large screen behind them.",
-            placeholderShort: "Vibrant Colors Finale",
-            badgeIcon: "fa-rainbow"
-        }
+      /* ============ NURSING (10) ============ */
+      {
+        type: "nursing",
+        rowLabel: "NURSING",
+        title: "🏥 Hospital Bedside Care",
+        description: "Nursing students learning patient care, vitals monitoring, and bedside manner under expert supervision.",
+        image: u("1584515933487-779824d29309"),
+        badgeIcon: "fa-hospital",
+        tags: ["🛏 Bedside Care", "💉 Patient Vitals"]
+      },
+      {
+        type: "nursing",
+        rowLabel: "NURSING",
+        title: "👩‍⚕️ Nursing Team in Action",
+        description: "Coordination and teamwork — nursing students working with hospital staff during clinical postings.",
+        image: u("1576091160399-112ba8d25d1d"),
+        badgeIcon: "fa-user-nurse",
+        tags: ["👥 Teamwork", "🏥 Clinical"]
+      },
+      {
+        type: "nursing",
+        rowLabel: "NURSING",
+        title: "📚 Classroom Learning",
+        description: "Interactive sessions on anatomy, physiology, and patient care fundamentals in our modern classroom.",
+        image: u("1576091160550-2173dba999ef"),
+        badgeIcon: "fa-book-medical",
+        tags: ["📖 Theory Class", "🧬 Anatomy"]
+      },
+      {
+        type: "nursing",
+        rowLabel: "NURSING",
+        title: "🎓 Nursing Students",
+        description: "Our future nurses — ready to serve with compassion, skill, and professional dedication.",
+        image: u("1579684385127-1ef15d508118"),
+        badgeIcon: "fa-graduation-cap",
+        tags: ["🎓 Students", "💪 Training"]
+      },
+      {
+        type: "nursing",
+        rowLabel: "NURSING",
+        title: "🩺 Doctor & Nurse Collaboration",
+        description: "Learning the critical doctor-nurse coordination that makes patient care successful.",
+        image: u("1519494026892-80bbd2d6fd0d"),
+        badgeIcon: "fa-stethoscope",
+        tags: ["🩺 Doctor", "💊 Care Team"]
+      },
+      {
+        type: "nursing",
+        rowLabel: "NURSING",
+        title: "👶 Newborn & Maternal Care",
+        description: "Specialised midwifery training — newborn care, maternal health, and prenatal check-ups.",
+        image: u("1519689680058-324335c77eba"),
+        badgeIcon: "fa-baby",
+        tags: ["👶 Newborn", "🤰 Midwifery"]
+      },
+      {
+        type: "nursing",
+        rowLabel: "NURSING",
+        title: "🏥 Hospital Ward Training",
+        description: "Real hospital environment exposure — patient rounds, ward management, and clinical protocols.",
+        image: u("1587351021759-3e566b6af7cc"),
+        badgeIcon: "fa-bed-pulse",
+        tags: ["🏥 Ward Duty", "📋 Patient Care"]
+      },
+      {
+        type: "nursing",
+        rowLabel: "NURSING",
+        title: "🧪 Medical Lab Exposure",
+        description: "Understanding diagnostic procedures, lab reports, and their role in patient care.",
+        image: u("1559757148-5c350d0d3c56"),
+        badgeIcon: "fa-flask",
+        tags: ["🧪 Lab Work", "🔬 Diagnostics"]
+      },
+      {
+        type: "nursing",
+        rowLabel: "NURSING",
+        title: "🩸 Anatomy & Physiology",
+        description: "Deep dive into human anatomy, physiology, and clinical foundations using models and diagrams.",
+        image: u("1530026405186-ed1f139313f8"),
+        badgeIcon: "fa-heart-pulse",
+        tags: ["🧬 Anatomy", "❤️ Physiology"]
+      },
+      {
+        type: "nursing",
+        rowLabel: "NURSING",
+        title: "🎓 Convocation & Farewell",
+        description: "Celebrating the proud moment when our nursing students graduate as professional nurses.",
+        image: u("1523050854058-8df90110c9f1"),
+        badgeIcon: "fa-graduation-cap",
+        tags: ["🎓 Graduation", "🌟 Farewell"]
+      },
+
+      /* ============ PHARMACY (10) ============ */
+      {
+        type: "pharmacy",
+        rowLabel: "PHARMACY",
+        title: "💊 Pharmacy Counter",
+        description: "Our pharmacy lab and dispensing counter — hands-on training in medicine handling and patient counselling.",
+        image: u("1587854692152-cbe660dbde88"),
+        badgeIcon: "fa-prescription-bottle-medical",
+        tags: ["💊 Dispensing", "🏪 Pharmacy"]
+      },
+      {
+        type: "pharmacy",
+        rowLabel: "PHARMACY",
+        title: "💉 Medicines & Formulations",
+        description: "Study of dosage forms — tablets, capsules, syrups, and their proper handling and storage.",
+        image: u("1584308666744-24d5c474f2ae"),
+        badgeIcon: "fa-capsules",
+        tags: ["💊 Dosage Forms", "📦 Storage"]
+      },
+      {
+        type: "pharmacy",
+        rowLabel: "PHARMACY",
+        title: "👨‍🔬 Pharmacist at Work",
+        description: "Learning the critical role of a pharmacist in healthcare — from prescription to patient safety.",
+        image: u("1631549916768-4119b2e5f926"),
+        badgeIcon: "fa-user-doctor",
+        tags: ["👨‍⚕️ Pharmacist", "⚕️ Patient Safety"]
+      },
+      {
+        type: "pharmacy",
+        rowLabel: "PHARMACY",
+        title: "🧪 Pharmaceutical Lab",
+        description: "Working with reagents, formulations, and testing in our well-equipped pharmaceutical chemistry lab.",
+        image: u("1532187863486-abf9dbad1b69"),
+        badgeIcon: "fa-flask-vial",
+        tags: ["🧪 Chemistry Lab", "⚗️ Formulation"]
+      },
+      {
+        type: "pharmacy",
+        rowLabel: "PHARMACY",
+        title: "🏪 Pharmacy Store Setup",
+        description: "Training in retail pharmacy management — stock, billing, and inventory control.",
+        image: u("1576602976047-174e57a47881"),
+        badgeIcon: "fa-store",
+        tags: ["🏪 Store", "📊 Inventory"]
+      },
+      {
+        type: "pharmacy",
+        rowLabel: "PHARMACY",
+        title: "💊 Pills & Healthcare",
+        description: "Understanding medicine composition, pharmacology, and how drugs interact with the body.",
+        image: u("1471864190281-a93a3070b6de"),
+        badgeIcon: "fa-pills",
+        tags: ["💊 Pharmacology", "🔬 Drugs"]
+      },
+      {
+        type: "pharmacy",
+        rowLabel: "PHARMACY",
+        title: "📚 Pharmacy Library Session",
+        description: "Reference study of pharmacopoeia, drug manuals, and modern pharmaceutical research journals.",
+        image: u("1580281658626-ee379f3cce93"),
+        badgeIcon: "fa-book-medical",
+        tags: ["📖 Reference", "🔬 Research"]
+      },
+      {
+        type: "pharmacy",
+        rowLabel: "PHARMACY",
+        title: "🧬 Research & Development",
+        description: "Students exploring drug research, quality testing, and new formulation development.",
+        image: u("1583912267550-d6c2ac3196c0"),
+        badgeIcon: "fa-microscope",
+        tags: ["🔬 R&D", "🧬 Testing"]
+      },
+      {
+        type: "pharmacy",
+        rowLabel: "PHARMACY",
+        title: "⚗️ Formulation Lab",
+        description: "Preparing ointments, syrups, and tablets — hands-on pharmaceutics training.",
+        image: u("1579154204601-01588f351e67"),
+        badgeIcon: "fa-prescription-bottle",
+        tags: ["⚗️ Pharmaceutics", "🧴 Formulation"]
+      },
+      {
+        type: "pharmacy",
+        rowLabel: "PHARMACY",
+        title: "💊 Pharmacognosy Study",
+        description: "Study of medicinal plants and natural drug sources — traditional knowledge meets modern pharmacy.",
+        image: u("1585435557343-3b092031a831"),
+        badgeIcon: "fa-leaf",
+        tags: ["🌿 Herbal", "💊 Natural Drugs"]
+      }
     ];
 
-    // Helper: generate friendly placeholder image URL using placehold.co
-    // High quality, shows dynamic readable text that resembles the theme
-    // Dimensions 600x450, clean background with playful pattern gradient via text
-    // We'll also use subtle background color variants for fun.
-    function getPlaceholderImage(shortText, rowIndex) {
-        // encode text for URL
-        let displayText = shortText.replace(/ /g, '+').substring(0, 28);
-        // Add small playful emoji preview? Not needed but works.
-        // Use placehold.co with soft background and readable text
-        // Background colors based on row index for variety
-        const bgColors = [
-            "FFEAD2", "FFDDC1", "FFD1DC", "C9E4DE", "C9E4C5", 
-            "F9E7C2", "E0BBE4", "B5E3D5", "FFD966", "FADADD"
-        ];
-        const bg = bgColors[rowIndex % bgColors.length];
-        const textColor = "5C3A21";
-        // create catchy description - max 35 chars readable
-        const cleanText = displayText.length > 30 ? displayText.substring(0,27)+".." : displayText;
-        // high quality png placeholder
-        return `https://placehold.co/600x450/${bg}/${textColor}?text=${cleanText}&font=montserrat`;
-        // we also add fallback if needed, but all modern browsers support placehold.co
-    }
+    /* --------------------------------------------------------------
+       Render
+       -------------------------------------------------------------- */
+    const grid = document.getElementById('momentsGrid');
+    const filterTabs = document.getElementById('filterTabs');
+    if (!grid) return;
 
-    // get grid container
-    const gridContainer = document.getElementById('momentsGrid');
-    
-    // build all 10 cards with full details
-    function buildGallery() {
-        if (!gridContainer) return;
-        let cardsHTML = '';
-        
-        galleryMoments.forEach((moment, idx) => {
-            // row number display text
-            const rowNumber = idx + 1;
-            const rowDisplay = `${moment.rowLabel}`;
-            // get image link
-            const imgSrc = getPlaceholderImage(moment.placeholderShort, idx);
-            
-            // optional extra tags (highlights from description)
-            let extraTags = [];
-            if (moment.description.includes("balloons")) extraTags.push("🎈 Balloons");
-            if (moment.description.includes("musical instruments")) extraTags.push("🎸 Instruments");
-            if (moment.description.includes("large screen")) extraTags.push("📺 LED Screen");
-            if (moment.description.includes("wooden floor")) extraTags.push("🪵 Wooden Floor");
-            if (moment.description.includes("formation")) extraTags.push("🔷 Formation");
-            if (moment.description.includes("costumes")) extraTags.push("👗 Costumes");
-            // custom additions to reflect unique props
-            if (idx === 0) extraTags.push("🎈 Stage Decor");
-            if (idx === 4 || idx === 5 || idx === 6 || idx === 7 || idx === 8 || idx === 9) extraTags.push("🎥 Backdrop Screen");
-            
-            // unique tags limited to 2
-            const tagsToShow = extraTags.slice(0, 2);
-            
-            const tagsMarkup = tagsToShow.length ? 
-                `<div class="moment-tag">
-                    ${tagsToShow.map(tag => `<span>${tag}</span>`).join('')}
-                </div>` : 
-                `<div class="moment-tag"><span>✨ Live moment</span></div>`;
-            
-            cardsHTML += `
-                <div class="moment-card">
-                    <div class="card-img">
-                        <div class="row-badge">
-                            <i class="fas ${moment.badgeIcon}" style="font-size:0.7rem; margin-right:4px;"></i> ${rowDisplay}
-                        </div>
-                        <img 
-                            src="${imgSrc}" 
-                            alt="${moment.title} - ${moment.description}"
-                            loading="lazy"
-                            onerror="this.onerror=null;this.src='https://placehold.co/600x450/FDEBD0/8B5A2B?text=Kids+Magic+Moment';"
-                        >
-                    </div>
-                    <div class="card-content">
-                        <div class="card-title">
-                            <i class="fas ${moment.badgeIcon}"></i>
-                            <span>${moment.title}</span>
-                        </div>
-                        <div class="divider-light"></div>
-                        <p class="card-description">${moment.description}</p>
-                        ${tagsMarkup}
-                    </div>
-                </div>
-            `;
-        });
-        
-        gridContainer.innerHTML = cardsHTML;
-    }
-    
-    buildGallery();
-</script>
+    let cardsHTML = '';
 
-<!-- 
-    Additional micro-interaction: ensure all images look crisp and themed.
-    The gallery matches the original 'OUR GALLERY' with "Our Best Moments With Your Kids"
-    Each of the 10 rows from the screenshot is represented as a unique card.
-    Fully responsive: Mobile (1 col), Tablet (2 col), Desktop (3 col), Large (4 col)
-    Descriptions are accurate according to the file content:
-    Top Row (colorful costumes balloons) up to Tenth Row (various colors screen)
-    Placeholder images display descriptive text + stage vibe.
--->
-     <%-include("partials/footer.ejs") %>
+    galleryMoments.forEach((m, idx) => {
+      const badgeClass = m.type === 'pharmacy' ? 'pharmacy' : '';
+      const tagsHTML = m.tags && m.tags.length
+        ? `<div class="moment-tag">${m.tags.slice(0, 2).map(t => `<span>${t}</span>`).join('')}</div>`
+        : `<div class="moment-tag"><span>✨ Moments</span></div>`;
+
+      cardsHTML += `
+        <div class="moment-card" data-type="${m.type}" style="animation-delay:${(idx % 6) * 40}ms;">
+          <div class="card-img">
+            <div class="row-badge ${badgeClass}">
+              <i class="fas ${m.badgeIcon}"></i> ${m.rowLabel}
+            </div>
+            <img
+              src="${m.image}"
+              alt="${m.title}"
+              loading="lazy"
+              onerror="this.onerror=null;this.src='https://placehold.co/600x450/E6F4F1/115E59?text=Image+Unavailable';"
+            >
+          </div>
+          <div class="card-content">
+            <div class="card-title">
+              <i class="fas ${m.badgeIcon}"></i>
+              <span>${m.title}</span>
+            </div>
+            <div class="divider-light"></div>
+            <p class="card-description">${m.description}</p>
+            ${tagsHTML}
+          </div>
+        </div>
+      `;
+    });
+
+    grid.innerHTML = cardsHTML;
+
+    /* --------------------------------------------------------------
+       Counts
+       -------------------------------------------------------------- */
+    const countAll       = document.getElementById('countAll');
+    const countNursing   = document.getElementById('countNursing');
+    const countPharmacy  = document.getElementById('countPharmacy');
+
+    const nursingCount  = galleryMoments.filter(m => m.type === 'nursing').length;
+    const pharmacyCount = galleryMoments.filter(m => m.type === 'pharmacy').length;
+
+    countAll.textContent       = galleryMoments.length;
+    countNursing.textContent   = nursingCount;
+    countPharmacy.textContent  = pharmacyCount;
+
+    /* --------------------------------------------------------------
+       Filter logic
+       -------------------------------------------------------------- */
+    filterTabs.addEventListener('click', function (e) {
+      const btn = e.target.closest('.filter-btn');
+      if (!btn) return;
+
+      filterTabs.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.dataset.filter;
+
+      document.querySelectorAll('.moment-card').forEach(card => {
+        if (filter === 'all' || card.dataset.type === filter) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    });
+
+    console.log('Gallery loaded:', galleryMoments.length, 'images',
+                `(${nursingCount} nursing, ${pharmacyCount} pharmacy)`);
+  })();
+  </script>
+
 </body>
 </html>

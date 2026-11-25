@@ -450,3 +450,34 @@
 .nav-links.active {
     pointer-events: auto;
 }
+/* Dropdown click support */
+.dropdown.active-drop .dropdown-menu {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* Desktop dropdown */
+@media (min-width: 981px) {
+
+    .dropdown {
+        position: relative;
+    }
+
+    .dropdown-menu {
+        display: none;
+    }
+
+    .dropdown.active-drop .dropdown-menu {
+        display: block;
+    }
+
+}
+
+/* Dropdown menu links */
+.dropdown-menu li a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}

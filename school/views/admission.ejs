@@ -1,201 +1,980 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0f766e">
+  <title>Nursing Admission Form | Maa Maturani Devi Nursing</title>
 
-    <link rel="stylesheet" href="/school/css/admission.css">
-    <script src="/school/js/Admission.js" defer></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    /* ============================================================
+       NURSING ADMISSION FORM — RESPONSIVE
+       ============================================================ */
+    :root {
+      --primary:      #0f766e;
+      --primary-dark: #115e59;
+      --primary-soft: #ccfbf1;
+      --accent:       #ea580c;
+      --accent-soft:  #fed7aa;
+      --ink:          #134e4a;
+      --ink-2:        #475569;
+      --muted:        #64748b;
+      --bg:           #f4f8f7;
+      --card:         #ffffff;
+      --line:         #dbe7e4;
+      --danger:       #dc2626;
+      --success:      #16a34a;
+      --shadow-sm:    0 2px 10px rgba(15, 118, 110, .06);
+      --shadow-md:    0 14px 40px rgba(15, 118, 110, .14);
+      --radius:       16px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      background:
+        radial-gradient(circle at 10% 0%, #e6f7f4, transparent 40%),
+        radial-gradient(circle at 90% 100%, #fff7ed, transparent 40%),
+        var(--bg);
+      color: var(--ink);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+    }
+
+    a { color: inherit; }
+
+    /* ============================================================
+       CONTAINER
+       ============================================================ */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 32px 20px 52px;
+    }
+
+    /* ============================================================
+       FORM CARD
+       ============================================================ */
+    .form-card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--line);
+      overflow: hidden;
+    }
+
+    /* ---------- Header ---------- */
+    .form-header {
+      position: relative;
+      padding: 30px 28px 26px;
+      background:
+        radial-gradient(circle at 95% 10%, rgba(251, 146, 60, .28), transparent 55%),
+        linear-gradient(135deg, #0f766e 0%, #115e59 60%, #0d4d47 100%);
+      color: #fff;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .form-header::after {
+      content: "\f0f8"; /* stethoscope */
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      position: absolute;
+      right: -22px;
+      bottom: -34px;
+      font-size: 150px;
+      line-height: 1;
+      color: rgba(255, 255, 255, .06);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .form-header h2 {
+      margin: 0 0 8px;
+      font-size: clamp(1.35rem, 3vw + .4rem, 1.8rem);
+      font-weight: 700;
+      letter-spacing: .2px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .form-header h2 i { color: var(--accent-soft); font-size: .9em; }
+
+    .form-header p {
+      margin: 0 0 14px;
+      font-size: .93rem;
+      color: #d8f5f0;
+      max-width: 620px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, .14);
+      border: 1px solid rgba(255, 255, 255, .3);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .2px;
+      color: #fff;
+    }
+
+    .badge i { color: var(--accent-soft); font-size: .8rem; }
+
+    /* ---------- Body ---------- */
+    .form-body { padding: 28px; }
+
+    /* ---------- Row layout ---------- */
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .form-group.full-width {
+      grid-column: 1 / -1;
+      margin-bottom: 18px;
+    }
+
+    /* ---------- Label ---------- */
+    label {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: .85rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 7px;
+    }
+
+    label i { color: var(--accent); font-size: .82rem; }
+
+    .req { color: var(--danger); font-weight: 700; }
+
+    /* ---------- Inputs ---------- */
+    input[type="text"],
+    input[type="tel"],
+    input[type="email"],
+    input[type="date"],
+    input[type="number"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 11px 14px;
+      font-family: inherit;
+      font-size: .92rem;
+      color: var(--ink);
+      background: #fafefd;
+      border: 1.5px solid var(--line);
+      border-radius: 10px;
+      transition: border-color .2s, box-shadow .2s, background .2s;
+      outline: none;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    select {
+      background-image:
+        linear-gradient(45deg, transparent 50%, var(--primary) 50%),
+        linear-gradient(-45deg, transparent 50%, var(--primary) 50%);
+      background-position:
+        calc(100% - 18px) 50%,
+        calc(100% - 13px) 50%;
+      background-size: 5px 5px, 5px 5px;
+      background-repeat: no-repeat;
+      padding-right: 36px;
+      cursor: pointer;
+    }
+
+    textarea { resize: vertical; min-height: 70px; }
+
+    input::placeholder,
+    textarea::placeholder { color: #94a3b8; }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--primary);
+      background: #fff;
+      box-shadow: 0 0 0 4px rgba(15, 118, 110, .12);
+    }
+
+    input.invalid,
+    select.invalid,
+    textarea.invalid {
+      border-color: var(--danger);
+      background: #fff5f5;
+      box-shadow: 0 0 0 4px rgba(220, 38, 38, .1);
+    }
+
+    .field-error {
+      display: none;
+      margin-top: 5px;
+      font-size: .78rem;
+      color: var(--danger);
+      font-weight: 500;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .field-error.show { display: inline-flex; }
+
+    /* ---------- Radio pills ---------- */
+    .radio-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .radio-pill {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 16px;
+      font-size: .88rem;
+      font-weight: 500;
+      color: var(--ink-2);
+      background: #fafefd;
+      border: 1.5px solid var(--line);
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all .2s;
+      user-select: none;
+    }
+
+    .radio-pill:hover { border-color: var(--primary-soft); background: #f0fdfa; }
+
+    .radio-pill input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .radio-pill input:checked + span {
+      color: #fff;
+    }
+
+    .radio-pill:has(input:checked) {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(15, 118, 110, .28);
+    }
+
+    .radio-pill i { font-size: .85rem; }
+
+    .radio-pill:has(input:checked) i { color: var(--accent-soft); }
+
+    /* ---------- Checkbox group (subjects) ---------- */
+    .checkbox-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .check-pill {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 16px;
+      font-size: .88rem;
+      font-weight: 500;
+      color: var(--ink-2);
+      background: #fafefd;
+      border: 1.5px solid var(--line);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all .2s;
+      user-select: none;
+    }
+
+    .check-pill:hover { border-color: var(--primary-soft); background: #f0fdfa; }
+
+    .check-pill input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .check-pill:has(input:checked) {
+      background: #f0fdfa;
+      border-color: var(--primary);
+      color: var(--primary-dark);
+      font-weight: 600;
+    }
+
+    .check-pill:has(input:checked)::after {
+      content: "\f00c";
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      color: var(--primary);
+      font-size: .75rem;
+    }
+
+    .check-pill i { color: var(--primary); font-size: .85rem; }
+
+    /* ---------- Declaration ---------- */
+    .declaration {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 14px 16px;
+      background: #f0fdfa;
+      border: 1px dashed #99f6e4;
+      border-radius: 10px;
+      font-size: .85rem;
+      color: var(--ink-2);
+      line-height: 1.5;
+      margin-bottom: 6px;
+    }
+
+    .declaration input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      margin-top: 1px;
+      flex-shrink: 0;
+      accent-color: var(--primary);
+      cursor: pointer;
+    }
+
+    .declaration label {
+      margin: 0;
+      font-weight: 500;
+      cursor: pointer;
+      font-size: .85rem;
+      color: var(--ink-2);
+    }
+
+    .declaration label strong { color: var(--primary-dark); }
+
+    /* ---------- Submit button ---------- */
+    .btn-submit {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      padding: 14px 24px;
+      margin-top: 8px;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(15, 118, 110, .28);
+      transition: transform .2s, box-shadow .2s, background .2s;
+    }
+
+    .btn-submit:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(15, 118, 110, .35);
+    }
+
+    .btn-submit:active:not(:disabled) { transform: translateY(0); }
+
+    .btn-submit:disabled {
+      opacity: .7;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+
+    /* ---------- Status message ---------- */
+    .status-message {
+      margin-top: 16px;
+      padding: 12px 16px;
+      border-radius: 10px;
+      font-size: .9rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .status-message.success {
+      background: #dcfce7;
+      color: #166534;
+      border: 1px solid #86efac;
+    }
+
+    .status-message.error {
+      background: #fee2e2;
+      color: #991b1b;
+      border: 1px solid #fca5a5;
+    }
+
+    /* ---------- Footer note ---------- */
+    .info-footer {
+      margin-top: 22px;
+      padding: 14px 16px;
+      background: #f8fafc;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      font-size: .82rem;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+      line-height: 1.5;
+    }
+
+    .info-footer i { color: var(--primary); }
+    .info-footer i + * { margin-left: 2px; }
+
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
+
+    /* Tablet */
+    @media (max-width: 720px) {
+      .container { padding: 22px 16px 44px; }
+      .form-header { padding: 26px 22px 22px; }
+      .form-header::after { font-size: 110px; right: -12px; bottom: -18px; }
+      .form-body { padding: 22px 20px; }
+      .form-row { gap: 14px; margin-bottom: 14px; }
+    }
+
+    /* Mobile: single column */
+    @media (max-width: 600px) {
+      .form-row { grid-template-columns: 1fr; gap: 14px; }
+      .form-group.full-width { grid-column: auto; }
+    }
+
+    /* Small phones */
+    @media (max-width: 380px) {
+      .container { padding: 16px 12px 36px; }
+      .form-header { padding: 22px 18px; }
+      .form-body { padding: 18px 16px; }
+      label { font-size: .82rem; }
+      input, select, textarea { font-size: .88rem; padding: 10px 12px; }
+      .radio-pill, .check-pill { padding: 8px 14px; font-size: .82rem; }
+      .btn-submit { font-size: .92rem; padding: 13px 18px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<%- include("partials/navbar.ejs") %>
+  <!-- ====== NAVBAR (EJS include — project ke saath compatible) ====== -->
+  <%- include("partials/navbar.ejs") %>
 
-<div class="container">
+  <div class="container">
     <div class="form-card">
 
-        <div class="form-header">
-            <h2><i class="fas fa-pen-alt"></i> Admission Form</h2>
-
-            <p>
-                Fill the details below to secure your child's seat.
-                Our counsellor will contact you within 24 hours.
-            </p>
-
-            <div class="badge">
-                <i class="fas fa-star-of-life"></i>
-                Limited seats | Early bird discount available
-            </div>
+      <!-- ==================== HEADER ==================== -->
+      <div class="form-header">
+        <h2><i class="fas fa-user-nurse"></i> Nursing Admission Form</h2>
+        <p>
+          ANM / JNAM course ke liye apna application submit karein.
+          Admission counsellor 24 ghante ke andar aapse sampark karega.
+        </p>
+        <div class="badge">
+          <i class="fas fa-star-of-life"></i>
+          Limited Seats | Session 2025–26 | Early bird benefit
         </div>
+      </div>
 
-        <div class="form-body">
+      <!-- ==================== BODY ==================== -->
+      <div class="form-body">
 
-            <!-- FORM START -->
-            <form 
-                id="admissionForm"
-                action="/admission"
-                method="POST"
-                novalidate
-            >
+        <form id="nursingAdmissionForm"
+              action="/nursing/admission"
+              method="POST"
+              novalidate>
 
-                <div class="form-row">
-
-                    <div class="form-group">
-                        <label>
-                            <i class="fas fa-user-graduate"></i>
-                            Student's Full Name *
-                        </label>
-
-                        <input 
-                            type="text"
-                            id="studentName"
-                            name="studentName"
-                            placeholder="e.g., Aarav Sharma"
-                            required
-                        >
-                    </div>
-
-                    <div class="form-group">
-                        <label>
-                            <i class="fas fa-calendar-alt"></i>
-                            Date of Birth *
-                        </label>
-
-                        <input 
-                            type="date"
-                            id="dob"
-                            name="dob"
-                            required
-                        >
-                    </div>
-
-                </div>
-
-                <div class="form-row">
-
-                    <div class="form-group">
-                        <label>
-                            <i class="fas fa-chalkboard"></i>
-                            Applying for Class *
-                        </label>
-
-                        <select 
-                            id="classSelect"
-                            name="classSelect"
-                            required
-                        >
-                            <option value="" disabled selected>
-                                -- Select Class --
-                            </option>
-
-                            <option>Nursery</option>
-                            <option>KG</option>
-                            <option>Class 1</option>
-                            <option>Class 2</option>
-                            <option>Class 3</option>
-                            <option>Class 4</option>
-                            <option>Class 5</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label>
-                            <i class="fas fa-user-friends"></i>
-                            Parent / Guardian Name *
-                        </label>
-
-                        <input 
-                            type="text"
-                            id="parentName"
-                            name="parentName"
-                            placeholder="Full name"
-                            required
-                        >
-                    </div>
-
-                </div>
-
-                <div class="form-row">
-
-                    <div class="form-group">
-                        <label>
-                            <i class="fas fa-phone-alt"></i>
-                            Mobile Number *
-                        </label>
-
-                        <input 
-                            type="tel"
-                            id="phone"
-                            name="phone"
-                            placeholder="10-digit mobile number"
-                            required
-                        >
-                    </div>
-
-                    <div class="form-group">
-                        <label>
-                            <i class="fas fa-envelope"></i>
-                            Email Address *
-                        </label>
-
-                        <input 
-                            type="email"
-                            id="email"
-                            name="email"
-                            placeholder="example@domain.com"
-                            required
-                        >
-                    </div>
-
-                </div>
-
-                <div class="form-group full-width">
-
-                    <label>
-                        <i class="fas fa-home"></i>
-                        Residential Address (Optional)
-                    </label>
-
-                    <textarea
-                        id="address"
-                        name="address"
-                        rows="2"
-                        placeholder="Street, city, pin code"
-                    ></textarea>
-
-                </div>
-
-                <button type="submit" class="btn-submit">
-                    <i class="fas fa-paper-plane"></i>
-                    Submit Application
-                </button>
-
-                <div 
-                    id="formStatus"
-                    class="status-message"
-                    style="display: none;"
-                ></div>
-
-            </form>
-            <!-- FORM END -->
-
-            <div class="info-footer">
-                <i class="fas fa-shield-alt"></i>
-                Your information is secure. We respect privacy.
-
-                <i class="fas fa-clock" style="margin-left: 12px;"></i>
-                Response within 24 hours
+          <!-- ============ Row 1: Name + DOB ============ -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="studentName">
+                <i class="fas fa-user-graduate"></i>
+                Student's Full Name <span class="req">*</span>
+              </label>
+              <input type="text" id="studentName" name="studentName"
+                     placeholder="e.g., Priya Verma" autocomplete="name" required>
+              <span class="field-error" id="err-studentName">
+                <i class="fas fa-circle-exclamation"></i> Please enter full name (min 3 letters)
+              </span>
             </div>
 
+            <div class="form-group">
+              <label for="dob">
+                <i class="fas fa-calendar-alt"></i>
+                Date of Birth <span class="req">*</span>
+              </label>
+              <input type="date" id="dob" name="dob" required>
+              <span class="field-error" id="err-dob">
+                <i class="fas fa-circle-exclamation"></i> Minimum age is 17 years
+              </span>
+            </div>
+          </div>
+
+          <!-- ============ Row 2: Gender + Course ============ -->
+          <div class="form-row">
+            <div class="form-group">
+              <label>
+                <i class="fas fa-venus-mars"></i>
+                Gender <span class="req">*</span>
+              </label>
+              <div class="radio-group">
+                <label class="radio-pill">
+                  <input type="radio" name="gender" value="female" required>
+                  <span><i class="fas fa-venus"></i> Female</span>
+                </label>
+                <label class="radio-pill">
+                  <input type="radio" name="gender" value="male">
+                  <span><i class="fas fa-mars"></i> Male</span>
+                </label>
+                <label class="radio-pill">
+                  <input type="radio" name="gender" value="other">
+                  <span><i class="fas fa-genderless"></i> Other</span>
+                </label>
+              </div>
+              <span class="field-error" id="err-gender">
+                <i class="fas fa-circle-exclamation"></i> Please select gender
+              </span>
+            </div>
+
+            <div class="form-group">
+              <label for="course">
+                <i class="fas fa-book-medical"></i>
+                Course Applied For <span class="req">*</span>
+              </label>
+              <select id="course" name="course" required>
+                <option value="" disabled selected>-- Select Course --</option>
+                <option value="anm">ANM – Auxiliary Nurse Midwifery (2 Years)</option>
+                <option value="jnam">JNAM – Junior Nurse &amp; Midwifery</option>
+              </select>
+              <span class="field-error" id="err-course">
+                <i class="fas fa-circle-exclamation"></i> Please select a course
+              </span>
+            </div>
+          </div>
+
+          <!-- ============ Row 3: Parent + Phone ============ -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="parentName">
+                <i class="fas fa-user-friends"></i>
+                Parent / Guardian Name <span class="req">*</span>
+              </label>
+              <input type="text" id="parentName" name="parentName"
+                     placeholder="Full name" required>
+              <span class="field-error" id="err-parentName">
+                <i class="fas fa-circle-exclamation"></i> Please enter parent/guardian name
+              </span>
+            </div>
+
+            <div class="form-group">
+              <label for="phone">
+                <i class="fas fa-phone-alt"></i>
+                Mobile Number <span class="req">*</span>
+              </label>
+              <input type="tel" id="phone" name="phone"
+                     placeholder="10-digit mobile number"
+                     inputmode="numeric" maxlength="10" required>
+              <span class="field-error" id="err-phone">
+                <i class="fas fa-circle-exclamation"></i> Enter valid 10-digit mobile number
+              </span>
+            </div>
+          </div>
+
+          <!-- ============ Row 4: Email + Category ============ -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">
+                <i class="fas fa-envelope"></i>
+                Email Address <span class="req">*</span>
+              </label>
+              <input type="email" id="email" name="email"
+                     placeholder="example@domain.com" autocomplete="email" required>
+              <span class="field-error" id="err-email">
+                <i class="fas fa-circle-exclamation"></i> Please enter a valid email
+              </span>
+            </div>
+
+            <div class="form-group">
+              <label for="category">
+                <i class="fas fa-id-badge"></i>
+                Category <span class="req">*</span>
+              </label>
+              <select id="category" name="category" required>
+                <option value="" disabled selected>-- Select Category --</option>
+                <option value="general">General</option>
+                <option value="obc">OBC</option>
+                <option value="sc">SC</option>
+                <option value="st">ST</option>
+                <option value="ews">EWS</option>
+              </select>
+              <span class="field-error" id="err-category">
+                <i class="fas fa-circle-exclamation"></i> Please select category
+              </span>
+            </div>
+          </div>
+
+          <!-- ============ Row 5: 12th Board + Percentage ============ -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="board">
+                <i class="fas fa-school"></i>
+                12th Board / University <span class="req">*</span>
+              </label>
+              <input type="text" id="board" name="board"
+                     placeholder="e.g., UP Board, CBSE, ICSE" required>
+              <span class="field-error" id="err-board">
+                <i class="fas fa-circle-exclamation"></i> Please enter your 12th board
+              </span>
+            </div>
+
+            <div class="form-group">
+              <label for="percentage">
+                <i class="fas fa-percent"></i>
+                12th Percentage <span class="req">*</span>
+              </label>
+              <input type="number" id="percentage" name="percentage"
+                     placeholder="e.g., 72" min="0" max="100" step="0.01" required>
+              <span class="field-error" id="err-percentage">
+                <i class="fas fa-circle-exclamation"></i> Enter percentage (0–100)
+              </span>
+            </div>
+          </div>
+
+          <!-- ============ Subjects (full width) ============ -->
+          <div class="form-group full-width">
+            <label>
+              <i class="fas fa-flask"></i>
+              12th Subjects Studied <span class="req">*</span>
+            </label>
+            <div class="checkbox-group">
+              <label class="check-pill">
+                <input type="checkbox" name="subjects" value="physics">
+                <span><i class="fas fa-atom"></i> Physics</span>
+              </label>
+              <label class="check-pill">
+                <input type="checkbox" name="subjects" value="chemistry">
+                <span><i class="fas fa-flask"></i> Chemistry</span>
+              </label>
+              <label class="check-pill">
+                <input type="checkbox" name="subjects" value="biology">
+                <span><i class="fas fa-dna"></i> Biology</span>
+              </label>
+              <label class="check-pill">
+                <input type="checkbox" name="subjects" value="maths">
+                <span><i class="fas fa-square-root-variable"></i> Mathematics</span>
+              </label>
+              <label class="check-pill">
+                <input type="checkbox" name="subjects" value="english">
+                <span><i class="fas fa-language"></i> English</span>
+              </label>
+            </div>
+            <span class="field-error" id="err-subjects">
+              <i class="fas fa-circle-exclamation"></i> Nursing admission ke liye Physics, Chemistry & Biology zaroori hain
+            </span>
+          </div>
+
+          <!-- ============ Hostel (full width) ============ -->
+          <div class="form-group full-width">
+            <label>
+              <i class="fas fa-bed"></i>
+              Hostel Facility Required?
+            </label>
+            <div class="radio-group">
+              <label class="radio-pill">
+                <input type="radio" name="hostel" value="yes" checked>
+                <span><i class="fas fa-check"></i> Yes, required</span>
+              </label>
+              <label class="radio-pill">
+                <input type="radio" name="hostel" value="no">
+                <span><i class="fas fa-times"></i> No, day scholar</span>
+              </label>
+            </div>
+          </div>
+
+          <!-- ============ Address (full width) ============ -->
+          <div class="form-group full-width">
+            <label for="address">
+              <i class="fas fa-home"></i>
+              Residential Address (Optional)
+            </label>
+            <textarea id="address" name="address" rows="2"
+                      placeholder="Village / Street, District, State – PIN code"></textarea>
+          </div>
+
+          <!-- ============ Declaration ============ -->
+          <div class="declaration">
+            <input type="checkbox" id="declaration" name="declaration" required>
+            <label for="declaration">
+              Main declare karta/karti hoon ki upar di gayi saari jaankari sach hai
+              aur main college ke <strong>discipline &amp; hostel rules</strong> ka
+              paalan karunga/karungi.
+            </label>
+          </div>
+          <span class="field-error" id="err-declaration" style="margin-bottom:10px;">
+            <i class="fas fa-circle-exclamation"></i> Please accept the declaration
+          </span>
+
+          <!-- ============ Submit ============ -->
+          <button type="submit" class="btn-submit" id="submitBtn">
+            <i class="fas fa-paper-plane"></i>
+            Submit Application
+          </button>
+
+          <div id="formStatus" class="status-message" style="display:none;" role="alert"></div>
+
+        </form>
+
+        <!-- ============ Info footer ============ -->
+        <div class="info-footer">
+          <span><i class="fas fa-shield-alt"></i> Your information is secure</span>
+          <span><i class="fas fa-clock"></i> Response within 24 hours</span>
+          <span><i class="fas fa-phone"></i> Admission Cell: +91-XXXXXXXXXX</span>
         </div>
+
+      </div>
     </div>
-</div>
+  </div>
 
-<%- include("partials/footer.ejs") %>
+  <!-- ====== FOOTER (EJS include) ====== -->
+  <%- include("partials/footer.ejs") %>
+
+  <!-- ============================================================
+       FORM VALIDATION JS (inline)
+       ============================================================ -->
+  <script>
+  (function () {
+    'use strict';
+
+    const form = document.getElementById('nursingAdmissionForm');
+    if (!form) return;
+
+    const statusBox = document.getElementById('formStatus');
+    const submitBtn = document.getElementById('submitBtn');
+
+    const $ = (id) => document.getElementById(id);
+
+    /* ---------- Helpers ---------- */
+    function showError(fieldId, errId) {
+      const field = $(fieldId);
+      const err   = $(errId);
+      if (field) field.classList.add('invalid');
+      if (err)   err.classList.add('show');
+    }
+
+    function clearError(fieldId, errId) {
+      const field = $(fieldId);
+      const err   = $(errId);
+      if (field) field.classList.remove('invalid');
+      if (err)   err.classList.remove('show');
+    }
+
+    function setStatus(msg, type) {
+      statusBox.textContent = msg;
+      statusBox.className = 'status-message ' + type;
+      statusBox.style.display = 'flex';
+      statusBox.innerHTML = (type === 'success'
+        ? '<i class="fas fa-circle-check"></i> '
+        : '<i class="fas fa-circle-exclamation"></i> ') + msg;
+    }
+
+    /* ---------- Individual validators ---------- */
+    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+    function validateName() {
+      const v = $('studentName').value.trim();
+      if (v.length < 3 || !/[a-zA-Z]/.test(v)) {
+        showError('studentName', 'err-studentName'); return false;
+      }
+      clearError('studentName', 'err-studentName'); return true;
+    }
+
+    function validateDob() {
+      const v = $('dob').value;
+      if (!v) { showError('dob', 'err-dob'); return false; }
+
+      const dob  = new Date(v);
+      const now  = new Date();
+      let age = now.getFullYear() - dob.getFullYear();
+      const m = now.getMonth() - dob.getMonth();
+      if (m < 0 || (m === 0 && now.getDate() < dob.getDate())) age--;
+
+      if (isNaN(dob.getTime()) || age < 17) {
+        showError('dob', 'err-dob'); return false;
+      }
+      clearError('dob', 'err-dob'); return true;
+    }
+
+    function validateGender() {
+      const ok = !!form.querySelector('input[name="gender"]:checked');
+      const grp = form.querySelector('.radio-group');
+      if (!ok) {
+        $('err-gender').classList.add('show');
+        return false;
+      }
+      $('err-gender').classList.remove('show');
+      return true;
+    }
+
+    function validateCourse() {
+      if (!$('course').value) { showError('course', 'err-course'); return false; }
+      clearError('course', 'err-course'); return true;
+    }
+
+    function validateParent() {
+      const v = $('parentName').value.trim();
+      if (v.length < 3) { showError('parentName', 'err-parentName'); return false; }
+      clearError('parentName', 'err-parentName'); return true;
+    }
+
+    function validatePhone() {
+      const v = $('phone').value.replace(/\D/g, '');
+      if (!/^[6-9]\d{9}$/.test(v)) { showError('phone', 'err-phone'); return false; }
+      clearError('phone', 'err-phone'); return true;
+    }
+
+    function validateEmail() {
+      if (!emailRe.test($('email').value.trim())) {
+        showError('email', 'err-email'); return false;
+      }
+      clearError('email', 'err-email'); return true;
+    }
+
+    function validateCategory() {
+      if (!$('category').value) { showError('category', 'err-category'); return false; }
+      clearError('category', 'err-category'); return true;
+    }
+
+    function validateBoard() {
+      if ($('board').value.trim().length < 2) {
+        showError('board', 'err-board'); return false;
+      }
+      clearError('board', 'err-board'); return true;
+    }
+
+    function validatePercentage() {
+      const v = parseFloat($('percentage').value);
+      if (isNaN(v) || v < 0 || v > 100) {
+        showError('percentage', 'err-percentage'); return false;
+      }
+      clearError('percentage', 'err-percentage'); return true;
+    }
+
+    function validateSubjects() {
+      const checked = [...form.querySelectorAll('input[name="subjects"]:checked')]
+        .map(el => el.value);
+      const ok = ['physics', 'chemistry', 'biology'].every(s => checked.includes(s));
+      if (!ok) { $('err-subjects').classList.add('show'); return false; }
+      $('err-subjects').classList.remove('show'); return true;
+    }
+
+    function validateDeclaration() {
+      if (!$('declaration').checked) {
+        $('err-declaration').classList.add('show'); return false;
+      }
+      $('err-declaration').classList.remove('show'); return true;
+    }
+
+    /* ---------- Live clear on input ---------- */
+    $('studentName').addEventListener('input', () => clearError('studentName', 'err-studentName'));
+    $('dob').addEventListener('change', validateDob);
+    $('parentName').addEventListener('input', () => clearError('parentName', 'err-parentName'));
+    $('phone').addEventListener('input', (e) => {
+      e.target.value = e.target.value.replace(/\D/g, '').slice(0, 10);
+      clearError('phone', 'err-phone');
+    });
+    $('email').addEventListener('input', () => clearError('email', 'err-email'));
+    $('board').addEventListener('input', () => clearError('board', 'err-board'));
+    $('percentage').addEventListener('input', () => clearError('percentage', 'err-percentage'));
+    $('course').addEventListener('change', validateCourse);
+    $('category').addEventListener('change', validateCategory);
+
+    form.querySelectorAll('input[name="gender"]').forEach(r =>
+      r.addEventListener('change', validateGender));
+    form.querySelectorAll('input[name="subjects"]').forEach(c =>
+      c.addEventListener('change', validateSubjects));
+    $('declaration').addEventListener('change', () =>
+      $('err-declaration').classList.remove('show'));
+
+    /* ---------- Submit ---------- */
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const checks = [
+        validateName(),
+        validateDob(),
+        validateGender(),
+        validateCourse(),
+        validateParent(),
+        validatePhone(),
+        validateEmail(),
+        validateCategory(),
+        validateBoard(),
+        validatePercentage(),
+        validateSubjects(),
+        validateDeclaration()
+      ];
+
+      if (checks.includes(false)) {
+        setStatus('Kuch fields galat ya khaali hain. Please check karke dobara submit karein.', 'error');
+        const firstInvalid = form.querySelector('.invalid, .field-error.show');
+        if (firstInvalid) firstInvalid.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+
+      // Success state
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+      setStatus('Aapka application submit ho raha hai...', 'success');
+
+      /* 
+        Backend integrate karne ke liye:
+        Yahan aap fetch/axios se actual server endpoint call kar sakte hain:
+        
+        const fd = new FormData(form);
+        fetch('/nursing/admission', { method: 'POST', body: fd })
+          .then(r => r.json())
+          .then(data => { ... });
+      */
+
+      setTimeout(() => {
+        form.reset();
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Submit Application';
+        setStatus('✅ Application successfully submit ho gaya! Admission counsellor 24 ghante mein aapse sampark karega.', 'success');
+        statusBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 900);
+    });
+
+  })();
+  </script>
 
 </body>
 </html>

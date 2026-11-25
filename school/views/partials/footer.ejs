@@ -1,90 +1,340 @@
+<!-- ============================================================
+     NURSING FOOTER — EXACT SCREENSHOT MATCH
+     ============================================================ -->
+
+<style>
+    /* CSS Variables for easy customization */
+    .custom-footer {
+        --bg-dark: #0f172a;       /* Dark navy background */
+        --text-main: #cbd5e1;     /* Light gray text */
+        --text-muted: #94a3b8;    /* Muted text */
+        --accent-orange: #f97316; /* Orange for icons/lines */
+        --accent-teal: #0f766e;   /* Logo background */
+        --social-bg: #1e293b;     /* Social icon background */
+        
+        background-color: var(--bg-dark);
+        color: var(--text-main);
+        font-family: 'Inter', 'Plus Jakarta Sans', system-ui, sans-serif;
+        padding: 70px 0 30px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .custom-footer .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    /* Grid Layout */
+    .custom-footer .footer-grid {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+        gap: 40px;
+        margin-bottom: 50px;
+    }
+
+    /* Column 1: Brand */
+    .custom-footer .brand-wrap {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+
+    .custom-footer .brand-icon {
+        width: 50px;
+        height: 50px;
+        background-color: var(--accent-teal);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.2rem;
+    }
+
+    .custom-footer .brand-text h3 {
+        margin: 0;
+        color: white;
+        font-size: 1.1rem;
+        font-weight: 700;
+        letter-spacing: 0.3px;
+    }
+
+    .custom-footer .brand-text p {
+        margin: 3px 0 0;
+        font-size: 0.8rem;
+        color: var(--text-muted);
+    }
+
+    .custom-footer .brand-desc {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        line-height: 1.7;
+        margin-bottom: 24px;
+        max-width: 90%;
+    }
+
+    /* Social Icons */
+    .custom-footer .social-links {
+        display: flex;
+        gap: 10px;
+    }
+
+    .custom-footer .social-links a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        background-color: var(--social-bg);
+        color: white;
+        border-radius: 50%;
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+    }
+
+    .custom-footer .social-links a:hover {
+        background-color: var(--accent-teal);
+        transform: translateY(-2px);
+    }
+
+    /* Columns 2, 3, 4: Headings & Links */
+    .custom-footer h4 {
+        color: white;
+        font-size: 1.05rem;
+        font-weight: 700;
+        margin: 0 0 20px;
+        position: relative;
+        padding-bottom: 10px;
+    }
+
+    .custom-footer h4::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 30px;
+        height: 2px;
+        background-color: var(--accent-orange);
+    }
+
+    .custom-footer ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .custom-footer ul li {
+        margin-bottom: 12px;
+    }
+
+    .custom-footer ul li a {
+        color: var(--text-muted);
+        text-decoration: none;
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: color 0.2s ease;
+    }
+
+    .custom-footer ul li a:hover {
+        color: white;
+    }
+
+    .custom-footer ul li a i.fa-chevron-right {
+        font-size: 0.65rem;
+        color: var(--accent-orange);
+    }
+
+    /* Contact Column */
+    .custom-footer .contact-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        color: var(--text-muted);
+        font-size: 0.9rem;
+        line-height: 1.5;
+        margin-bottom: 14px;
+    }
+
+    .custom-footer .contact-list li i {
+        color: var(--accent-orange);
+        font-size: 1rem;
+        margin-top: 3px;
+    }
+
+    /* Bottom Bar */
+    .custom-footer .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        padding-top: 25px;
+        text-align: center;
+        font-size: 0.85rem;
+        color: var(--text-muted);
+    }
+
+    /* ============================================================
+       FLOATING "ASK AI" BUTTON
+       ============================================================ */
+    .ask-ai-btn {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: linear-gradient(135deg, #0ea5e9, #0284c7);
+        color: white;
+        padding: 12px 24px;
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-family: 'Inter', sans-serif;
+        font-size: 0.95rem;
+        font-weight: 600;
+        text-decoration: none;
+        box-shadow: 0 10px 25px rgba(14, 165, 233, 0.4);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        z-index: 9999;
+    }
+
+    .ask-ai-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 30px rgba(14, 165, 233, 0.5);
+    }
+
+    .ask-ai-btn i {
+        font-size: 1.1rem;
+    }
+
+    /* ============================================================
+       RESPONSIVE DESIGN
+       ============================================================ */
+    @media (max-width: 1024px) {
+        .custom-footer .footer-grid {
+            grid-template-columns: 1fr 1fr;
+        }
+        .custom-footer .brand-desc {
+            max-width: 100%;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .custom-footer {
+            padding: 50px 0 20px;
+        }
+        .custom-footer .footer-grid {
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+        .custom-footer h4 {
+            margin-bottom: 15px;
+        }
+        .ask-ai-btn {
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            font-size: 0.85rem;
+        }
+    }
+</style>
+
+<!-- Add FontAwesome if not already in your <head> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Maa maturani devi pharmacy college</title>
-</head>
-<body>
-
-    
-
-<link rel="stylesheet" href="/school/css/footer.css">
-<!-- Footer Section -->
-<footer>
-    <div class="container">
+<!-- ============================================================
+     FOOTER HTML
+     ============================================================ -->
+<footer class="custom-footer">
+    <div class="footer-container">
+        
         <div class="footer-grid">
-            <!-- About School -->
+            
+            <!-- Column 1: Brand -->
             <div class="footer-col">
-                <div class="footer-logo">
-                    <h2><i class="fas fa-school"></i> MSD Public School</h2>
+                <div class="brand-wrap">
+                    <div class="brand-icon">
+                        <i class="fas fa-user-nurse"></i>
+                    </div>
+                    <div class="brand-text">
+                        <h3>Maa Maturani Devi Nursing</h3>
+                        <p>Ballia, Uttar Pradesh</p>
+                    </div>
                 </div>
-                <p class="footer-about">
-                    MSD Public School is committed to providing quality education with a focus on holistic development, innovation, and excellence.
+                <p class="brand-desc">
+                    Dedicated to providing quality nursing education and shaping compassionate healthcare professionals for a healthier tomorrow.
                 </p>
-                <div class="footer-social">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
 
-            <!-- Quick Links -->
+            <!-- Column 2: Quick Links -->
             <div class="footer-col">
-                <h3><i class="fas fa-link"></i> Quick Links</h3>
-                <ul class="footer-links">
-                    <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
-                    <li><a href="#about-school"><i class="fas fa-chevron-right"></i> About Us</a></li>
-                    <li><a href="#admission"><i class="fas fa-chevron-right"></i> Admission</a></li>
-                    <li><a href="#gallery"><i class="fas fa-chevron-right"></i> Gallery</a></li>
-                    <li><a href="#activities"><i class="fas fa-chevron-right"></i> Activities</a></li>
-                    <li><a href="#contact"><i class="fas fa-chevron-right"></i> Contact Us</a></li>
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/school"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="/school/nursingabout"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                    <li><a href="/school/courses"><i class="fas fa-chevron-right"></i> Courses</a></li>
+                    <li><a href="/school/admission"><i class="fas fa-chevron-right"></i> Admission</a></li>
+                    <li><a href="/school/gallery"><i class="fas fa-chevron-right"></i> Gallery</a></li>
                 </ul>
             </div>
 
-            <!-- Important Links -->
+            <!-- Column 3: Programs -->
             <div class="footer-col">
-                <h3><i class="fas fa-star"></i> Important Links</h3>
-                <ul class="footer-links">
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Admission Form</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Fee Structure</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Academic Calendar</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Online Classes</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> School Uniform</a></li>
-                    <li><a href="#"><i class="fas fa-chevron-right"></i> Transport Facility</a></li>
+                <h4>Programs</h4>
+                <ul>
+                    <li><a href="/school/anm"><i class="fas fa-chevron-right"></i> ANM</a></li>
+                    <li><a href="/school/jnam"><i class="fas fa-chevron-right"></i> JNAM</a></li>
+                    <li><a href="/school/fee"><i class="fas fa-chevron-right"></i> Fee Structure</a></li>
+                    <li><a href="/school/contact"><i class="fas fa-chevron-right"></i> Enquiry</a></li>
                 </ul>
             </div>
 
-            <!-- Contact Info -->
+            <!-- Column 4: Contact Us -->
             <div class="footer-col">
-                <h3><i class="fas fa-address-card"></i> Contact Info</h3>
-                <ul class="footer-contact">
+                <h4>Contact Us</h4>
+                <ul class="contact-list">
                     <li>
                         <i class="fas fa-map-marker-alt"></i>
-                        <span>MSD Public School, Main Road, New Delhi - 110001</span>
+                        <span>Ballia, Uttar Pradesh, India</span>
                     </li>
                     <li>
                         <i class="fas fa-phone-alt"></i>
-                        <span>+91-8005993415</span>
+                        <span>+91-XXXXXXXXXX</span>
                     </li>
                     <li>
                         <i class="fas fa-envelope"></i>
-                        <span>info@msdpublicschool.com</span>
+                        <span>info@mmdnursing.edu.in</span>
                     </li>
                     <li>
                         <i class="fas fa-clock"></i>
-                        <span>Mon - Fri: 8:00 AM - 3:00 PM</span>
+                        <span>Mon-Sat: 9 AM - 3 PM</span>
                     </li>
                 </ul>
             </div>
+
         </div>
-       
+
+        <!-- Bottom Bar -->
+        <div class="footer-bottom">
+            <p>&copy; <span id="year"></span> Maa Maturani Devi Nursing. All Rights Reserved.</p>
+        </div>
+
+    </div>
 </footer>
 
+<!-- Floating Ask AI Button -->
+<a href="#" class="ask-ai-btn">
+    <i class="fas fa-sparkles"></i> Ask AI
+</a>
 
-</body>
-</html>
+<!-- Script to auto-update the year -->
+<script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+</script>
