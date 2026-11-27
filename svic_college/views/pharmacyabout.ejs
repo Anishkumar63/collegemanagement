@@ -4,24 +4,1824 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>About | Maa Maturani Devi Pharmacy College</title>
-      <link rel="icon" type="image/png" href="images/image copy 6.png">
+    <link rel="icon" type="image/png" href="images/image copy 6.png">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-   
-    <link rel="stylesheet" href="/svic_college/css/header.css">
-    <link rel="stylesheet" href="./css/about.css">
 
+<style>
+/* ===========================
+   GLOBAL VARIABLES
+=========================== */
+:root {
+    /* header variables (same as before) */
+    --header-primary: #075e54;
+    --header-secondary: #0e9482;
+    --header-dark: #080b3e;
+    --header-accent: #f0a42c;
+    --header-white: #ffffff;
 
+    /* about page variables (these were missing) */
+    --primary: #083d5d;
+    --secondary: #e67e22;
+    --accent: #e67e22;
+    --accent-light: #f5a623;
+    --gray: #555555;
+    --radius: 24px;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+    --transition: all 0.3s ease;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #f6f8fa;
+    overflow-x: hidden;
+}
+
+a { text-decoration: none; }
+ul { list-style: none; }
+img { max-width: 100%; display: block; }
+
+/* ===========================
+   MAAMATURANI PHARMACY HEADER
+   (UNCHANGED)
+=========================== */
+
+/* ================= TOP HEADER ================= */
+
+.top-header {
+    width: 100%;
+    background: var(--header-dark);
+    color: #fff;
+    padding: 12px 4%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    border-bottom: 3px solid var(--header-accent);
+}
+
+.web-text {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px 22px;
+}
+
+.web-text p {
+    margin: 0;
+    font-size: 12px;
+    color: white;
+}
+
+.web-text a,
+.right-text a {
+    color: #ffd15c;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.web-text a:hover,
+.right-text a:hover {
+    color: #ffffff;
+}
+
+.highlight-link {
+    font-weight: 600;
+}
+
+.right-text {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 10px 18px;
+}
+
+/* ================= MAIN HEADER ================= */
+
+.main-header {
+    width: 100%;
+    background: #fff;
+    position: relative;
+    z-index: 1000;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+}
+
+.navbar-line {
+    height: 4px;
+    background: linear-gradient(
+        90deg,
+        var(--header-primary),
+        var(--header-secondary),
+        var(--header-accent)
+    );
+}
+
+.nav {
+    width: 94%;
+    max-width: 1400px;
+    margin: auto;
+    min-height: 95px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* LOGO */
+
+.logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.logo img {
+    display: block;
+    width: 270px;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* DESKTOP MENU */
+
+.menu {
+    display: flex;
+    align-items: center;
+}
+
+.lowerNav {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    padding: 0;
+    margin: 0;
+}
+
+.lowerNav > li {
+    position: relative;
+}
+
+.menu-link {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 13px 12px;
+    border-radius: 6px;
+    color: #18332e;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: 0.3s;
+}
+
+.menu-link i {
+    font-size: 13px;
+}
+
+.menu-link:hover {
+    background: #e8f6f2;
+    color: var(--header-secondary);
+}
+
+/* DROPDOWN */
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 220px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    padding: 8px;
+    display: none;
+    z-index: 2000;
+}
+
+.dropdown-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.dropdown-menu li a {
+    display: block;
+    color: #333;
+    text-decoration: none;
+    padding: 12px 14px;
+    border-radius: 5px;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.dropdown-menu li a:hover {
+    background: #e8f6f2;
+    color: var(--header-primary);
+}
+
+.dropdown:hover > .dropdown-menu {
+    display: block;
+}
+
+/* ERP BUTTON */
+
+.erp-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: var(--header-primary);
+    color: white !important;
+    text-decoration: none;
+    padding: 11px 16px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: 0.3s;
+}
+
+.erp-btn:hover {
+    background: var(--header-secondary);
+    transform: translateY(-2px);
+}
+
+/* HAMBURGER */
+
+.hamburger {
+    display: none;
+    width: 48px;
+    height: 45px;
+    cursor: pointer;
+    border: none;
+    background: #fff4e4;
+    border-radius: 12px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+.hamburger span {
+    display: block;
+    width: 26px;
+    height: 3px;
+    background: var(--header-accent);
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+/* ================= MOBILE MENU ================= */
+
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 300px;
+    max-width: 85%;
+    height: 100vh;
+    height: 100dvh;
+    overflow-y: auto;
+    background: #ffffff;
+    z-index: 9999;
+    padding: 70px 20px 30px;
+    box-shadow: -5px 0 25px rgba(0,0,0,0.2);
+    transition: right 0.35s ease;
+}
+
+.mobile-menu-overlay.active,
+.mobile-menu-overlay.show {
+    right: 0;
+}
+
+.close-menu {
+    position: absolute;
+    top: 18px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background: #fff0df;
+    color: var(--header-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.mobile-nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.mobile-nav-list > li {
+    border-bottom: 1px solid #eeeeee;
+}
+
+.mobile-nav-list > li > a,
+.dropdown-toggle-mobile > a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #18332e;
+    text-decoration: none;
+    padding: 15px 12px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.mobile-nav-list a i {
+    width: 20px;
+    color: var(--header-primary);
+}
+
+.mobile-nav-list > li > a:hover,
+.dropdown-toggle-mobile > a:hover {
+    background: #e8f6f2;
+}
+
+/* MOBILE DROPDOWN */
+
+.dropdown-toggle-mobile {
+    cursor: pointer;
+}
+
+.dropdown-toggle-mobile > a {
+    justify-content: space-between;
+}
+
+.mobile-dropdown-menu {
+    display: none;
+    background: #f5f9f8;
+    padding: 5px 0 8px 20px;
+}
+
+.mobile-dropdown-menu.show {
+    display: block;
+}
+
+.mobile-dropdown-menu a {
+    display: block;
+    padding: 12px 15px;
+    color: #444;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.mobile-dropdown-menu a:hover {
+    color: var(--header-primary);
+    background: #e5f2ef;
+}
+
+/* MOBILE ERP */
+
+.mobile-erp-btn {
+    background: var(--header-primary) !important;
+    color: white !important;
+    margin: 15px 0;
+    border-radius: 7px;
+    justify-content: center;
+}
+
+.mobile-erp-btn i {
+    color: white !important;
+}
+
+/* BACKGROUND OVERLAY */
+
+.screen-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    z-index: 9998;
+}
+
+.screen-overlay.active,
+.screen-overlay.show {
+    display: block;
+}
+
+/* ================= TABLET ================= */
+
+@media (max-width: 1200px) {
+
+    .nav {
+        width: 96%;
+        gap: 12px;
+    }
+
+    .logo img {
+        width: 220px;
+    }
+
+    .menu-link {
+        padding: 12px 8px;
+        font-size: 12px;
+    }
+
+    .lowerNav {
+        gap: 0;
+    }
+
+    .erp-btn {
+        padding: 10px 11px;
+        font-size: 11px;
+    }
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 900px) {
+
+    .top-header {
+        display: block;
+        padding: 12px 15px;
+    }
+
+    .web-text {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        justify-content: center;
+    }
+
+    .web-text p:first-child {
+        grid-column: 1 / -1;
+        text-align: center;
+        font-size: 13px;
+        font-weight: 600;
+    }
+
+    .web-text p {
+        font-size: 11px;
+        line-height: 1.6;
+    }
+
+    .web-text a {
+        font-size: 11px;
+    }
+
+    .right-text {
+        margin-top: 12px;
+        padding-top: 10px;
+        border-top: 1px solid rgba(255,255,255,0.15);
+        justify-content: center;
+        gap: 10px 15px;
+    }
+
+    .right-text a {
+        font-size: 10px;
+    }
+
+    .nav {
+        min-height: 75px;
+        padding: 10px 0;
+    }
+
+    .logo img {
+        width: 190px;
+        max-width: 72vw;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+}
+
+/* ================= SMALL MOBILE ================= */
+
+@media (max-width: 480px) {
+
+    .top-header {
+        padding: 10px 12px;
+    }
+
+    .web-text {
+        gap: 9px;
+    }
+
+    .web-text p {
+        font-size: 10px;
+    }
+
+    .web-text p:first-child {
+        font-size: 12px;
+    }
+
+    .right-text {
+        gap: 8px 12px;
+    }
+
+    .right-text a {
+        font-size: 9px;
+    }
+
+    .nav {
+        width: 94%;
+        min-height: 68px;
+    }
+
+    .logo img {
+        width: 160px;
+    }
+
+    .hamburger {
+        width: 44px;
+        height: 42px;
+    }
+
+    .hamburger span {
+        width: 24px;
+    }
+
+    .mobile-menu-overlay {
+        width: 280px;
+    }
+}
+
+/* ================= VERY SMALL SCREEN ================= */
+
+@media (max-width: 360px) {
+
+    .web-text {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .web-text p:first-child {
+        grid-column: auto;
+    }
+
+    .right-text {
+        flex-direction: column;
+        gap: 7px;
+    }
+
+    .logo img {
+        width: 145px;
+    }
+
+    .hamburger {
+        width: 40px;
+        height: 40px;
+    }
+}
+/* =================================
+   MOBILE HEADER - COMPACT DESIGN
+================================= */
+
+@media (max-width: 768px) {
+
+    .top-header {
+        display: none !important;
+    }
+
+    .main-header {
+        background: #ffffff;
+        width: 100%;
+    }
+
+    .navbar-line {
+        height: 4px;
+    }
+
+    .nav {
+        width: 94%;
+        min-height: 82px;
+        margin: auto;
+        padding: 8px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+    }
+
+    .logo img {
+        width: 175px;
+        max-width: 70%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .menu {
+        display: none !important;
+    }
+
+    .hamburger {
+        display: flex !important;
+        width: 46px;
+        height: 44px;
+        background: #fff4e5;
+        border-radius: 12px;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 6px;
+        border: none;
+        cursor: pointer;
+    }
+
+    .hamburger span {
+        width: 25px;
+        height: 3px;
+        background: #f5a623;
+        border-radius: 10px;
+    }
+
+}
+
+/* Small phones */
+
+@media (max-width: 400px) {
+
+    .nav {
+        min-height: 75px;
+    }
+
+    .logo img {
+        width: 155px;
+    }
+
+    .hamburger {
+        width: 43px;
+        height: 42px;
+    }
+
+}
+
+/* =========================================
+   DESKTOP HEADER COMPACT FIX
+========================================= */
+
+@media (min-width: 769px) {
+
+    .top-header {
+        padding: 8px 3%;
+        min-height: 42px;
+        gap: 12px;
+    }
+
+    .web-text {
+        gap: 8px 18px;
+    }
+
+    .web-text p,
+    .web-text a,
+    .right-text a {
+        font-size: 11px;
+    }
+
+    .right-text {
+        gap: 8px 14px;
+    }
+
+    .nav {
+        width: 94%;
+        max-width: 1250px;
+        min-height: 85px;
+        padding: 8px 0;
+        gap: 15px;
+    }
+
+    .logo img {
+        width: 215px;
+        max-width: 215px;
+        height: auto;
+    }
+
+    .lowerNav {
+        gap: 0;
+    }
+
+    .menu-link {
+        padding: 10px 9px;
+        font-size: 12px;
+        gap: 5px;
+    }
+
+    .menu-link i {
+        font-size: 12px;
+    }
+
+    .erp-btn {
+        padding: 9px 13px;
+        font-size: 11px;
+    }
+
+}
+
+/* Smaller desktop and tablets */
+@media (min-width: 769px) and (max-width: 1100px) {
+
+    .nav {
+        width: 97%;
+        min-height: 75px;
+    }
+
+    .logo img {
+        width: 175px;
+        max-width: 175px;
+    }
+
+    .menu-link {
+        padding: 9px 6px;
+        font-size: 11px;
+    }
+
+    .lowerNav {
+        gap: 0;
+    }
+
+    .erp-btn {
+        padding: 8px 9px;
+        font-size: 10px;
+    }
+
+}
+/* ==========================================
+   EXTRA COMPACT DESKTOP HEADER
+========================================== */
+
+@media (min-width: 769px) {
+
+    .top-header {
+        padding: 5px 2%;
+        min-height: 34px;
+    }
+
+    .web-text {
+        gap: 6px 12px;
+    }
+
+    .web-text p,
+    .web-text a,
+    .right-text a {
+        font-size: 10px;
+    }
+
+    .right-text {
+        gap: 6px 10px;
+    }
+
+    .nav {
+        width: 96%;
+        max-width: 1180px;
+        min-height: 68px;
+        padding: 5px 0;
+        gap: 10px;
+    }
+
+    .logo img {
+        width: 200px;
+        max-width: 180px;
+    }
+
+    .lowerNav {
+        gap: 0;
+    }
+
+    .menu-link {
+        padding: 8px 7px;
+        font-size: 15px;
+        gap: 13px;
+    }
+
+    .menu-link i {
+        font-size: 11px;
+    }
+
+    .erp-btn {
+        padding: 7px 10px;
+        font-size: 10px;
+        border-radius: 5px;
+    }
+
+    .dropdown-menu {
+        min-width: 190px;
+    }
+
+    .dropdown-menu li a {
+        padding: 9px 12px;
+        font-size: 11px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1100px) {
+
+    .nav {
+        min-height: 62px;
+    }
+
+    .logo img {
+        width: 155px;
+        max-width: 155px;
+    }
+
+    .menu-link {
+        padding: 20px 15px;
+        font-size: 10px;
+    }
+
+    .erp-btn {
+        padding: 6px 8px;
+        font-size: 9px;
+    }
+
+}
+
+/* ==============================
+   ABOUT PAGE – COMPLETE STYLES
+============================== */
+
+.about-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px 60px;
+    width: 100%;
+}
+
+.about-page h1,
+.about-page h2,
+.about-page h3,
+.about-page p {
+    margin-top: 0;
+}
+
+/* --- College Intro --- */
+.college-intro {
+    background: #fff;
+    border-radius: var(--radius);
+    padding: 40px;
+    margin-bottom: 50px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    transition: transform 0.3s ease;
+}
+
+.college-intro:hover {
+    transform: translateY(-4px);
+}
+
+.college-intro-content {
+    flex: 2;
+    min-width: min(260px, 100%);
+}
+
+.college-intro-image {
+    flex: 1;
+    min-width: min(200px, 100%);
+}
+
+.college-intro-image img {
+    width: 100%;
+    height: 100%;
+    min-height: 200px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+
+.college-intro h2 {
+    color: var(--primary);
+    font-size: 2rem;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    position: relative;
+}
+
+.college-intro h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 70px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-light));
+    border-radius: 2px;
+}
+
+.college-intro p {
+    line-height: 1.8;
+    color: var(--gray);
+    margin-bottom: 15px;
+}
+
+/* --- Founder --- */
+.founder-wrapper {
+    margin-bottom: 60px;
+}
+
+.founder-title-section {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.founder-title-section h1 {
+    font-size: 2.6rem;
+    color: var(--primary);
+    display: inline-block;
+    padding-bottom: 12px;
+    margin-bottom: 0;
+    position: relative;
+}
+
+.founder-title-section h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-light));
+    border-radius: 2px;
+}
+
+.founder-title-section p {
+    color: #666;
+    font-size: 1.1rem;
+    margin: 12px 0 0;
+}
+
+.founder-card-enhanced {
+    background: linear-gradient(135deg, #fff 0%, #fef9f0 100%);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-wrap: wrap;
+    transition: var(--transition);
+}
+
+.founder-card-enhanced:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 30px 45px rgba(0, 0, 0, 0.12);
+}
+
+.founder-image-wrapper {
+    flex: 1;
+    min-width: min(280px, 100%);
+    background: linear-gradient(135deg, var(--accent), var(--accent-light));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.founder-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    min-height: 280px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.founder-card-enhanced:hover .founder-image-wrapper img {
+    transform: scale(1.03);
+}
+
+.founder-content-enhanced {
+    flex: 2;
+    min-width: min(280px, 100%);
+    padding: 50px;
+    background: #fff;
+}
+
+.founder-content-enhanced h2 {
+    color: var(--primary);
+    font-size: 2.2rem;
+    margin-bottom: 4px;
+    font-weight: 700;
+}
+
+.founder-content-enhanced .founder-title {
+    color: var(--accent);
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 18px;
+    letter-spacing: 0.3px;
+}
+
+.founder-content-enhanced p {
+    line-height: 1.8;
+    color: var(--gray);
+    margin-bottom: 18px;
+}
+
+.founder-quote-enhanced {
+    background: #fef9f0;
+    padding: 24px 28px;
+    border-left: 5px solid var(--accent);
+    border-radius: 16px;
+    font-style: italic;
+    color: var(--gray);
+    margin-top: 16px;
+    line-height: 1.7;
+}
+
+.founder-quote-enhanced i {
+    color: var(--accent);
+    margin-right: 8px;
+}
+
+/* --- Learning & Projects --- */
+.learning-section,
+.projects-section,
+.messages-section {
+    margin-bottom: 60px;
+}
+
+.learning-section h2,
+.projects-section h2,
+.messages-section h2 {
+    text-align: center;
+    color: var(--primary);
+    font-size: 2.2rem;
+    margin-bottom: 8px;
+    position: relative;
+    padding-bottom: 12px;
+}
+
+.learning-section h2::after,
+.projects-section h2::after,
+.messages-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-light));
+    border-radius: 2px;
+}
+
+.messages-section h2 {
+    margin-bottom: 40px;
+}
+
+.learning-subtitle,
+.projects-subtitle {
+    text-align: center;
+    color: #666;
+    font-size: 1.05rem;
+    margin-bottom: 40px;
+}
+
+.learning-grid,
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+    gap: 28px;
+}
+
+.learning-card,
+.project-card {
+    background: #fff;
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+}
+
+.learning-card:hover,
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.10);
+}
+
+.learning-card img,
+.project-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.learning-card:hover img,
+.project-card:hover img {
+    transform: scale(1.04);
+}
+
+.learning-card-content,
+.project-content {
+    padding: 24px 22px 28px;
+    text-align: center;
+    position: relative;
+    background: #fff;
+}
+
+.learning-card-content h3,
+.project-content h3 {
+    font-size: 1.3rem;
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.learning-card-content p,
+.project-content p {
+    color: #666;
+    line-height: 1.6;
+    font-size: 0.95rem;
+    margin-bottom: 0;
+}
+
+/* --- Messages --- */
+.messages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+    gap: 30px;
+}
+
+.message-card {
+    background: #fff;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.message-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.10);
+}
+
+.message-header {
+    background: linear-gradient(135deg, var(--accent), var(--accent-light));
+    padding: 28px 20px;
+    text-align: center;
+    color: #fff;
+}
+
+.message-header .avatar {
+    width: 90px;
+    height: 90px;
+    background: #fff;
+    border-radius: 50%;
+    margin: 0 auto 14px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid rgba(255, 255, 255, 0.35);
+}
+
+.message-header .avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.message-header .avatar i {
+    font-size: 2.8rem;
+    color: var(--accent);
+}
+
+.message-header h3 {
+    font-size: 1.2rem;
+    margin-bottom: 2px;
+}
+
+.message-header .designation {
+    font-size: 0.85rem;
+    opacity: 0.85;
+}
+
+.message-body {
+    padding: 28px 24px 30px;
+}
+
+.message-body p {
+    line-height: 1.7;
+    color: var(--gray);
+    margin-bottom: 14px;
+    font-size: 0.95rem;
+}
+
+.message-body .signature {
+    margin-top: 16px;
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+/* --- Facilities --- */
+.facilities-section {
+    background: #fff;
+    border-radius: var(--radius);
+    padding: 50px 40px;
+    margin-bottom: 60px;
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+.facilities-section h2 {
+    color: var(--primary);
+    font-size: 2rem;
+    margin-bottom: 40px;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 12px;
+}
+
+.facilities-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-light));
+    border-radius: 2px;
+}
+
+.facilities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(210px, 100%), 1fr));
+    gap: 26px;
+}
+
+.facility-item {
+    padding: 30px 16px;
+    background: #f8f9fa;
+    border-radius: 20px;
+    transition: var(--transition);
+}
+
+.facility-item:hover {
+    background: linear-gradient(135deg, var(--accent), var(--accent-light));
+    color: #fff;
+    transform: translateY(-6px);
+}
+
+.facility-item i {
+    font-size: 2.8rem;
+    color: var(--accent);
+    margin-bottom: 14px;
+    transition: color 0.2s;
+}
+
+.facility-item:hover i {
+    color: #fff;
+}
+
+.facility-item h3 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+.facility-item p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-bottom: 0;
+}
+
+/* --- Vision / Mission box --- */
+.vision-mission {
+    display: block;
+}
+
+.vision-mission h2 {
+    color: var(--primary);
+    font-size: 2rem;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 12px;
+}
+
+.vision-mission h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 70px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-light));
+    border-radius: 2px;
+}
+
+.vision-mission p {
+    line-height: 1.8;
+    color: var(--gray);
+    margin-bottom: 16px;
+}
+
+.vision-mission strong {
+    color: var(--primary);
+}
+
+/* ==============================
+   RESPONSIVE: ABOUT PAGE
+============================== */
+
+@media (max-width: 1100px) {
+    .about-page {
+        padding: 32px 18px 50px;
+    }
+}
+
+@media (max-width: 992px) {
+    .college-intro {
+        padding: 30px;
+        gap: 28px;
+    }
+    .founder-content-enhanced {
+        padding: 36px;
+    }
+    .facilities-section {
+        padding: 36px 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-page {
+        padding: 20px 14px 40px;
+    }
+
+    .college-intro {
+        padding: 24px 18px;
+        gap: 20px;
+        border-radius: 20px;
+        flex-direction: column;
+        margin-bottom: 36px;
+    }
+    .college-intro:hover,
+    .founder-card-enhanced:hover,
+    .learning-card:hover,
+    .project-card:hover,
+    .message-card:hover,
+    .facility-item:hover {
+        transform: none;
+    }
+    .college-intro h2 {
+        font-size: 1.6rem;
+    }
+    .college-intro-image {
+        min-width: unset;
+    }
+    .college-intro-image img {
+        min-height: 180px;
+    }
+
+    .founder-wrapper,
+    .learning-section,
+    .projects-section,
+    .messages-section,
+    .facilities-section {
+        margin-bottom: 40px;
+    }
+
+    .founder-title-section {
+        margin-bottom: 28px;
+    }
+    .founder-title-section h1 {
+        font-size: 2rem;
+    }
+    .founder-title-section p {
+        font-size: 1rem;
+    }
+    .founder-card-enhanced {
+        flex-direction: column;
+        border-radius: 20px;
+    }
+    .founder-image-wrapper {
+        min-height: 220px;
+        flex: none;
+    }
+    .founder-image-wrapper img {
+        min-height: 220px;
+    }
+    .founder-content-enhanced {
+        flex: none;
+        padding: 28px 20px;
+    }
+    .founder-content-enhanced h2 {
+        font-size: 1.7rem;
+    }
+    .founder-quote-enhanced {
+        padding: 18px 20px;
+        font-size: 0.95rem;
+    }
+
+    .learning-section h2,
+    .projects-section h2,
+    .messages-section h2 {
+        font-size: 1.7rem;
+    }
+
+    .learning-subtitle,
+    .projects-subtitle {
+        margin-bottom: 28px;
+    }
+
+    .learning-grid,
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .learning-card img,
+    .project-card img {
+        height: 200px;
+    }
+
+    .messages-section h2 {
+        margin-bottom: 28px;
+    }
+    .messages-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+    }
+
+    .facilities-section {
+        padding: 30px 16px;
+        border-radius: 20px;
+    }
+    .facilities-section h2 {
+        font-size: 1.7rem;
+        margin-bottom: 28px;
+    }
+    .facilities-grid {
+        grid-template-columns: repeat(auto-fit, minmax(min(160px, 100%), 1fr));
+        gap: 16px;
+    }
+    .facility-item {
+        padding: 22px 12px;
+    }
+    .facility-item i {
+        font-size: 2.2rem;
+    }
+
+    .vision-mission h2 {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .college-intro {
+        padding: 18px 14px;
+    }
+    .college-intro h2 {
+        font-size: 1.3rem;
+    }
+    .college-intro p {
+        font-size: 0.9rem;
+    }
+
+    .founder-title-section h1 {
+        font-size: 1.6rem;
+    }
+    .founder-content-enhanced {
+        padding: 20px 16px;
+    }
+    .founder-content-enhanced h2 {
+        font-size: 1.4rem;
+    }
+    .founder-content-enhanced .founder-title {
+        font-size: 0.9rem;
+    }
+    .founder-content-enhanced p {
+        font-size: 0.9rem;
+    }
+
+    .learning-section h2,
+    .projects-section h2,
+    .messages-section h2 {
+        font-size: 1.4rem;
+    }
+    .learning-subtitle,
+    .projects-subtitle {
+        font-size: 0.9rem;
+    }
+
+    .message-body {
+        padding: 20px 16px 22px;
+    }
+    .message-body p {
+        font-size: 0.88rem;
+    }
+
+    .facilities-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .facilities-section h2 {
+        font-size: 1.4rem;
+    }
+    .facility-item h3 {
+        font-size: 1rem;
+    }
+    .facility-item p {
+        font-size: 0.8rem;
+    }
+
+    .vision-mission h2 {
+        font-size: 1.3rem;
+    }
+    .vision-mission p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 340px) {
+    .facilities-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================================
+   FOOTER (single clean version)
+========================================= */
+.footer {
+    background-color: #0f172a;
+    color: #94a3b8;
+    padding: 60px 20px calc(25px + env(safe-area-inset-bottom, 0px));
+    width: 100%;
+    border-top: 1px solid #1e293b;
+    font-family: 'Poppins', sans-serif;
+}
+
+.footer h3,
+.footer h4,
+.footer p,
+.footer ul {
+    margin: 0;
+    padding: 0;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+    gap: 40px;
+    margin-bottom: 50px;
+}
+
+.footer-col {
+    min-width: 0;
+}
+
+/* Brand */
+.brand-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.brand-icon {
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    background-color: #0f766e;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 18px;
+}
+
+.brand-text h3 {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    line-height: 1.3;
+}
+
+.brand-text p {
+    font-size: 12px;
+    color: #64748b;
+    margin-top: 2px;
+}
+
+.brand-desc {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #94a3b8;
+    margin-bottom: 20px;
+    padding-right: 20px;
+}
+
+/* Social */
+.social-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background-color: #1e293b;
+    color: #cbd5e1;
+    border-radius: 50%;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background-color: #0f766e;
+    color: #fff;
+}
+
+/* Headings + links */
+.footer-col h4 {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 8px;
+}
+
+.footer-col h4::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 30px;
+    height: 2px;
+    background-color: #f97316;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: #94a3b8;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #fff;
+    transform: translateX(3px);
+}
+
+.footer-links a i {
+    font-size: 10px;
+    color: #f97316;
+}
+
+/* Contact */
+.contact-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    color: #94a3b8;
+    font-size: 14px;
+    margin-bottom: 14px;
+    line-height: 1.6;
+    word-break: break-word;
+}
+
+.contact-list li i {
+    color: #f97316;
+    font-size: 14px;
+    margin-top: 4px;
+    width: 16px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+/* Bottom bar */
+.footer-bottom {
+    border-top: 1px solid #1e293b;
+    padding-top: 25px;
+    text-align: center;
+    font-size: 13px;
+    line-height: 1.7;
+    color: #64748b;
+}
+
+/* Floating Ask AI */
+.ask-ai-btn {
+    position: fixed;
+    bottom: calc(30px + env(safe-area-inset-bottom, 0px));
+    right: 30px;
+    background: linear-gradient(135deg, #0ea5e9, #0284c7);
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 8px 20px rgba(14, 165, 233, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 900;
+}
+
+.ask-ai-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(14, 165, 233, 0.5);
+}
+
+.ask-ai-btn i {
+    font-size: 16px;
+}
+
+/* Footer responsive */
+@media (max-width: 1024px) {
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 36px;
+    }
+    .brand-desc {
+        padding-right: 0;
+    }
+}
+
+@media (max-width: 640px) {
+    .footer {
+        padding: 45px 18px calc(25px + env(safe-area-inset-bottom, 0px));
+    }
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin-bottom: 35px;
+    }
+    .footer-col h4 {
+        margin-bottom: 16px;
+    }
+    .footer-bottom {
+        font-size: 12px;
+        padding-top: 20px;
+    }
+    .ask-ai-btn {
+        bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+        right: 16px;
+        padding: 10px 18px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 360px) {
+    .ask-ai-btn span {
+        display: none;
+    }
+    .ask-ai-btn {
+        padding: 14px;
+    }
+}
+</style>
 
 </head>
 <body>
-<%-include('partials/header')%>
-    <!-- ==============================
-    ABOUT PAGE CONTENT (no navbar)
-    ============================== -->
+<%- include('partials/header') %>
 
+    <!-- ==============================
+         ABOUT PAGE CONTENT
+    ============================== -->
+    <main class="about-page">
 
         <!-- College Intro -->
         <section class="college-intro">
@@ -64,28 +1864,28 @@
             <div class="learning-subtitle">A glimpse of our collaborative learning culture, mentorship, and real-world projects</div>
             <div class="learning-grid">
                 <div class="learning-card">
-                    <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&h=400&fit=crop" alt="Collaborative" />
+                    <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=600&h=400&fit=crop" alt="Collaborative" loading="lazy" />
                     <div class="learning-card-content">
                         <h3>Collaborative Learning</h3>
                         <p>Group discussions, team projects, and peer mentoring foster teamwork and collective growth.</p>
                     </div>
                 </div>
                 <div class="learning-card">
-                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=400&fit=crop" alt="Mentorship" />
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=400&fit=crop" alt="Mentorship" loading="lazy" />
                     <div class="learning-card-content">
                         <h3>Expert Mentorship</h3>
                         <p>Experienced faculty provide personalized guidance to navigate academic and career paths.</p>
                     </div>
                 </div>
                 <div class="learning-card">
-                    <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=600&h=400&fit=crop" alt="Hands-on" />
+                    <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=600&h=400&fit=crop" alt="Hands-on" loading="lazy" />
                     <div class="learning-card-content">
                         <h3>Hands-on Experience</h3>
                         <p>State-of-the-art labs and practical training in pharmaceutical sciences.</p>
                     </div>
                 </div>
                 <div class="learning-card">
-                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=400&fit=crop" alt="Innovation" />
+                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=400&fit=crop" alt="Innovation" loading="lazy" />
                     <div class="learning-card-content">
                         <h3>Innovation Hub</h3>
                         <p>Research projects, hackathons, and idea incubation for creative minds.</p>
@@ -100,28 +1900,28 @@
             <div class="projects-subtitle">Bridging academia and industry through practical experience</div>
             <div class="projects-grid">
                 <div class="project-card">
-                    <img src="https://images.unsplash.com/photo-1564069114553-7215e1ff1890?w=600&h=400&fit=crop" alt="Industrial Visits" />
+                    <img src="https://images.unsplash.com/photo-1564069114553-7215e1ff1890?w=600&h=400&fit=crop" alt="Industrial Visits" loading="lazy" />
                     <div class="project-content">
                         <h3>Industrial Visits</h3>
                         <p>Regular visits to Sun Pharma, Cipla, Dr. Reddy's for real-world manufacturing exposure.</p>
                     </div>
                 </div>
                 <div class="project-card">
-                    <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=600&h=400&fit=crop" alt="Research" />
+                    <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=600&h=400&fit=crop" alt="Research" loading="lazy" />
                     <div class="project-content">
                         <h3>Research Projects</h3>
                         <p>Drug formulation, herbal medicine, pharmaceutical analysis under faculty guidance.</p>
                     </div>
                 </div>
                 <div class="project-card">
-                    <img src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?w=600&h=400&fit=crop" alt="Community Health" />
+                    <img src="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?w=600&h=400&fit=crop" alt="Community Health" loading="lazy" />
                     <div class="project-content">
                         <h3>Community Health Programs</h3>
                         <p>Health awareness camps, drug information drives serving local communities.</p>
                     </div>
                 </div>
                 <div class="project-card">
-                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop" alt="Internships" />
+                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&h=400&fit=crop" alt="Internships" loading="lazy" />
                     <div class="project-content">
                         <h3>Internship Opportunities</h3>
                         <p>Mandatory internships with pharma companies and research institutions.</p>
@@ -196,9 +1996,94 @@
 
     </main>
 
-    <!-- ==============================
-    FOOTER (optional – remove if not needed)
-    ============================== -->
-   <%- include('partials/footer') %>
+    <!-- ========== FOOTER START ========== -->
+    <footer class="footer">
+        <div class="footer-container">
+
+            <div class="footer-grid">
+
+                <!-- Column 1: Brand Information -->
+                <div class="footer-col">
+                    <div class="brand-header">
+                        <div class="brand-icon">
+                            <i class="fas fa-pills"></i>
+                        </div>
+                        <div class="brand-text">
+                            <h3>Maa Maturani Devi Pharmacy College</h3>
+                            <p>Ballia, Uttar Pradesh</p>
+                        </div>
+                    </div>
+                    <p class="brand-desc">
+                        Dedicated to providing quality pharmacy education and shaping skilled, ethical pharmacists for a healthier tomorrow.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="/"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="/about"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                        <li><a href="/courses"><i class="fas fa-chevron-right"></i> Courses</a></li>
+                        <li><a href="/admission"><i class="fas fa-chevron-right"></i> Admission</a></li>
+                        <li><a href="/gallery"><i class="fas fa-chevron-right"></i> Gallery</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Programs -->
+                <div class="footer-col">
+                    <h4>Programs</h4>
+                    <ul class="footer-links">
+                        <li><a href="/courses"><i class="fas fa-chevron-right"></i> D.Pharma</a></li>
+                        <li><a href="/courses"><i class="fas fa-chevron-right"></i> B.Pharma</a></li>
+                        <li><a href="/fee-structure"><i class="fas fa-chevron-right"></i> Fee Structure</a></li>
+                        <li><a href="/enquiry"><i class="fas fa-chevron-right"></i> Enquiry</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Contact Us -->
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <ul class="contact-list">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Maa Maturani Devi Pharmacy College Chandadih, Belthara Road, Ballia, Uttar Pradesh, India.</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span>+91-6394213627</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>maamaturnidevi@gmail.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Mon-Sat: 9 AM – 3 PM</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="footer-bottom">
+                <p>&copy; 2026 Maa Maturani Devi Pharmacy College. All Rights Reserved.</p>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- Floating Ask AI Button -->
+    <a href="#" class="ask-ai-btn" aria-label="Ask AI">
+        <i class="fas fa-wand-magic-sparkles"></i> <span>Ask AI</span>
+    </a>
+    <!-- ========== FOOTER END ========== -->
+
 </body>
 </html>

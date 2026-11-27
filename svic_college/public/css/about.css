@@ -1,4 +1,36 @@
 
+        /* ==============================
+                   RESET & GLOBAL
+                ============================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #083d5d;
+            --primary-dark: #062a41;
+            --secondary: #4da8da;
+            --accent: #e67e22;
+            --accent-light: #f39c12;
+            --light: #f2f7fc;
+            --dark: #333;
+            --gray: #555;
+            --white: #ffffff;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+            --radius: 24px;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+            color: var(--dark);
+            line-height: 1.6;
+            padding: 0;
+            overflow-x: hidden;
+        }
 
         a {
             text-decoration: none;
