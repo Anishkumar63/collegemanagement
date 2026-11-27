@@ -3,102 +3,250 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>ANM - Auxiliary Nursing Midwifery | Complete Course Guide 2025</title>
-      <link rel="icon" type="image/png" href="image copy 2.png">
-    <!-- Google Fonts + modern styling -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
-     <link rel="stylesheet" href="/css/footer.css">
+    <meta name="theme-color" content="#0f766e">
+    <title>ANM - Auxiliary Nursing Midwifery | Maa Maturani Devi Nursing</title>
+    <link rel="icon" type="image/png" href="image copy 2.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        /* ========== GLOBAL RESET & VARIABLES ========== */
+        :root {
+            --primary: #0f766e;
+            --primary-dark: #115e59;
+            --primary-light: #14b8a6;
+            --accent: #fb923c;
+            --accent-dark: #ea580c;
+            --white: #ffffff;
+            --bg: #f8fafc;
+            --text: #134e4a;
+            --muted: #64748b;
+            --border: #e2e8f0;
+            --shadow-sm: 0 2px 8px rgba(15, 118, 110, .08);
+            --shadow-md: 0 8px 28px rgba(15, 118, 110, .16);
+            --nav-h: 88px;
+            --radius: 10px;
+            --t: .25s ease;
+            --t-drawer: .3s cubic-bezier(.4, 0, .2, 1);
+            /* ANM theme – warm rose */
+            --anm-primary: #c95348;
+            --anm-dark: #8b3c34;
+            --anm-light: #ffe6e0;
         }
 
+        *, *::before, *::after { box-sizing: border-box; }
+        html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: 100px; }
         body {
-            font-family: 'Inter', sans-serif;
-            background: #fefcf9;
-            color: #1e293b;
+            margin: 0;
+            font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, Segoe UI, sans-serif;
+            color: var(--text);
+            background: var(--bg);
             line-height: 1.5;
-            scroll-behavior: smooth;
+            overflow-x: hidden;
         }
+        body.nav-open { overflow: hidden; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; margin: 0; padding: 0; }
+        img { max-width: 100%; display: block; }
+        :focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
 
+        /* ========== NAVBAR (same as provided) ========== */
         .container {
+            width: 100%;
             max-width: 1280px;
             margin: 0 auto;
-            padding: 0 32px;
+            padding: 0 20px;
         }
-
-        /* Navigation */
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 22px 0;
-            flex-wrap: wrap;
-            gap: 20px;
-            border-bottom: 2px solid #ffe0d4;
-        }
-
-        .logo {
-            font-size: 1.7rem;
-            font-weight: 800;
-            letter-spacing: -0.01em;
-            background: linear-gradient(135deg, #b3413a, #d96c5e);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        .logo span {
-            background: none;
-            color: #c95348;
-            font-weight: 700;
-        }
-        .nav-links {
-            display: flex;
-            gap: 28px;
+        .top-bar {
+            background: var(--primary-dark);
+            color: #d1faf5;
+            font-size: 13px;
             font-weight: 500;
         }
-        .nav-links a {
-            text-decoration: none;
-            color: #4a3b3a;
-            transition: 0.2s;
-            font-size: 0.95rem;
-        }
-        .nav-links a:hover {
-            color: #c95348;
-        }
-        .btn-outline {
-            border: 1.5px solid #c95348;
-            background: transparent;
-            padding: 8px 22px;
-            border-radius: 40px;
-            font-weight: 600;
-            color: #c95348;
-            cursor: pointer;
-            transition: 0.2s;
-            font-family: inherit;
-        }
-        .btn-outline:hover {
-            background: #c95348;
-            color: white;
-        }
-
-        /* Hero Section */
-        .hero {
+        .top-bar .flex {
             display: flex;
-            flex-wrap: wrap;
             align-items: center;
             justify-content: space-between;
-            gap: 48px;
-            margin: 50px 0 60px 0;
+            flex-wrap: wrap;
+            gap: 10px 16px;
+            min-height: 40px;
+            padding-top: 6px;
+            padding-bottom: 6px;
         }
-        .hero-content {
-            flex: 1.2;
+        .contact-info {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px 22px;
         }
-        .hero-badge {
-            background: #ffe6e0;
-            color: #c95348;
+        .contact-info span {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            white-space: nowrap;
+        }
+        .contact-info i { color: var(--accent); font-size: 13px; }
+        .social-icons {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-left: auto;
+        }
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .12);
+            color: #fff;
+            font-size: 12px;
+            transition: background var(--t), transform var(--t);
+        }
+        .social-icons a:hover { background: var(--accent); transform: translateY(-2px); }
+
+        #navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            transition: box-shadow var(--t);
+        }
+        #navbar.scrolled { box-shadow: var(--shadow-md); }
+        .nav-flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            min-height: var(--nav-h);
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        .logo { display: flex; align-items: center; flex-shrink: 0; }
+        .logo a { display: flex; align-items: center; gap: 12px; }
+        .school-logo {
+            height: 72px;
+            width: auto;
+            max-width: 280px;
+            object-fit: contain;
+            transition: height var(--t), max-width var(--t);
+        }
+        .logo-fallback {
+            display: none;
+            align-items: center;
+            gap: 10px;
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--primary-dark);
+            white-space: nowrap;
+        }
+        .logo-fallback i { color: var(--primary); font-size: 26px; }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            margin-left: auto;
+        }
+        .nav-links > li { position: relative; }
+        .nav-links > li > a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text);
+            white-space: nowrap;
+            transition: color var(--t), background var(--t);
+        }
+        .nav-links > li > a i { font-size: 14px; color: var(--primary); transition: color var(--t); }
+        .nav-links > li > a:hover { background: #ecfdf5; color: var(--primary-dark); }
+        .nav-links > li > a:hover i { color: var(--primary-dark); }
+        .nav-links > li:last-child > a {
+            padding: 12px 24px;
+            border-radius: 999px;
+            background: var(--primary);
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(15, 118, 110, .28);
+        }
+        .nav-links > li:last-child > a i { color: #fff; }
+        .nav-links > li:last-child > a:hover { background: var(--primary-dark); color: #fff; }
+        .dropdown-toggle .fa-chevron-down {
+            font-size: 10px !important;
+            margin-left: 2px;
+            transition: transform var(--t);
+        }
+        .dropdown-menu {
+            position: absolute;
+            top: calc(100% + 12px);
+            left: 0;
+            min-width: 245px;
+            padding: 8px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(8px);
+            transition: opacity var(--t), transform var(--t), visibility var(--t);
+            z-index: 60;
+        }
+        .dropdown-menu li a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 11px 14px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #334155;
+            transition: background var(--t), color var(--t), transform var(--t);
+        }
+        .dropdown-menu li a i { width: 20px; text-align: center; font-size: 13px; color: var(--primary); }
+        .dropdown-menu li a:hover { background: #f0fdfa; color: var(--primary-dark); transform: translateX(3px); }
+        .dropdown.active-drop > .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+        .dropdown.active-drop > .dropdown-toggle .fa-chevron-down { transform: rotate(180deg); }
+        @media (min-width: 981px) and (hover: hover) {
+            .dropdown:hover > .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+            .dropdown:hover > .dropdown-toggle .fa-chevron-down { transform: rotate(180deg); }
+        }
+        .menu-icon, .close-menu-btn { display: none; }
+        .nav-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, .55);
+            backdrop-filter: blur(2px);
+            -webkit-backdrop-filter: blur(2px);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity var(--t), visibility var(--t);
+            z-index: 998;
+        }
+        .nav-overlay.active { opacity: 1; visibility: visible; }
+
+        /* ========== ANM PAGE SPECIFIC ========== */
+        .anm-hero {
+            background: linear-gradient(135deg, #fefcf9 0%, #fff5f0 100%);
+            padding: 40px 0 60px;
+        }
+        .anm-hero .hero-content h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: 20px;
+            color: var(--anm-dark);
+        }
+        .anm-hero .highlight {
+            color: var(--anm-primary);
+            border-bottom: 3px solid #fbc4b8;
+        }
+        .anm-hero .hero-badge {
+            background: var(--anm-light);
+            color: var(--anm-primary);
             padding: 6px 14px;
             border-radius: 40px;
             font-weight: 700;
@@ -106,31 +254,19 @@
             display: inline-block;
             margin-bottom: 24px;
         }
-        .hero-content h1 {
-            font-size: 3rem;
-            font-weight: 800;
-            line-height: 1.2;
-            letter-spacing: -0.02em;
-            margin-bottom: 20px;
-            color: #8b3c34;
-        }
-        .highlight {
-            color: #c95348;
-            border-bottom: 3px solid #fbc4b8;
-        }
-        .hero-content p {
+        .anm-hero .hero-content p {
             font-size: 1.1rem;
             color: #5b4c4a;
             max-width: 600px;
             margin-bottom: 32px;
         }
-        .hero-buttons {
+        .anm-hero .hero-buttons {
             display: flex;
             gap: 18px;
             flex-wrap: wrap;
         }
-        .btn-primary {
-            background: #c95348;
+        .btn-primary-anm {
+            background: var(--anm-primary);
             color: white;
             border: none;
             padding: 12px 32px;
@@ -140,31 +276,54 @@
             cursor: pointer;
             transition: all 0.2s;
             box-shadow: 0 6px 14px rgba(201,83,72,0.2);
+            font-family: inherit;
         }
-        .btn-primary:hover {
+        .btn-primary-anm:hover {
             background: #a53e34;
             transform: translateY(-2px);
         }
-        .hero-image {
-            flex: 0.9;
-            background: #ffe6e0;
+        .btn-outline-anm {
+            border: 1.5px solid var(--anm-primary);
+            background: transparent;
+            padding: 12px 32px;
+            border-radius: 40px;
+            font-weight: 600;
+            color: var(--anm-primary);
+            cursor: pointer;
+            transition: 0.2s;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+        .btn-outline-anm:hover {
+            background: var(--anm-primary);
+            color: white;
+        }
+        .hero-image-anm {
+            background: var(--anm-light);
             border-radius: 48px;
             padding: 30px;
             text-align: center;
+            flex: 0.9;
+        }
+        .hero-image-anm svg {
+            width: 100%;
+            height: auto;
+            max-width: 300px;
+            margin: 0 auto;
         }
 
-        /* Section styles */
-        section {
-            margin: 85px 0;
+        .anm-section {
+            padding: 0 0 60px;
         }
-        .section-title {
+        .anm-section .section-title {
             text-align: center;
-            font-size: 2.2rem;
+            font-size: clamp(1.65rem, 3.5vw, 2.2rem);
             font-weight: 700;
             margin-bottom: 16px;
-            color: #8b3c34;
+            color: var(--anm-dark);
+            line-height: 1.3;
         }
-        .section-sub {
+        .anm-section .section-sub {
             text-align: center;
             color: #7a615e;
             max-width: 720px;
@@ -172,13 +331,12 @@
             font-size: 1.05rem;
         }
 
-        /* Info cards grid */
-        .info-grid {
+        .info-grid-anm {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
             gap: 32px;
         }
-        .info-card {
+        .info-card-anm {
             background: white;
             padding: 32px 28px;
             border-radius: 32px;
@@ -186,13 +344,13 @@
             transition: 0.25s;
             box-shadow: 0 6px 14px rgba(0,0,0,0.02);
         }
-        .info-card:hover {
+        .info-card-anm:hover {
             transform: translateY(-5px);
             border-color: #fbc4b8;
             box-shadow: 0 20px 30px -12px rgba(0,0,0,0.08);
         }
-        .info-icon {
-            background: #ffe6e0;
+        .info-icon-anm {
+            background: var(--anm-light);
             width: 56px;
             height: 56px;
             border-radius: 28px;
@@ -202,76 +360,75 @@
             font-size: 1.8rem;
             margin-bottom: 22px;
         }
-        .info-card h3 {
+        .info-card-anm h3 {
             font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 12px;
         }
 
-        /* curriculum semester grid */
-        .curriculum {
+        .curriculum-anm {
             background: #fffaf7;
             border-radius: 48px;
-            padding: 52px 44px;
+            padding: clamp(22px, 4vw, 52px);
         }
-        .year-grid {
+        .year-grid-anm {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
             gap: 32px;
             margin-top: 20px;
         }
-        .year-card {
+        .year-card-anm {
             background: white;
             border-radius: 28px;
-            padding: 28px;
+            padding: clamp(20px, 4vw, 28px);
             border: 1px solid #ffe0d4;
         }
-        .year-title {
+        .year-title-anm {
             font-size: 1.5rem;
             font-weight: 700;
-            color: #c95348;
+            color: var(--anm-primary);
             margin-bottom: 16px;
             padding-bottom: 8px;
             border-bottom: 2px solid #ffe0d4;
         }
-        .subject-list {
+        .subject-list-anm {
             list-style: none;
         }
-        .subject-list li {
+        .subject-list-anm li {
             padding: 10px 0;
             border-bottom: 1px dashed #f7e4dc;
             font-size: 0.95rem;
         }
 
-        /* eligibility & admission */
-        .elig-box {
+        .elig-box-anm {
             display: flex;
             flex-wrap: wrap;
-            gap: 40px;
+            gap: clamp(24px, 4vw, 40px);
             background: #ffffff;
             border-radius: 40px;
-            padding: 44px;
+            padding: clamp(22px, 4vw, 44px);
             box-shadow: 0 12px 28px rgba(0,0,0,0.04);
             border: 1px solid #ffe0d4;
         }
-        .elig-col {
-            flex: 1;
+        .elig-col-anm {
+            flex: 1 1 280px;
+            min-width: 0;
         }
-        .elig-col ul {
+        .elig-col-anm ul {
             list-style: none;
             line-height: 2;
+            margin-top: 18px;
         }
-        .elig-col li {
+        .elig-col-anm li {
             margin-bottom: 10px;
         }
 
-        /* career prospects */
-        .career-grid {
+        .career-grid-anm {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
             gap: 28px;
         }
-        .career-item {
+        .career-item-anm {
             background: white;
             border-radius: 28px;
             padding: 28px 20px;
@@ -279,698 +436,886 @@
             border: 1px solid #ffe0d4;
             transition: 0.2s;
         }
-        .career-item:hover {
+        .career-item-anm:hover {
             transform: translateY(-4px);
             border-color: #fbc4b8;
         }
-        .career-icon {
+        .career-icon-anm {
             font-size: 2.5rem;
             margin-bottom: 12px;
         }
 
-        /* top colleges */
-        .college-list {
+        .college-list-anm {
             display: flex;
             flex-wrap: wrap;
             gap: 18px;
             justify-content: center;
             margin-top: 24px;
         }
-        .college-badge {
-            background: #ffe6e0;
+        .college-badge-anm {
+            background: var(--anm-light);
             padding: 12px 28px;
             border-radius: 60px;
             font-weight: 600;
             color: #a53e34;
             font-size: 0.9rem;
+            max-width: 100%;
+            text-align: center;
+            overflow-wrap: anywhere;
         }
 
-        /* salary highlight */
-        .salary-card {
-            background: linear-gradient(135deg, #8b3c34, #c95348);
+        .salary-card-anm {
+            background: linear-gradient(135deg, var(--anm-dark), var(--anm-primary));
             color: white;
             border-radius: 32px;
-            padding: 32px;
+            padding: clamp(22px, 4vw, 32px);
             text-align: center;
             margin-top: 40px;
+            overflow-wrap: anywhere;
+        }
+        .salary-card-anm h3 {
+            font-size: 1.6rem;
+            margin-bottom: 12px;
+        }
+        .salary-card-anm p {
+            font-size: 1.1rem;
         }
 
-        /* contact / enquiry */
-        .enquiry-section {
-            background: linear-gradient(135deg, #8b3c34, #c95348);
-            border-radius: 48px;
-            padding: 56px 48px;
+        /* ========== FOOTER (same as provided) ========== */
+        .custom-footer {
+            --bg-dark: #0f172a;
+            --text-main: #cbd5e1;
+            --text-muted: #94a3b8;
+            --accent-orange: #f97316;
+            --accent-teal: #0f766e;
+            --social-bg: #1e293b;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Inter', 'Plus Jakarta Sans', system-ui, sans-serif;
+            padding: 70px 0 30px;
+            position: relative;
+            overflow: hidden;
+            margin-top: 40px;
+        }
+        .custom-footer .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .custom-footer .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        .custom-footer .brand-wrap {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .custom-footer .brand-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--accent-teal);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+        .custom-footer .brand-text h3 {
+            margin: 0;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+        }
+        .custom-footer .brand-text p {
+            margin: 3px 0 0;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        .custom-footer .brand-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 24px;
+            max-width: 90%;
+        }
+        .custom-footer .social-links {
+            display: flex;
+            gap: 10px;
+        }
+        .custom-footer .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background-color: var(--social-bg);
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        .custom-footer .social-links a:hover {
+            background-color: var(--accent-teal);
+            transform: translateY(-2px);
+        }
+        .custom-footer h4 {
+            color: white;
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin: 0 0 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        .custom-footer h4::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 30px;
+            height: 2px;
+            background-color: var(--accent-orange);
+        }
+        .custom-footer ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .custom-footer ul li {
+            margin-bottom: 12px;
+        }
+        .custom-footer ul li a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.2s ease;
+        }
+        .custom-footer ul li a:hover {
             color: white;
         }
-        .enquiry-flex {
+        .custom-footer ul li a i.fa-chevron-right {
+            font-size: 0.65rem;
+            color: var(--accent-orange);
+        }
+        .custom-footer .contact-list li {
             display: flex;
-            flex-wrap: wrap;
-            gap: 48px;
-            margin-top: 40px;
+            align-items: flex-start;
+            gap: 10px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin-bottom: 14px;
         }
-        .enquiry-info {
-            flex: 1;
-        }
-        .enquiry-form {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-        .enquiry-form input, .enquiry-form select, .enquiry-form textarea {
-            padding: 14px 20px;
-            border-radius: 40px;
-            border: none;
-            font-family: inherit;
-            background: #fff;
-            font-size: 0.95rem;
-        }
-        .enquiry-form button {
-            background: #ffb347;
-            color: #8b3c34;
-            font-weight: 800;
-            border: none;
-            padding: 14px 28px;
-            border-radius: 40px;
-            cursor: pointer;
+        .custom-footer .contact-list li i {
+            color: var(--accent-orange);
             font-size: 1rem;
-            transition: 0.2s;
+            margin-top: 3px;
         }
-        .enquiry-form button:hover {
-            background: #ff9f1a;
-            transform: translateY(-1px);
-        }
-
-        footer {
+        .custom-footer .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 25px;
             text-align: center;
-            padding: 40px 0 32px;
-            border-top: 1px solid #ffe0d4;
-            color: #7a615e;
-            margin-top: 40px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        .ask-ai-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #0ea5e9, #0284c7);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(14, 165, 233, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            z-index: 9999;
+        }
+        .ask-ai-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(14, 165, 233, 0.5);
+        }
+        .ask-ai-btn i {
+            font-size: 1.1rem;
         }
 
-        @media (max-width: 780px) {
-            .container { padding: 0 24px; }
-            .hero-content h1 { font-size: 2.2rem; }
-            .curriculum { padding: 32px 24px; }
-            .enquiry-section { padding: 36px 24px; }
-            .elig-box { padding: 28px; }
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 1024px) {
+            .custom-footer .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .custom-footer .brand-desc {
+                max-width: 100%;
+            }
         }
-        
-/* ===== ANM responsive improvements for all devices ===== */
-
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 100px;
-}
-
-body {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: clip;
-}
-
-img,
-svg,
-video {
-    max-width: 100%;
-}
-
-button,
-input,
-select,
-textarea {
-    font: inherit;
-    max-width: 100%;
-}
-
-button,
-a {
-    -webkit-tap-highlight-color: transparent;
-}
-
-.navbar {
-    width: 100%;
-    min-width: 0;
-}
-
-.nav-links {
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-}
-
-.nav-links a {
-    overflow-wrap: anywhere;
-}
-
-#home,
-section[id] {
-    scroll-margin-top: 100px;
-}
-
-.hero {
-    width: min(100% - 64px, 1216px);
-    margin: 48px auto 60px;
-    gap: clamp(24px, 4vw, 48px);
-}
-
-.hero-content,
-.hero-image,
-.elig-col,
-.enquiry-info,
-.enquiry-form {
-    min-width: 0;
-}
-
-.hero-content {
-    flex: 1 1 380px;
-}
-
-.hero-image {
-    flex: 1 1 320px;
-    overflow: hidden;
-}
-
-.hero-content h1 {
-    font-size: clamp(2rem, 4.5vw, 3rem);
-    overflow-wrap: anywhere;
-}
-
-.hero-image svg {
-    width: 100%;
-    height: auto;
-    max-width: 300px;
-}
-
-section {
-    padding-inline: clamp(16px, 3vw, 32px);
-    margin-block: clamp(48px, 7vw, 85px);
-}
-
-.section-title {
-    font-size: clamp(1.65rem, 3.5vw, 2.2rem);
-    line-height: 1.3;
-    overflow-wrap: anywhere;
-}
-
-.section-sub {
-    padding-inline: 8px;
-}
-
-.info-grid {
-    grid-template-columns: repeat(
-        auto-fit,
-        minmax(min(100%, 260px), 1fr)
-    );
-}
-
-.year-grid {
-    grid-template-columns: repeat(
-        auto-fit,
-        minmax(min(100%, 300px), 1fr)
-    );
-}
-
-.career-grid {
-    grid-template-columns: repeat(
-        auto-fit,
-        minmax(min(100%, 250px), 1fr)
-    );
-}
-
-.info-card,
-.year-card,
-.career-item {
-    min-width: 0;
-    overflow-wrap: anywhere;
-}
-
-.curriculum,
-.elig-box,
-.enquiry-section {
-    width: 100%;
-    min-width: 0;
-    border-radius: clamp(22px, 4vw, 40px);
-}
-
-.curriculum {
-    padding: clamp(22px, 4vw, 52px);
-}
-
-.elig-box {
-    gap: clamp(24px, 4vw, 40px);
-    padding: clamp(22px, 4vw, 44px);
-}
-
-.elig-col {
-    flex: 1 1 280px;
-}
-
-.college-badge {
-    max-width: 100%;
-    text-align: center;
-    overflow-wrap: anywhere;
-}
-
-.salary-card {
-    padding: clamp(22px, 4vw, 32px);
-    overflow-wrap: anywhere;
-}
-
-.enquiry-section {
-    padding: clamp(24px, 5vw, 56px);
-}
-
-.enquiry-flex {
-    gap: clamp(24px, 4vw, 48px);
-}
-
-.enquiry-info,
-.enquiry-form {
-    flex: 1 1 280px;
-}
-
-.enquiry-form input,
-.enquiry-form select,
-.enquiry-form textarea {
-    width: 100%;
-    min-height: 46px;
-    border-radius: 16px;
-}
-
-.enquiry-form textarea {
-    min-height: 120px;
-    resize: vertical;
-}
-
-.btn-primary,
-.btn-outline,
-.enquiry-form button {
-    min-height: 44px;
-}
-
-@media (max-width: 780px) {
-    .container {
-        padding-inline: 16px;
-    }
-
-    .navbar {
-        flex-direction: column;
-        align-items: center;
-        gap: 16px;
-        padding-block: 18px;
-    }
-
-    .nav-links {
-        width: 100%;
-        gap: 12px 18px;
-    }
-
-    .hero {
-        width: calc(100% - 32px);
-        margin: 30px auto 48px;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 24px;
-    }
-
-    .hero-content,
-    .hero-image {
-        width: 100%;
-        flex: auto;
-    }
-
-    .hero-content h1 {
-        font-size: clamp(1.9rem, 7vw, 2.5rem);
-    }
-
-    .hero-content p {
-        font-size: 1rem;
-    }
-
-    .hero-buttons {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 12px;
-    }
-
-    .hero-buttons button {
-        width: 100%;
-    }
-
-    .hero-image {
-        padding: 20px;
-        border-radius: 28px;
-    }
-
-    section {
-        padding-inline: 16px;
-        margin-block: 48px;
-    }
-
-    .section-sub {
-        margin-bottom: 28px;
-        font-size: 1rem;
-    }
-
-    .info-grid,
-    .year-grid,
-    .career-grid {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 18px;
-    }
-
-    .info-card,
-    .year-card,
-    .career-item {
-        padding: 24px 20px;
-        border-radius: 24px;
-    }
-
-    .curriculum,
-    .elig-box,
-    .enquiry-section {
-        padding: 24px 18px;
-        border-radius: 26px;
-    }
-
-    .elig-box,
-    .enquiry-flex {
-        flex-direction: column;
-        gap: 24px;
-    }
-
-    .elig-col,
-    .enquiry-info,
-    .enquiry-form {
-        width: 100%;
-        flex: auto;
-    }
-
-    .college-list {
-        gap: 12px;
-    }
-
-    .college-badge {
-        padding: 10px 16px;
-        font-size: 0.85rem;
-    }
-
-    .salary-card {
-        border-radius: 24px;
-    }
-
-    footer {
-        padding: 30px 16px;
-    }
-}
-
-@media (max-width: 380px) {
-    .container {
-        padding-inline: 12px;
-    }
-
-    .hero {
-        width: calc(100% - 24px);
-    }
-
-    .hero-content h1 {
-        font-size: 1.8rem;
-    }
-
-    .nav-links {
-        gap: 10px 12px;
-    }
-
-    .nav-links a {
-        font-size: 0.84rem;
-    }
-
-    .info-card,
-    .year-card,
-    .career-item {
-        padding: 20px 16px;
-    }
-
-    .curriculum,
-    .elig-box,
-    .enquiry-section {
-        padding: 20px 14px;
-    }
-
-    .college-badge {
-        width: 100%;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    html {
-        scroll-behavior: auto;
-    }
-
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        transition-duration: 0.01ms !important;
-    }
-}
-
+        @media (max-width: 980px) {
+            .menu-icon {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 48px;
+                height: 48px;
+                margin-left: auto;
+                border: 1px solid #99f6e4;
+                border-radius: 10px;
+                background: #f0fdfa;
+                color: var(--primary-dark);
+                font-size: 20px;
+                cursor: pointer;
+                transition: background var(--t), transform var(--t);
+            }
+            .menu-icon:active { transform: scale(.95); }
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                width: min(320px, 86vw);
+                margin: 0;
+                padding: 84px 16px 32px;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 2px;
+                background: var(--white);
+                box-shadow: -10px 0 34px rgba(0, 0, 0, .16);
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
+                transform: translateX(105%);
+                transition: transform var(--t-drawer);
+                z-index: 999;
+            }
+            .nav-links.active { transform: translateX(0); }
+            .close-menu-btn {
+                display: inline-flex;
+                position: absolute;
+                top: 18px;
+                right: 16px;
+                width: 42px;
+                height: 42px;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                background: #f1f5f9;
+                color: #334155;
+                font-size: 18px;
+                cursor: pointer;
+                transition: background var(--t), color var(--t);
+            }
+            .close-menu-btn:hover { background: #fee2e2; color: #dc2626; }
+            .nav-links > li { width: 100%; }
+            .nav-links > li > a {
+                width: 100%;
+                justify-content: flex-start;
+                padding: 14px 14px;
+                font-size: 15px;
+                border-radius: 10px;
+            }
+            .nav-links > li > a i:first-child {
+                width: 22px;
+                text-align: center;
+            }
+            .nav-links > li:last-child { margin-top: 10px; }
+            .nav-links > li:last-child > a {
+                justify-content: center;
+                padding: 15px 20px;
+                box-shadow: none;
+            }
+            .dropdown-menu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                min-width: 0;
+                max-height: 0;
+                margin: 0;
+                padding: 0;
+                border: none;
+                border-left: 3px solid #99f6e4;
+                border-radius: 0;
+                background: #f8fafc;
+                box-shadow: none;
+                overflow: hidden;
+                transition: max-height var(--t-drawer), margin var(--t-drawer), padding var(--t-drawer);
+            }
+            .dropdown.active-drop > .dropdown-menu {
+                max-height: 420px;
+                margin: 4px 0 8px 12px;
+                padding: 6px 0;
+            }
+            .dropdown-menu li a {
+                padding: 11px 14px;
+                font-size: 14px;
+            }
+            .dropdown-menu li a:hover { transform: none; }
+            .anm-hero .hero-content h1 { font-size: clamp(1.9rem, 7vw, 2.5rem); }
+            .anm-hero .hero-buttons { flex-direction: column; align-items: stretch; gap: 12px; }
+            .anm-hero .hero-buttons button { width: 100%; }
+            .anm-hero .hero-image-anm { border-radius: 28px; padding: 20px; }
+        }
+        @media (min-width: 981px) and (max-width: 1200px) {
+            .school-logo { height: 62px; max-width: 230px; }
+            .nav-links > li > a { padding: 10px 12px; font-size: 14px; gap: 6px; }
+            .nav-links > li > a i { font-size: 13px; }
+            .nav-links > li:last-child > a { padding: 10px 18px; }
+        }
+        @media (max-width: 768px) {
+            .custom-footer { padding: 50px 0 20px; }
+            .custom-footer .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+            .custom-footer h4 { margin-bottom: 15px; }
+            .ask-ai-btn { bottom: 20px; right: 20px; padding: 10px 20px; font-size: 0.85rem; }
+            .info-grid-anm { grid-template-columns: 1fr; gap: 18px; }
+            .year-grid-anm { grid-template-columns: 1fr; gap: 18px; }
+            .career-grid-anm { grid-template-columns: 1fr; gap: 18px; }
+            .elig-box-anm { flex-direction: column; gap: 24px; }
+            .elig-col-anm { width: 100%; }
+            .college-list-anm { gap: 12px; }
+            .college-badge-anm { padding: 10px 16px; font-size: 0.85rem; }
+            .anm-section .section-sub { margin-bottom: 28px; font-size: 1rem; }
+        }
+        @media (max-width: 480px) {
+            .container { padding: 0 14px; }
+            .top-bar { font-size: 12px; }
+            .contact-info { gap: 6px 14px; }
+            .contact-info span:first-child { display: none; }
+            .social-icons a { width: 26px; height: 26px; font-size: 11px; }
+            .school-logo { height: 58px; max-width: 200px; }
+            .logo-fallback { font-size: 15px; }
+            .logo-fallback i { font-size: 21px; }
+            .menu-icon { width: 44px; height: 44px; font-size: 18px; }
+            .nav-links { padding-top: 78px; }
+            .anm-hero .hero-content h1 { font-size: 1.8rem; }
+            .college-badge-anm { width: 100%; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: .01ms !important;
+                transition-duration: .01ms !important;
+            }
+            html { scroll-behavior: auto; }
+        }
     </style>
 </head>
 <body>
-    <%- include('partials/Navbar') %>
 
+<!-- ==================== TOP BAR ==================== -->
+<div class="top-bar">
+    <div class="container flex">
+        <div class="contact-info">
+            <span>
+                <i class="fas fa-user-nurse"></i>
+                Maa Maturani Devi Nursing
+            </span>
+            <span>
+                <i class="fas fa-location-dot"></i>
+                Ballia, Uttar Pradesh
+            </span>
+        </div>
+        <div class="social-icons">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+    </div>
+</div>
 
-    <!-- Hero Section -->
-    <div id="home">
-        <div class="hero">
-            <div class="hero-content">
-                <div class="hero-badge">👩‍⚕️ INC Approved | 2-Year Diploma Program</div>
-                <h1>Auxiliary Nursing <span class="highlight">Midwifery</span> (ANM)</h1>
-                <p>The foundation of community healthcare. Become a skilled nurse-midwife, work in rural & urban health centers, hospitals, and contribute to maternal & child health. Complete course guide with syllabus, eligibility, career scope 2025.</p>
-                <div class="hero-buttons">
-                    <button class="btn-primary" id="knowMoreBtn">Explore Full Details →</button>
-                    <button class="btn-outline" id="brochureBtn">📘 Download Brochure</button>
-                </div>
+<!-- ==================== NAVBAR ==================== -->
+<nav id="navbar">
+    <div class="container nav-flex">
+        <div class="logo">
+            <a href="/nursing">
+                <img class="school-logo"
+                     src="image copy.png"
+                     alt="Maa Maturani Devi Nursing Logo"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
+                <span class="logo-fallback">
+                    <i class="fas fa-user-nurse"></i>
+                    Maa Maturani Devi Nursing
+                </span>
+            </a>
+        </div>
+
+        <div class="menu-icon"
+             id="menuIcon"
+             role="button"
+             tabindex="0"
+             aria-label="Open menu"
+             aria-expanded="false"
+             aria-controls="navLinks"
+             onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+
+        <ul class="nav-links" id="navLinks">
+            <div class="close-menu-btn"
+                 role="button"
+                 tabindex="0"
+                 aria-label="Close menu"
+                 onclick="toggleMenu()">
+                <i class="fas fa-times"></i>
             </div>
-            <div class="hero-image">
-                <svg width="260" height="220" viewBox="0 0 300 240" fill="none">
-                    <rect x="50" y="40" width="200" height="150" rx="24" fill="#FFD9D0" stroke="#c95348" stroke-width="3"/>
-                    <circle cx="110" cy="90" r="18" fill="#FFFFFF" stroke="#c95348" stroke-width="2"/>
-                    <circle cx="190" cy="90" r="18" fill="#FFFFFF" stroke="#c95348" stroke-width="2"/>
-                    <path d="M80 130 L150 160 L220 130" stroke="#c95348" stroke-width="3" fill="none"/>
-                    <rect x="140" y="170" width="20" height="20" fill="#FFB347" rx="4"/>
-                    <text x="95" y="210" fill="#a53e34" font-size="11" font-weight="bold">👶 Maternal & Child Care</text>
-                </svg>
-                <p style="margin-top: 16px; font-weight: 500;">✨ Community Health Worker | Rural Healthcare Expert</p>
+
+            <li>
+                <a href="/school">
+                    <i class="fas fa-home"></i> Home
+                </a>
+            </li>
+
+            <li class="dropdown">
+                <a href="javascript:void(0)"
+                   class="dropdown-toggle"
+                   aria-haspopup="true"
+                   aria-expanded="false">
+                    <i class="fas fa-info-circle"></i>
+                    About
+                    <i class="fas fa-chevron-down"></i>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="/school/nursingabout"><i class="fas fa-hospital"></i> About Nursing</a></li>
+                    <li><a href="/school/director"><i class="fas fa-user-tie"></i> Director's Desk</a></li>
+                    <li><a href="/school/principal"><i class="fas fa-user-nurse"></i> Principal's Desk</a></li>
+                    <li><a href="/school/infrastructure"><i class="fas fa-hospital-user"></i> Infrastructure</a></li>
+                </ul>
+            </li>
+
+            <li class="dropdown">
+                <a href="javascript:void(0)"
+                   class="dropdown-toggle"
+                   aria-haspopup="true"
+                   aria-expanded="false">
+                    <i class="fas fa-book-medical"></i>
+                    Courses
+                    <i class="fas fa-chevron-down"></i>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="/school/anm"><i class="fas fa-user-nurse"></i> ANM</a></li>
+                    <li><a href="/school/jnam"><i class="fas fa-heart-pulse"></i> JNAM</a></li>
+                </ul>
+            </li>
+
+            <li>
+                <a href="/school/admission">
+                    <i class="fas fa-graduation-cap"></i> Admission
+                </a>
+            </li>
+
+            <li>
+                <a href="/school/galleary">
+                    <i class="fas fa-images"></i> Gallery
+                </a>
+            </li>
+
+            <li>
+                <a href="/school/contact">
+                    <i class="fas fa-envelope"></i> Contact
+                </a>
+            </li>
+
+            <li>
+                <a href="/school/admission">
+                    <i class="fas fa-pen-to-square"></i> Apply Now
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div id="menuOverlay" class="nav-overlay" onclick="toggleMenu()"></div>
+
+<!-- ==================== PAGE CONTENT ==================== -->
+<main>
+
+    <!-- ANM HERO -->
+    <div class="anm-hero" id="home">
+        <div class="container">
+            <div class="hero" style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:clamp(24px,4vw,48px);">
+                <div class="hero-content" style="flex:1 1 380px; min-width:0;">
+                    <div class="hero-badge">👩‍⚕️ INC Approved | 2-Year Diploma Program</div>
+                    <h1>Auxiliary Nursing <span class="highlight">Midwifery</span> (ANM)</h1>
+                    <p>The foundation of community healthcare. Become a skilled nurse-midwife, work in rural & urban health centers, hospitals, and contribute to maternal & child health. Complete course guide with syllabus, eligibility, career scope 2025.</p>
+                    <div class="hero-buttons">
+                        <button class="btn-primary-anm" id="knowMoreBtn">Explore Full Details →</button>
+                        <button class="btn-outline-anm" id="brochureBtn">📘 Download Brochure</button>
+                    </div>
+                </div>
+                <div class="hero-image-anm" style="flex:1 1 320px; min-width:0; overflow:hidden;">
+                    <svg width="260" height="220" viewBox="0 0 300 240" fill="none" style="width:100%;height:auto;max-width:300px;margin:0 auto;">
+                        <rect x="50" y="40" width="200" height="150" rx="24" fill="#FFD9D0" stroke="#c95348" stroke-width="3"/>
+                        <circle cx="110" cy="90" r="18" fill="#FFFFFF" stroke="#c95348" stroke-width="2"/>
+                        <circle cx="190" cy="90" r="18" fill="#FFFFFF" stroke="#c95348" stroke-width="2"/>
+                        <path d="M80 130 L150 160 L220 130" stroke="#c95348" stroke-width="3" fill="none"/>
+                        <rect x="140" y="170" width="20" height="20" fill="#FFB347" rx="4"/>
+                        <text x="95" y="210" fill="#a53e34" font-size="11" font-weight="bold">👶 Maternal &amp; Child Care</text>
+                    </svg>
+                    <p style="margin-top:16px; font-weight:500;">✨ Community Health Worker | Rural Healthcare Expert</p>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- About ANM Section -->
-    <section id="about">
-        <h2 class="section-title">What is ANM? (Complete Overview)</h2>
-        <p class="section-sub">Auxiliary Nursing Midwifery (ANM) is a 2-year diploma program approved by the Indian Nursing Council (INC). It focuses on community health, maternal care, child health, and basic nursing skills.</p>
-        <div class="info-grid">
-            <div class="info-card">
-                <div class="info-icon">📚</div>
-                <h3>Duration & Structure</h3>
-                <p>2 years (4 semesters) • Full-time • INC-approved curriculum. Includes theory, practical nursing skills, and mandatory clinical training in hospitals & community health centers.</p>
-            </div>
-            <div class="info-card">
-                <div class="info-icon">🎯</div>
-                <h3>Program Objectives</h3>
-                <p>Train healthcare professionals to provide primary healthcare, maternal & child health services, family planning, and health education in rural and urban communities.</p>
-            </div>
-            <div class="info-card">
-                <div class="info-icon">🏛️</div>
-                <h3>Regulatory Body</h3>
-                <p>Indian Nursing Council (INC) and respective State Nursing Councils. After completion, eligible for registration as ANM nurse with State Nursing Council.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Detailed Curriculum -->
-    <section id="curriculum">
-        <div class="curriculum">
-            <h2 class="section-title" style="color:#8b3c34;">ANM Syllabus (Year-wise)</h2>
-            <p class="section-sub">INC prescribed curriculum covering nursing fundamentals, community health, midwifery, and practical training.</p>
-            <div class="year-grid">
-                <div class="year-card">
-                    <div class="year-title">📘 Year I</div>
-                    <ul class="subject-list">
-                        <li>🏥 Community Health Nursing I</li>
-                        <li>🧬 Health Promotion & Education</li>
-                        <li>⚕️ Fundamentals of Nursing</li>
-                        <li>🧪 Anatomy & Physiology</li>
-                        <li>💊 Pharmacology & First Aid</li>
-                        <li>🍎 Nutrition & Dietetics</li>
-                        <li>📊 Psychology & Sociology</li>
-                    </ul>
+    <!-- ABOUT ANM -->
+    <section class="anm-section" id="about">
+        <div class="container">
+            <h2 class="section-title">What is ANM? (Complete Overview)</h2>
+            <p class="section-sub">Auxiliary Nursing Midwifery (ANM) is a 2-year diploma program approved by the Indian Nursing Council (INC). It focuses on community health, maternal care, child health, and basic nursing skills.</p>
+            <div class="info-grid-anm">
+                <div class="info-card-anm">
+                    <div class="info-icon-anm">📚</div>
+                    <h3>Duration & Structure</h3>
+                    <p>2 years (4 semesters) • Full-time • INC-approved curriculum. Includes theory, practical nursing skills, and mandatory clinical training in hospitals & community health centers.</p>
                 </div>
-                <div class="year-card">
-                    <div class="year-title">📗 Year II</div>
-                    <ul class="subject-list">
-                        <li>🤰 Midwifery & Gynecology</li>
-                        <li>👶 Child Health Nursing</li>
-                        <li>🏘️ Community Health Nursing II</li>
-                        <li>💉 Immunization & Family Welfare</li>
-                        <li>🩺 Medical-Surgical Nursing</li>
-                        <li>📝 Administration & Leadership</li>
-                        <li>🏥 Clinical Internship (Hospital & CHC)</li>
-                    </ul>
+                <div class="info-card-anm">
+                    <div class="info-icon-anm">🎯</div>
+                    <h3>Program Objectives</h3>
+                    <p>Train healthcare professionals to provide primary healthcare, maternal & child health services, family planning, and health education in rural and urban communities.</p>
+                </div>
+                <div class="info-card-anm">
+                    <div class="info-icon-anm">🏛️</div>
+                    <h3>Regulatory Body</h3>
+                    <p>Indian Nursing Council (INC) and respective State Nursing Councils. After completion, eligible for registration as ANM nurse with State Nursing Council.</p>
                 </div>
             </div>
-            <div style="margin-top: 32px; text-align: center;">
-                <p style="background: #ffe6e0; padding: 14px; border-radius: 40px; font-weight: 500;">⭐ Clinical Training: Mandatory 6-9 months of practical training in hospitals, primary health centers (PHCs), and community field visits.</p>
+        </div>
+    </section>
+
+    <!-- CURRICULUM -->
+    <section class="anm-section" id="curriculum">
+        <div class="container">
+            <div class="curriculum-anm">
+                <h2 class="section-title" style="color:#8b3c34;">ANM Syllabus (Year-wise)</h2>
+                <p class="section-sub">INC prescribed curriculum covering nursing fundamentals, community health, midwifery, and practical training.</p>
+                <div class="year-grid-anm">
+                    <div class="year-card-anm">
+                        <div class="year-title-anm">📘 Year I</div>
+                        <ul class="subject-list-anm">
+                            <li>🏥 Community Health Nursing I</li>
+                            <li>🧬 Health Promotion & Education</li>
+                            <li>⚕️ Fundamentals of Nursing</li>
+                            <li>🧪 Anatomy & Physiology</li>
+                            <li>💊 Pharmacology & First Aid</li>
+                            <li>🍎 Nutrition & Dietetics</li>
+                            <li>📊 Psychology & Sociology</li>
+                        </ul>
+                    </div>
+                    <div class="year-card-anm">
+                        <div class="year-title-anm">📗 Year II</div>
+                        <ul class="subject-list-anm">
+                            <li>🤰 Midwifery & Gynecology</li>
+                            <li>👶 Child Health Nursing</li>
+                            <li>🏘️ Community Health Nursing II</li>
+                            <li>💉 Immunization & Family Welfare</li>
+                            <li>🩺 Medical-Surgical Nursing</li>
+                            <li>📝 Administration & Leadership</li>
+                            <li>🏥 Clinical Internship (Hospital & CHC)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="margin-top:32px; text-align:center;">
+                    <p style="background:#ffe6e0; padding:14px; border-radius:40px; font-weight:500;">⭐ Clinical Training: Mandatory 6-9 months of practical training in hospitals, primary health centers (PHCs), and community field visits.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Eligibility & Admission Process -->
-    <section id="admission">
-        <h2 class="section-title">Admission Process & Eligibility</h2>
-        <p class="section-sub">Complete details about eligibility criteria, entrance exams, and admission procedure for ANM course.</p>
-        <div class="elig-box">
-            <div class="elig-col">
-                <h3>🎯 Eligibility Criteria</h3>
-                <ul style="margin-top: 18px;">
-                    <li>✔️ 10+2 (any stream) from recognized board</li>
-                    <li>✔️ Minimum 40-45% aggregate marks (varies by state, relaxation for reserved categories)</li>
-                    <li>✔️ Age: Minimum 17 years at the time of admission</li>
-                    <li>✔️ Some states require entrance exam (ANM/GNM entrance)</li>
-                    <li>✔️ Female candidates preferred (as per traditional ANM scope, though some states allow male candidates for specific roles)</li>
+    <!-- ADMISSION & ELIGIBILITY -->
+    <section class="anm-section" id="admission">
+        <div class="container">
+            <h2 class="section-title">Admission Process & Eligibility</h2>
+            <p class="section-sub">Complete details about eligibility criteria, entrance exams, and admission procedure for ANM course.</p>
+            <div class="elig-box-anm">
+                <div class="elig-col-anm">
+                    <h3>🎯 Eligibility Criteria</h3>
+                    <ul>
+                        <li>✔️ 10+2 (any stream) from recognized board</li>
+                        <li>✔️ Minimum 40-45% aggregate marks (varies by state, relaxation for reserved categories)</li>
+                        <li>✔️ Age: Minimum 17 years at the time of admission</li>
+                        <li>✔️ Some states require entrance exam (ANM/GNM entrance)</li>
+                        <li>✔️ Female candidates preferred (as per traditional ANM scope, though some states allow male candidates for specific roles)</li>
+                    </ul>
+                </div>
+                <div class="elig-col-anm">
+                    <h3>📝 Admission Steps</h3>
+                    <ul>
+                        <li>1. Online/offline application based on state nursing council guidelines</li>
+                        <li>2. Appear for state-level nursing entrance (if applicable)</li>
+                        <li>3. Merit list or counseling round</li>
+                        <li>4. Document verification & fee submission</li>
+                        <li>5. Registration with State Nursing Council after course completion</li>
+                    </ul>
+                </div>
+            </div>
+            <div style="margin-top:48px; text-align:center;">
+                <h3>🏛️ Top ANM Colleges in India</h3>
+                <div class="college-list-anm">
+                    <span class="college-badge-anm">Ramaiah Institute of Nursing, Bangalore</span>
+                    <span class="college-badge-anm">College of Nursing, AIIMS Delhi</span>
+                    <span class="college-badge-anm">CMC Vellore</span>
+                    <span class="college-badge-anm">Government College of Nursing, Thiruvananthapuram</span>
+                    <span class="college-badge-anm">Seth GS Medical College, Mumbai</span>
+                    <span class="college-badge-anm">Institute of Nursing Education, Kolkata</span>
+                    <span class="college-badge-anm">PGIMER Chandigarh (Nursing School)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CAREER PROSPECTS -->
+    <section class="anm-section" id="career">
+        <div class="container">
+            <h2 class="section-title">Career Opportunities After ANM</h2>
+            <p class="section-sub">Diverse career paths in healthcare, government sector, community health, and higher studies.</p>
+            <div class="career-grid-anm">
+                <div class="career-item-anm">
+                    <div class="career-icon-anm">🏥</div>
+                    <strong>Community Health Worker</strong><br>PHC, CHC, rural health centers
+                </div>
+                <div class="career-item-anm">
+                    <div class="career-icon-anm">🤰</div>
+                    <strong>Midwife</strong><br>Maternal & child health specialist
+                </div>
+                <div class="career-item-anm">
+                    <div class="career-icon-anm">🏛️</div>
+                    <strong>Government Jobs</strong><br>ASHA supervisor, NHM, State health departments
+                </div>
+                <div class="career-item-anm">
+                    <div class="career-icon-anm">📚</div>
+                    <strong>Higher Education</strong><br>GNM (General Nursing & Midwifery), B.Sc Nursing
+                    <br><span style="font-size:0.85rem;">(Lateral entry options available)</span>
+                </div>
+                <div class="career-item-anm">
+                    <div class="career-icon-anm">💊</div>
+                    <strong>Private Hospitals</strong><br>Nursing assistant, clinic nurse
+                </div>
+                <div class="career-item-anm">
+                    <div class="career-icon-anm">🌍</div>
+                    <strong>NGO/International</strong><br>WHO, UNICEF, Red Cross, health projects
+                </div>
+            </div>
+
+            <div class="salary-card-anm">
+                <h3>💰 Salary Range After ANM</h3>
+                <p>Fresher: ₹1.5 LPA – ₹2.8 LPA | Experienced: ₹3 LPA – ₹4.5 LPA</p>
+                <p style="margin-top:12px; opacity:0.9;">Government ANM salary (as per NHM & state health dept): ₹18,000 – ₹35,000 per month + allowances</p>
+                <p style="margin-top:16px; font-weight:500;">📌 Further studies: GNM (2 years) or B.Sc Nursing (3-4 years) for career advancement and higher salary prospects.</p>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- ==================== FOOTER ==================== -->
+<footer class="custom-footer">
+    <div class="footer-container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="brand-wrap">
+                    <div class="brand-icon">
+                        <i class="fas fa-user-nurse"></i>
+                    </div>
+                    <div class="brand-text">
+                        <h3>Maa Maturani Devi Nursing</h3>
+                        <p>Ballia, Uttar Pradesh</p>
+                    </div>
+                </div>
+                <p class="brand-desc">
+                    Dedicated to providing quality nursing education and shaping compassionate healthcare professionals for a healthier tomorrow.
+                </p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="/school"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="/school/nursingabout"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                    <li><a href="/school/courses"><i class="fas fa-chevron-right"></i> Courses</a></li>
+                    <li><a href="/school/admission"><i class="fas fa-chevron-right"></i> Admission</a></li>
+                    <li><a href="/school/gallery"><i class="fas fa-chevron-right"></i> Gallery</a></li>
                 </ul>
             </div>
-            <div class="elig-col">
-                <h3>📝 Admission Steps</h3>
-                <ul style="margin-top: 18px;">
-                    <li>1. Online/offline application based on state nursing council guidelines</li>
-                    <li>2. Appear for state-level nursing entrance (if applicable)</li>
-                    <li>3. Merit list or counseling round</li>
-                    <li>4. Document verification & fee submission</li>
-                    <li>5. Registration with State Nursing Council after course completion</li>
+
+            <div class="footer-col">
+                <h4>Programs</h4>
+                <ul>
+                    <li><a href="/school/anm"><i class="fas fa-chevron-right"></i> ANM</a></li>
+                    <li><a href="/school/jnam"><i class="fas fa-chevron-right"></i> JNAM</a></li>
+                    <li><a href="/school/fee"><i class="fas fa-chevron-right"></i> Fee Structure</a></li>
+                    <li><a href="/school/contact"><i class="fas fa-chevron-right"></i> Enquiry</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <ul class="contact-list">
+                    <li>
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Maa Maturani Devi Pharmacy College Chandadih, Belthara Road, Ballia, Uttar Pradesh, India.</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-phone-alt"></i>
+                        <span>+91-6394213627</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-envelope"></i>
+                        <span>maamaturnidevi@gmail.com</span>
+                    </li>
+                    <li>
+                        <i class="fas fa-clock"></i>
+                        <span>Mon-Sat: 9 AM - 3 PM</span>
+                    </li>
                 </ul>
             </div>
         </div>
-        <div style="margin-top: 48px; text-align: center;">
-            <h3>🏛️ Top ANM Colleges in India</h3>
-            <div class="college-list">
-                <span class="college-badge">Ramaiah Institute of Nursing, Bangalore</span>
-                <span class="college-badge">College of Nursing, AIIMS Delhi</span>
-                <span class="college-badge">CMC Vellore</span>
-                <span class="college-badge">Government College of Nursing, Thiruvananthapuram</span>
-                <span class="college-badge">Seth GS Medical College, Mumbai</span>
-                <span class="college-badge">Institute of Nursing Education, Kolkata</span>
-                <span class="college-badge">PGIMER Chandigarh (Nursing School)</span>
-            </div>
+
+        <div class="footer-bottom">
+            <p>&copy; <span id="year"></span> Maa Maturani Devi Nursing. All Rights Reserved.</p>
         </div>
-    </section>
+    </div>
+</footer>
 
-    <!-- Career Prospects -->
-    <section id="career">
-        <h2 class="section-title">Career Opportunities After ANM</h2>
-        <p class="section-sub">Diverse career paths in healthcare, government sector, community health, and higher studies.</p>
-        <div class="career-grid">
-            <div class="career-item">
-                <div class="career-icon">🏥</div>
-                <strong>Community Health Worker</strong><br>PHC, CHC, rural health centers
-            </div>
-            <div class="career-item">
-                <div class="career-icon">🤰</div>
-                <strong>Midwife</strong><br>Maternal & child health specialist
-            </div>
-            <div class="career-item">
-                <div class="career-icon">🏛️</div>
-                <strong>Government Jobs</strong><br>ASHA supervisor, NHM, State health departments
-            </div>
-            <div class="career-item">
-                <div class="career-icon">📚</div>
-                <strong>Higher Education</strong><br>GNM (General Nursing & Midwifery), B.Sc Nursing
-                <br><span style="font-size:0.85rem;">(Lateral entry options available)</span>
-            </div>
-            <div class="career-item">
-                <div class="career-icon">💊</div>
-                <strong>Private Hospitals</strong><br>Nursing assistant, clinic nurse
-            </div>
-            <div class="career-item">
-                <div class="career-icon">🌍</div>
-                <strong>NGO/International</strong><br>WHO, UNICEF, Red Cross, health projects
-            </div>
-        </div>
-        
-        <!-- Salary Highlight -->
-        <div class="salary-card">
-            <h3 style="font-size: 1.6rem; margin-bottom: 12px;">💰 Salary Range After ANM</h3>
-            <p style="font-size: 1.1rem;">Fresher: ₹1.5 LPA – ₹2.8 LPA | Experienced: ₹3 LPA – ₹4.5 LPA</p>
-            <p style="margin-top: 12px; opacity: 0.9;">Government ANM salary (as per NHM & state health dept): ₹18,000 – ₹35,000 per month + allowances</p>
-            <p style="margin-top: 16px; font-weight: 500;">📌 Further studies: GNM (2 years) or B.Sc Nursing (3-4 years) for career advancement and higher salary prospects.</p>
-        </div>
-    </section>
+<a href="#" class="ask-ai-btn">
+    <i class="fas fa-sparkles"></i> Ask AI
+</a>
 
- 
-   
-</div>
-
-
+<!-- ==================== SCRIPTS ==================== -->
 <script>
-    function scrollToSection(id) {
-        const element = document.getElementById(id);
+    (function () {
+        'use strict';
 
-        if (element) {
-            element.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
+        // Navbar toggle
+        const navLinks = document.getElementById('navLinks');
+        const overlay = document.getElementById('menuOverlay');
+        const navbar = document.getElementById('navbar');
+        const menuIcon = document.getElementById('menuIcon');
+        const MOBILE_BREAK = 980;
+
+        function closeDropdowns(except) {
+            document.querySelectorAll('.dropdown.active-drop').forEach(function (dd) {
+                if (dd !== except) {
+                    dd.classList.remove('active-drop');
+                    const t = dd.querySelector('.dropdown-toggle');
+                    if (t) t.setAttribute('aria-expanded', 'false');
+                }
             });
         }
-    }
 
-    // Sirf page ke andar wale # links handle karo
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', event => {
-            const href = link.getAttribute('href');
+        window.toggleMenu = function () {
+            if (!navLinks || !overlay) return;
+            const isActive = navLinks.classList.toggle('active');
+            overlay.classList.toggle('active', isActive);
+            document.body.classList.toggle('nav-open', isActive);
+            if (menuIcon) menuIcon.setAttribute('aria-expanded', String(isActive));
+            if (!isActive) closeDropdowns();
+        };
 
-            if (href && href.startsWith('#') && href.length > 1) {
-                const target = document.getElementById(href.slice(1));
+        document.querySelectorAll('.dropdown-toggle').forEach(function (toggle) {
+            toggle.addEventListener('click', function (e) {
+                e.preventDefault();
+                const current = this.closest('.dropdown');
+                if (!current) return;
+                closeDropdowns(current);
+                const isOpen = current.classList.toggle('active-drop');
+                this.setAttribute('aria-expanded', String(isOpen));
+            });
+        });
 
-                if (target) {
-                    event.preventDefault();
-                    scrollToSection(target.id);
+        document.addEventListener('click', function (e) {
+            if (!e.target.closest('.dropdown')) closeDropdowns();
+        });
+
+        document.querySelectorAll('#navLinks li a:not(.dropdown-toggle)').forEach(function (link) {
+            link.addEventListener('click', function () {
+                if (window.innerWidth <= MOBILE_BREAK && navLinks.classList.contains('active')) {
+                    window.toggleMenu();
                 }
+            });
+        });
+
+        window.addEventListener('resize', function () {
+            if (window.innerWidth > MOBILE_BREAK) {
+                navLinks.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.classList.remove('nav-open');
+                if (menuIcon) menuIcon.setAttribute('aria-expanded', 'false');
+                closeDropdowns();
             }
         });
-    });
 
-    document.getElementById('knowMoreBtn')?.addEventListener('click', () => {
-        scrollToSection('curriculum');
-    });
+        window.addEventListener('scroll', function () {
+            if (!navbar) return;
+            navbar.classList.toggle('scrolled', window.scrollY > 20);
+        }, { passive: true });
 
-    document.getElementById('enquiryBtn')?.addEventListener('click', () => {
-        const contact = document.getElementById('contact');
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                if (navLinks.classList.contains('active')) window.toggleMenu();
+                closeDropdowns();
+            }
+        });
 
-        if (contact) {
-            scrollToSection('contact');
-        } else {
-            alert('Enquiry section abhi page mein add nahi kiya gaya hai.');
+        [menuIcon, document.querySelector('.close-menu-btn')].forEach(function (el) {
+            if (!el) return;
+            el.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    window.toggleMenu();
+                }
+            });
+        });
+
+        // Footer year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Page-specific smooth scroll
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
         }
-    });
 
-    document.getElementById('brochureBtn')?.addEventListener('click', () => {
-        alert('ANM brochure abhi available nahi hai. Please college se contact karein.');
-    });
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', event => {
+                const href = link.getAttribute('href');
+                if (href && href.startsWith('#') && href.length > 1) {
+                    const target = document.getElementById(href.slice(1));
+                    if (target) {
+                        event.preventDefault();
+                        scrollToSection(target.id);
+                    }
+                }
+            });
+        });
 
-    console.log('ANM course page loaded successfully.');
+        document.getElementById('knowMoreBtn')?.addEventListener('click', () => {
+            scrollToSection('curriculum');
+        });
+
+        document.getElementById('brochureBtn')?.addEventListener('click', () => {
+            alert('ANM brochure abhi available nahi hai. Please college se contact karein.');
+        });
+
+        console.log('ANM page loaded successfully.');
+    })();
 </script>
 
-
-  <%- include('partials/Footer.ejs') %>
 </body>
 </html>
